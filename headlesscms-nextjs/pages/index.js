@@ -4,13 +4,13 @@ import fetch from "node-fetch";
 global.fetch = fetch;
 
 export async function getStaticProps(context) {
-    const webinyHeadlessCmss = new GraphQLClient("<YOUR_API_URL>", {
+    const webinyHeadlessCms = new GraphQLClient("<YOUR_API_URL>", {
         headers: {
             authorization: "<YOUR_ACCESS_TOKEN>"
         }
     });
 
-    const blogPostsData = await webinyHeadlessCmss.request(`
+    const blogPostsData = await webinyHeadlessCms.request(`
       {
         listBlogPosts{
           data{
