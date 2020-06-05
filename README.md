@@ -1,8 +1,6 @@
 # Webiny Examples
 
-Webiny makes it easier for everyone to get into serverless. 
-
-Here are a couple of awesome examples to get you started:
+Webiny makes it easier for everyone to get into serverless. Here are a couple of awesome examples to get you started!
 
 Using Webiny's Headless CMS with:
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby)
