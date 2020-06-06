@@ -1,7 +1,5 @@
 import Head from "next/head";
 import { GraphQLClient } from "graphql-request";
-import fetch from "node-fetch";
-global.fetch = fetch;
 
 export async function getStaticProps(context) {
     const webinyHeadlessCms = new GraphQLClient("<YOUR_API_URL>", {
