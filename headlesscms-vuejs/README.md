@@ -1,24 +1,10 @@
-# headlesscms-vuejs
+# Simple web app using Webiny Headless CMS & VueJs
 
-## Project setup
-```
-yarn install
-```
+Simple web app that list interesting facts about coffee using Webiny Headless CMS & VueJs
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Steps to run the project:
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Run `yarn install` or `npm install`
+2. Update `<CONTENT_DELIVERY_API_URL>` in `src/apolloClient.js` with your deployed Webiny Content Delivery API url
+3. Update `<CONTENT_DELIVERY_API_ACCESS_TOKEN>` in `src/apolloClient.js` with an access token created from Webiny `admin` app
+4. Run `yarn serve` or `npm run serve` and voila you have a simple Vue app that fetch content from Webiny Headless CMS and render them 😄
