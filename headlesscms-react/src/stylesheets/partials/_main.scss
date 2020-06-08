@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.library {
+    background-color: $base-color;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.library-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.library-header {
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.library-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $tertiary-color;
+    justify-items: center;
+    align-items: center;
+}
+
+.book-container {
+    box-shadow: 5px 10px $quart-color;
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary-color;
+    border-radius: 5px;
+    max-width: 750px;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.book-title {
+    padding-top: 1rem;
+    font-weight: bold;
+}
+
+.book-image {
+    height: 150px;
+    width: 100px;
+}
+
+.book-description {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
