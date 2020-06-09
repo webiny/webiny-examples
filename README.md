@@ -5,3 +5,4 @@ Webiny makes it easier for everyone to get into serverless. Here are a couple of
 Using Webiny's Headless CMS with:
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby)
 - [Next.js](https://github.com/webiny/webiny-examples/blob/master/headlesscms-nextjs)
+- [iFrame Page Element](https://github.com/webiny/webiny-examples/blob/master/iframe-page-element)
