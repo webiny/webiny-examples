@@ -1,7 +1,4 @@
-import Book from './Book';
-import Library from './Library';
+import Book from "./Book";
+import Library from "./Library";
 
-export {
-    Book,
-    Library
-};
+export { Book, Library };
