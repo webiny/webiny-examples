@@ -1,27 +1,29 @@
 import React from "react";
-import {
-    PbEditorPageElementPlugin,
-    PbEditorPageElementAdvancedSettingsPlugin
-} from "@webiny/app-page-builder/types";
+import styled from "@emotion/styled";
 import { Tab } from "@webiny/ui/Tabs";
 import { Input } from "@webiny/ui/Input";
 import { Grid, Cell } from "@webiny/ui/Grid";
+import {
+    PbEditorPageElementPlugin,
+    PbEditorPageElementAdvancedSettingsPlugin,
+    PbRenderElementPlugin
+} from "@webiny/app-page-builder/types";
 import { validation } from "@webiny/validation";
 import { ReactComponent as IFrameIcon } from "./iframe-icon.svg";
-import styled from "@emotion/styled";
 import IFrameEmbed from "./iFrameEmbed";
+import IFrame from "./IFrameRender";
 
 const PreviewBox = styled("div")({
     textAlign: "center",
-    height: 50,
+    height: 40,
     svg: {
-        height: 50,
+        height: 40,
         width: 50
     }
 });
 
 export default () => {
-    return [
+    return [ 
         {
             name: "pb-editor-page-element-iframe",
             type: "pb-editor-page-element",
@@ -113,8 +115,14 @@ export default () => {
                     </Tab>
                 );
             }
-        } as PbEditorPageElementAdvancedSettingsPlugin
-    ]
-}
-    // We will add a settings dialog plugin here,
-    // follow the steps in Settings dialog section below.
+        } as PbEditorPageElementAdvancedSettingsPlugin,
+        {
+            name: "pb-render-page-element-iframe",
+            type: "pb-render-page-element",
+            elementType: "iframe",
+            render({ element }) {
+                return <IFrame data={element.data} />;
+            } 
+        } as PbRenderElementPlugin
+    ];
+};

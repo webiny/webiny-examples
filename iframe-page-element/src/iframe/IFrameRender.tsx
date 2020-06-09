@@ -13,13 +13,13 @@ const innerWrapper = css({
     paddingBottom: 0
 });
 
-const IFrameEmbed = props => {
-    const { element } = props;
-
-    if (!element.data.iframe.url) {
-        return <div>Loading IFrame data...</div>;
+const IFrame = ({ data }) => {
+    // If the user didn't enter a URL, let's show a simple message.
+    if (!data.iframe.url) {
+        return <div>IFrame URL is missing.</div>;
     }
 
+    // Otherwise, let's render the iframe.
     return (
         <div
             className={
@@ -29,12 +29,12 @@ const IFrameEmbed = props => {
         >
             <div className={innerWrapper}>
                 <div
-                    id={element.id}
+                    id={data.id}
                 />
-                <iframe src={element.data.iframe.url} width="100%" height={element.data.iframe.height} />
+                <iframe src={data.iframe.url} width="100%" height={data.iframe.height} />
             </div>
         </div>
     );
 };
 
-export default IFrameEmbed;
+export default IFrame;
