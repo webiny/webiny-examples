@@ -6,3 +6,4 @@ Using Webiny's Headless CMS with:
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby)
 - [Next.js](https://github.com/webiny/webiny-examples/blob/master/headlesscms-nextjs)
 - [Vue.js](https://github.com/webiny/webiny-examples/blob/master/headlesscms-vuejs)
+- [React](https://github.com/webiny/webiny-examples/blob/master/headlesscms-react)
