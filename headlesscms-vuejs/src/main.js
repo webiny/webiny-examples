@@ -1,19 +1,19 @@
-import Vue from 'vue'
-import VueApollo from "vue-apollo"
+import Vue from "vue";
+import VueApollo from "vue-apollo";
 
 import "./assets/styles.css";
-import App from './App.vue'
-import apolloClient from './apolloClient'
+import App from "./App.vue";
+import apolloClient from "./apolloClient";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(VueApollo);
 
 const apolloProvider = new VueApollo({
-  defaultClient: apolloClient
+    defaultClient: apolloClient
 });
 
 new Vue({
-  apolloProvider,
-  render: h => h(App),
-}).$mount('#app')
+    apolloProvider,
+    render: h => h(App)
+}).$mount("#app");
