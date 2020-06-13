@@ -27,7 +27,6 @@
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-context": "^1.0.20",
-    "bootstrap": "^4.5.0",
     "graphql": "^15.1.0",
     "graphql-tag": "^2.10.3",
     "rxjs": "~6.5.4",
