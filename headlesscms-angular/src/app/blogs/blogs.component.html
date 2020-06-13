@@ -1,0 +1,43 @@
+<div style="text-align:center">
+  <br>
+  <div class="container home">
+    <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+      <div class="blocks header">
+        <mat-icon svgIcon="webiny"></mat-icon>
+        <h1 class="mat-h1">Webiny - Headless CMS Blog</h1>
+        <mat-icon svgIcon="angular" class="mat-icon"></mat-icon>
+        <h3>
+          Created using Webiny Headless CMS and Angular
+        </h3>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <h1 *ngIf="loading">Loading...<mat-icon>mood</mat-icon>
+        </h1>
+        <br>
+        <mat-card-content>
+          <mat-card *ngFor="let blog of blogs" class="card">
+            <mat-card-title>
+              {{blog.title}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              By {{blog.author}}
+            </mat-card-subtitle>
+            <mat-card-content>
+              {{blog.description}}
+            </mat-card-content>
+            <mat-card-actions>
+              Url: {{blog.url}}
+            </mat-card-actions>
+            <mat-card-footer>
+              Hashtags: {{blog.topic}}
+            </mat-card-footer>
+          </mat-card>
+        </mat-card-content>
+
+      </div>
+    </div>
+  </div>
+</div>
