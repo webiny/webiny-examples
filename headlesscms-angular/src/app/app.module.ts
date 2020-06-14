@@ -17,7 +17,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from "@angular/material/icon";
 
 // import the `provideApollo` that we just created 
-import { provideApollo } from '../apolloClient';
+import { provideApollo } from './apolloClient';
 
 @NgModule({
   declarations: [
