@@ -23,7 +23,7 @@ const PreviewBox = styled("div")({
 });
 
 export default () => {
-    return [ 
+    return [
         {
             name: "pb-editor-page-element-iframe",
             type: "pb-editor-page-element",
@@ -41,6 +41,7 @@ export default () => {
                 }
             },
             settings: ["pb-editor-page-element-settings-delete"],
+            target: ["row", "column"],
             onCreate: "open-settings",
             create(options) {
                 /*
@@ -122,7 +123,7 @@ export default () => {
             elementType: "iframe",
             render({ element }) {
                 return <IFrame data={element.data} />;
-            } 
+            }
         } as PbRenderElementPlugin
     ];
 };
