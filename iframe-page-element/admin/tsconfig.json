@@ -6,7 +6,10 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable"],
+    "lib": [
+      "dom",
+      "dom.iterable"
+    ],
     "esModuleInterop": true,
     "declaration": true,
     "composite": false,
@@ -18,6 +21,5 @@
   },
   "include": [
     "src",
-    "./typings.d.ts"
   ]
 }
