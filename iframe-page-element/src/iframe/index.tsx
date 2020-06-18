@@ -10,8 +10,8 @@ import {
 } from "@webiny/app-page-builder/types";
 import { validation } from "@webiny/validation";
 import { ReactComponent as IFrameIcon } from "./iframe-icon.svg";
-import IFrameEmbed from "./iFrameEmbed";
-import IFrame from "./IFrameRender";
+import IFrameEditor from "./iFrameEditor";
+import IFrameRender from "./IFrameRender";
 
 const PreviewBox = styled("div")({
     textAlign: "center",
@@ -47,7 +47,7 @@ export default () => {
                 /*
                     Create function is here to create the initial data
                     for the page element, which then is utilized in the
-                    IFrameEmbed component and in the settings dialog.
+                    IFrameEditor component and in the settings dialog.
                 */
                 return {
                     type: "iframe",
@@ -81,7 +81,7 @@ export default () => {
                     "iframe.url" which will be provided via the page
                     element's settings dialog.
                 */
-                return <IFrameEmbed {...props} />;
+                return <IFrameEditor {...props} />;
             },
             renderElementPreview({ width, height }) {
                 return <img style={{ width, height }} alt={"iFrame"} />;
@@ -122,7 +122,7 @@ export default () => {
             type: "pb-render-page-element",
             elementType: "iframe",
             render({ element }) {
-                return <IFrame data={element.data} />;
+                return <IFrameRender data={element.data} />;
             }
         } as PbRenderElementPlugin
     ];

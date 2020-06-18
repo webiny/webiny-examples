@@ -13,7 +13,7 @@ const innerWrapper = css({
     paddingBottom: 0
 });
 
-const IFrame = ({ data }) => {
+const IFrameRender = ({ data }) => {
     // If the user didn't enter a URL, let's show a simple message.
     if (!data.iframe.url) {
         return <div>IFrame URL is missing.</div>;
@@ -37,4 +37,4 @@ const IFrame = ({ data }) => {
     );
 };
 
-export default IFrame;
+export default IFrameRender;
