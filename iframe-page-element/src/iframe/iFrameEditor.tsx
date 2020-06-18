@@ -13,7 +13,7 @@ const innerWrapper = css({
     paddingBottom: 0
 });
 
-const IFrameEmbed = props => {
+const IFrameEditor = props => {
     const { element } = props;
 
     if (!element.data.iframe.url) {
@@ -37,4 +37,4 @@ const IFrameEmbed = props => {
     );
 };
 
-export default IFrameEmbed;
+export default IFrameEditor;
