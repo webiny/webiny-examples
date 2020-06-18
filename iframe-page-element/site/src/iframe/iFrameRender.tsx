@@ -13,8 +13,6 @@ const innerWrapper = css({
 });
 
 const IFrame = ({ data }) => {
-
-    console.log('data data in admin:', data);
     // If the user didn't enter a URL, let's show a simple message.
     if (!data.iframe.url) {
         return <div>IFrame URL is missing.</div>;
