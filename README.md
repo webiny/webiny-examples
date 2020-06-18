@@ -1,11 +1,13 @@
 # Webiny Examples
 
-<p style="align:center">
-    <img src="./webiny-readme-resources/webiny.png" />
+<p align="center">
+    <img src="./webiny-readme-resources/webiny.png" width="150" height="150" />
 </p>
 
-### The way we build, deploy and operate the web is evolving. Webiny is a developer-friendly platform for building serverless applications.
+<h3 align="center">
+The way we build, deploy and operate the web is evolving. Webiny is a developer-friendly platform for building serverless applications.
 Webiny makes it easier for everyone to get into serverless. Here are a couple of awesome examples to get you started!
+</h3>
 
 Using Webiny's Headless CMS with:
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby)
