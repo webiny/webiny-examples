@@ -1,8 +1,9 @@
 # Webiny Examples
 
-!(Webiny Logo)[/webiny-readme-resources/webiny.png] 
-
+<div style="align:center">
+![Webiny Logo](/webiny-readme-resources/webiny.png)
 ### The way we build, deploy and operate the web is evolving. Webiny is a developer-friendly platform for building serverless applications.
+</div>
 
 Webiny makes it easier for everyone to get into serverless. Here are a couple of awesome examples to get you started!
 
