@@ -8,7 +8,6 @@
 
 Using Webiny's Headless CMS with:
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby) - [*Personal blog using Webiny's Headless CMS & Gatsby*](https://docs.webiny.com/docs/guides/headless-gatsby-tutorial)\
-    Follor our tutorial for more
    `Headless` `CMS` `Gatsby`
 - [Next.js](https://github.com/webiny/webiny-examples/blob/master/headlesscms-nextjs) - [*Personal blog using Webiny's Headless CMS & NextJs*](https://docs.webiny.com/docs/guides/headless-nextjs-tutorial)\
    `Headless` `CMS` `NextJs`
