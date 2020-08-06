@@ -1,5 +1,4 @@
 # Create a React Native app using Webiny Headless CMS
----
 
 A simple React Native app that list channels and their announcements using Webiny Headless CMS
 
