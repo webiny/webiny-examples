@@ -16,7 +16,7 @@ const IndexPage = ({data}) => {
   ))
 
   return (
-    {/* We use Gatsby's Layout to make our Blog look nice */}
+    // We use Gatsby's Layout to make our Blog look nice
     <Layout>
       {BlogPosts}
     </Layout>
