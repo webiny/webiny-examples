@@ -1,5 +1,6 @@
 import * as React from "react";
 import { css } from "emotion";
+import { ElementRoot } from "@webiny/app-page-builder/render/components/ElementRoot";
 
 const outerWrapper = css({
     boxSizing: "border-box"
@@ -21,11 +22,12 @@ const IFrameEditor = props => {
     }
 
     return (
-        <div
+        <ElementRoot
             className={
                 "webiny-pb-base-page-element-style webiny-pb-page-element-embed-iframe " +
                 outerWrapper
             }
+            element={element}
         >
             <div className={innerWrapper}>
                 <div
@@ -33,7 +35,7 @@ const IFrameEditor = props => {
                 />
                 <iframe src={element.data.iframe.url} width="100%" height={element.data.iframe.height} />
             </div>
-        </div>
+        </ElementRoot>
     );
 };
 
