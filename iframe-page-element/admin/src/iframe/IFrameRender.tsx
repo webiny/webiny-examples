@@ -1,5 +1,6 @@
 import * as React from "react";
 import { css } from "emotion";
+import { ElementRoot } from "@webiny/app-page-builder/render/components/ElementRoot";
 
 const outerWrapper = css({
     boxSizing: "border-box"
@@ -13,7 +14,8 @@ const innerWrapper = css({
     paddingBottom: 0
 });
 
-const IFrameRender = ({ data }) => {
+const IFrameRender = ({ element }) => {
+    const { data } = element;
     // If the user didn't enter a URL, let's show a simple message.
     if (!data.iframe.url) {
         return <div>IFrame URL is missing.</div>;
@@ -21,11 +23,12 @@ const IFrameRender = ({ data }) => {
 
     // Otherwise, let's render the iframe.
     return (
-        <div
+        <ElementRoot
             className={
                 "webiny-pb-base-page-element-style webiny-pb-page-element-embed-iframe " +
                 outerWrapper
             }
+            element={element}
         >
             <div className={innerWrapper}>
                 <div
@@ -33,7 +36,7 @@ const IFrameRender = ({ data }) => {
                 />
                 <iframe src={data.iframe.url} width="100%" height={data.iframe.height} />
             </div>
-        </div>
+        </ElementRoot>
     );
 };
 

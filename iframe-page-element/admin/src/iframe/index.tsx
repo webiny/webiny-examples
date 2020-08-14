@@ -122,7 +122,7 @@ export default () => {
             type: "pb-render-page-element",
             elementType: "iframe",
             render({ element }) {
-                return <IFrameRender data={element.data} />;
+                return <IFrameRender element={element} />;
             }
         } as PbRenderElementPlugin
     ];
