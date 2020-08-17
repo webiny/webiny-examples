@@ -4,7 +4,7 @@ We’ll create a new page element that will allow content creators to embed cont
 
 Steps to reproduce the project:
 
-1. Make sure to follow up the [Prerequisites section](https://docs.webiny.com/docs/webiny-apps/page-builder/development/creating-iframe-element-plugin) in the blog post.
+1. Make sure to follow up the [Prerequisites section](https://docs.webiny.com/docs/guides/creating-iframe-element-plugin) in the blog post.
 2. Move to `apps/admin` folder and add the plugin files in `src`.
 3. Open the `src/App.tsx` file and import the plugin that we just created then register in by adding to plugins array inside the default export.
 4. Move to `apps/site` folder and add the render plugin files in `src`.
