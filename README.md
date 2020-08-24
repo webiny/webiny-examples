@@ -7,7 +7,7 @@
 ***
 
 Webiny Tutorials:
-- [Building Serverless GraphQL API with Webiny]()
+- [Building Serverless GraphQL API with Webiny](http://docs.webiny.com/docs/tutorials/build-your-serverless-graphql-api-webiny)
    `GraphQL` `API` `Webiny`
 
 Using Webiny's Headless CMS with:
