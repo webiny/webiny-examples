@@ -27,3 +27,6 @@ Using Webiny's Headless CMS with:
 Creating Custom Page Elements
 - [iFrame Page Element](https://github.com/webiny/webiny-examples/blob/master/iframe-page-element) - [*Creating Custom Page Elements (iframe)*](https://docs.webiny.com/docs/guides/creating-iframe-element-plugin)\
    `Page Builder App` `Custom Elements`
+
+Creating Custom Theme
+- [Custom Theme Package](https://github.com/webiny/webiny-examples/blob/master/custom-theme) - this example shows how to setup a custom theme package and use it in `admin` and `site` apps.

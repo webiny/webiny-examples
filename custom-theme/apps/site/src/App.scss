@@ -1,0 +1,6 @@
+// In this example, custom theme is based on the "@webiny/app-page-builder-theme".
+@import "~theme/styles";
+
+// Import other app styles
+@import "~@webiny/app-form-builder-theme/styles.scss";
+@import "~@webiny/app-i18n/styles.scss";
