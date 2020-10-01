@@ -30,3 +30,6 @@ Creating Custom Page Elements
 
 Creating Custom Theme
 - [Custom Theme Package](https://github.com/webiny/webiny-examples/blob/master/custom-theme) - this example shows how to setup a custom theme package and use it in `admin` and `site` apps.
+
+Use Page Builder in a custom app
+- [Render pages in a custom app](https://github.com/webiny/webiny-examples/blob/master/cra-page-builder) - this example shows how to setup a custom app with content from Page Builder and Form Builder.
