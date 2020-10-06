@@ -33,3 +33,6 @@ Creating Custom Theme
 
 Use Page Builder in a custom app
 - [Render pages in a custom app](https://github.com/webiny/webiny-examples/blob/master/cra-page-builder) - this example shows how to setup a custom app with content from Page Builder and Form Builder.
+
+Use Form Builder in a custom app
+- [Render forms in a custom app](https://github.com/webiny/webiny-examples/blob/master/cra-form-builder) - this example shows how to render a form created with the Form Builder app, in a simple Create React App project.
