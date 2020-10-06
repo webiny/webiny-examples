@@ -17,5 +17,5 @@ export default (params: SiteAppOptions = {}) => {
     // Push your own plugins. You can add as many plugins as you need.
     plugins.push(theme());
     // Return an app component created using site app template
-    return createSite(params);
+    return createSite({ ...params, plugins });
 };
