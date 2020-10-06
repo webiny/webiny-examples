@@ -29,6 +29,7 @@ export const handler = createHandler(
     }),
     formBuilderPlugins(),
     useSsrCacheTagsPlugins(),
+    // The custom form submission trigger - sends an e-mail to a custom e-mail address you define.
     {
         type: "form-trigger-handler",
         trigger: "e-mail",
