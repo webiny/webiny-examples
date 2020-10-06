@@ -1,6 +1,4 @@
-// Creating a custom trigger can be achieved by registering a simple `form-trigger-handler` plugin in the
-// Form Builder API. In other words, in the `api/formBuilder/src/index.ts` file.
-
+// api/formBuilder/src/index.ts
 import { createHandler } from "@webiny/handler";
 import apolloServerPlugins from "@webiny/handler-apollo-server";
 import dbProxyPlugins from "@webiny/api-plugin-commodo-db-proxy";
