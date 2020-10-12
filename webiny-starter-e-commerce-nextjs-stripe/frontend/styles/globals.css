@@ -1,0 +1,23 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: transparent;
+}
+
+.ant-layout {
+    background: #fff !important;
+}
