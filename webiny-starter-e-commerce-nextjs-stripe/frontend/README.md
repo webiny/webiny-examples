@@ -1,7 +1,5 @@
 # Creating a simple e-commerce website with Webiny Headless CMS + Next.js + Stripe
 
-We’ll create a new page element that will allow content creators to embed content using an iframe.
-
 In this starter tutorial we will uses the [Webiny Headless CMS](http://docs.webiny.com/docs/webiny-apps/headless-cms/features/content-modeling?utm_source=Webiny-blog&utm_medium=webiny-headless-cms-features-docs&utm_campaign=webiny-blog-e-commerce-tutorial-oct-19&utm_content=webiny-headless-cms-features-docs&utm_term=W00180") and [Next.js](https://nextjs.org/)
 to create a simple e-commerce website, where you can buy Swag from Open Source Projects such as Webiny, Next.js, Gatsby, etc, with an integrated
 shopping cart by [Stripe Payment Intents](https://checkout.stripe.dev/preview).

@@ -79,13 +79,7 @@ export default function ProductCard(props) {
             <Meta
                 avatar={
                     <Avatar
-                        src={
-                            props.title === 'Next.Js'
-                                ? '/nextjs.png'
-                                : '/gatsby.png' && props.title === 'Vue Js'
-                                ? '/vue.png'
-                                : 'gatsby.png'
-                        }
+                        src={props.title}
                     />
                 }
                 title={props.title}
