@@ -1,42 +1,41 @@
-import React, { useState, useEffect, useContext } from 'react'
-
 // Ant design
-import { Card, Avatar, Button, Modal } from 'antd'
+import { Avatar, Button, Card } from 'antd';
+// React context
+import { CartContext, FavoriteContext, TotalContext } from '../context/Context';
 import {
     HeartOutlined,
-    ShoppingCartOutlined,
     MinusCircleOutlined,
-} from '@ant-design/icons'
+    ShoppingCartOutlined,
+} from '@ant-design/icons';
+import React, { useContext } from 'react';
 
-const { Meta } = Card
-import { createFromIconfontCN } from '@ant-design/icons'
+import { createFromIconfontCN } from '@ant-design/icons';
+
+const { Meta } = Card;
 
 const IconFont = createFromIconfontCN({
     scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-})
-
-// React context
-import { CartContext, FavoriteContext, TotalContext } from '../context/Context'
+});
 
 export default function ProductCard(props) {
-    const [cart, setCart] = useContext(CartContext)
-    const [totalPrice, settotalPrice] = useContext(TotalContext)
+    const [cart, setCart] = useContext(CartContext);
+    const [totalPrice, settotalPrice] = useContext(TotalContext);
 
-    const [favorites, setFavorite] = useContext(FavoriteContext)
+    const [favorites, setFavorite] = useContext(FavoriteContext);
 
     const addToCart = (product) => {
-        setCart([...cart, product])
-        let TP = cart.reduce((acc, curr) => acc + curr.price, 0)
-        settotalPrice(TP)
-    }
+        setCart([...cart, product]);
+        let TP = cart.reduce((acc, curr) => acc + curr.price, 0);
+        settotalPrice(TP);
+    };
     const removeFromCart = (prodId) => {
-        let hardCopy = [...cart]
-        hardCopy = hardCopy.filter((cartItem) => cartItem.id !== prodId)
-        setCart(hardCopy)
-    }
+        let hardCopy = [...cart];
+        hardCopy = hardCopy.filter((cartItem) => cartItem.id !== prodId);
+        setCart(hardCopy);
+    };
 
     function addToFavorites(prod) {
-        setFavorite([...favorites, prod])
+        setFavorite([...favorites, prod]);
     }
     function goToProduct(id) {
         // TODO: Create a modal that shows the product details
@@ -44,32 +43,35 @@ export default function ProductCard(props) {
     return (
         <Card
             size="small"
-            style={{ margin: '0 0.5rem 20px 0.5rem', width: '250px' }}
+            style={{
+                margin: '20px 0.5rem',
+                width: '300px',
+            }}
             actions={[
                 <Button
                     onClick={() => {
-                        addToFavorites(props)
+                        addToFavorites(props);
                     }}
                 >
                     <HeartOutlined />
                 </Button>,
                 <Button
                     onClick={() => {
-                        addToCart(props)
+                        addToCart(props);
                     }}
                 >
                     <ShoppingCartOutlined />
                 </Button>,
                 <Button
                     onClick={() => {
-                        goToProduct()
+                        goToProduct();
                     }}
                 >
                     <IconFont type="icon-tuichu" />
                 </Button>,
                 <Button
                     onClick={() => {
-                        removeFromCart(props.id)
+                        removeFromCart(props.id);
                     }}
                 >
                     <MinusCircleOutlined />
@@ -77,14 +79,10 @@ export default function ProductCard(props) {
             ]}
         >
             <Meta
-                avatar={
-                    <Avatar
-                        src={props.title}
-                    />
-                }
+                avatar={<Avatar src={props.image} />}
                 title={props.title}
                 description={props.description}
             />
         </Card>
-    )
+    );
 }

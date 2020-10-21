@@ -1,4 +1,5 @@
-import { Form, Input } from 'antd'
+import { Form, Input } from 'antd';
+
 export const BillingDetailsFields = () => {
     return (
         <div>
@@ -99,5 +100,5 @@ export const BillingDetailsFields = () => {
                 />
             </Form.Item>
         </div>
-    )
-}
+    );
+};
