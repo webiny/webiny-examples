@@ -1,34 +1,30 @@
-import React, { useContext, useState } from 'react'
-
-// Next.js
-import Head from 'next/head'
-import Link from 'next/link'
-
 // Ant Design
-import { Layout, Menu, Avatar, Button, Modal, List, Popover } from 'antd'
-import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
-const { Header } = Layout
-import {
-    CartContext,
-    FavoriteContext,
-    ModalContext,
-    // TotalContext,
-} from '../context/Context'
+import { Avatar, Button, Dropdown, Layout, Menu } from 'antd';
+import { CartContext, FavoriteContext, ModalContext } from '../context/Context';
+import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import React, { useContext } from 'react';
 
+import { Cart } from './Cart';
 // Components
-import { Cart } from './Cart'
+import Categories from './Categories';
+// Next.js
+import Head from 'next/head';
+import Link from 'next/link';
+
+const { SubMenu } = Menu;
+const { Header } = Layout;
 
 export default function HeaderComponent(props) {
-    const [cart] = useContext(CartContext)
-    const [favorites] = useContext(FavoriteContext)
-    const [visible, setVisible] = useContext(ModalContext)
+    const [cart] = useContext(CartContext);
+    const [favorites] = useContext(FavoriteContext);
+    const [visible, setVisible] = useContext(ModalContext);
 
     // TODO: Use total price in the header
     // const [totalPrice, settotalPrice] = useContext(TotalContext)
 
     const toggleVisibility = React.useCallback(() => setVisible(!visible), [
         setVisible,
-    ])
+    ]);
 
     return (
         <div>
@@ -75,7 +71,7 @@ export default function HeaderComponent(props) {
                         <Menu.Item key="21">
                             <Button
                                 onClick={() => {
-                                    toggleVisibility(true)
+                                    toggleVisibility(true);
                                 }}
                             >
                                 <ShoppingCartOutlined />
@@ -83,15 +79,29 @@ export default function HeaderComponent(props) {
                             </Button>
                             <Cart />
                         </Menu.Item>
+                        <Menu.Item>
+                            <Dropdown overlay={<Categories />}>
+                                <a
+                                    className="ant-dropdown-link"
+                                    onClick={(e) => e.preventDefault()}
+                                >
+                                    Categories
+                                </a>
+                            </Dropdown>
+                        </Menu.Item>
+
                         <Menu.Item key="22">
-                            <a href="http://webiny.com?utm_source=Webiny-blog&utm_medium=webiny-website&utm_campaign=webiny-blog-e-commerce-oct-12&utm_content=webiny-blog-e-commerce-nextjs&utm_term=W00176" target="_blank" rel="noopener noreferrer">
-                                WEBINY - THE EASIEST WAY TO ADOPT SERVERLESS
+                            <a
+                                href="http://webiny.com?utm_source=Webiny-blog&utm_medium=webiny-website&utm_campaign=webiny-blog-e-commerce-oct-12&utm_content=webiny-blog-e-commerce-nextjs&utm_term=W00176"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Webiny Serverless Framework
                             </a>
                         </Menu.Item>
                     </Menu>
                 </Header>
-            
             </Layout>
         </div>
-    )
+    );
 }
