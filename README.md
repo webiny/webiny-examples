@@ -45,3 +45,13 @@ Use Page Builder in a custom app
 Use Form Builder in a custom app
 
 - [Render forms in a custom app](https://github.com/webiny/webiny-examples/blob/master/cra-form-builder) - this example shows how to render a form created with the Form Builder app, in a simple Create React App project.
+
+How to Create Github Contributors Plugin for Gatsby
+
+- [Gatsby plugin github contributors](https://github.com/webiny/webiny-examples/tree/master/gatsby-plugin-github-contributors) - A simple plugin that will source all contributors to a Github repo.
+- [Gatsby example site](https://github.com/webiny/webiny-examples/tree/master/gatsby-github-plugin-example-site) - A Gatsby example site.
+
+Lighting fast search with Elasticsearch
+
+- [Elasticsearch example nodejs](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - Simple Node.js script for running Elasticsearch examples
+`Node.js` `Elasticsearch`
