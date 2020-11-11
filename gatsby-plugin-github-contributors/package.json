@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-plugin-github-contributors",
+  "version": "1.0.0",
+  "description": "A simple plugin for getting all github contributors of a repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "source-github-contributors"
+  ],
+  "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
+  "contributors": ["Ashutosh <ashutosh@webiny.com>"],
+  "license": "0BSD",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

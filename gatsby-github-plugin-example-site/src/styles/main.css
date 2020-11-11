@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #faf5ff;
+}
+
+.container {
+  width: 100%;
+  margin: 50px auto;
+}
+
+.heading {
+  color: #8c7ae6;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 42px;
+  margin-bottom: 80px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 20px;
+}
+
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 140px;
+  transition: transform 250ms ease-out;
+  cursor: pointer;
+}
+.contributor-card:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+.contributor-card .card__img {
+  height: 140px;
+  width: 140px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.contributor-card .card__name {
+  margin-bottom: 0px;
+  color: #2f3640;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: capitalize;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px 40px;
+  }
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px 40px;
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1100px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px 40px;
+  }
+}
+
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1100px;
+  }
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 60px 70px;
+  }
+}
