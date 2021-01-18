@@ -28,7 +28,13 @@ export default(): CmsModelFieldToGraphQLPlugin => ({
         },
         createResolver({ field }) {
             return instance => {
-                const {address, coordinates} = instance.values[field.fieldId];
+                const value = instance.values[field.fieldId];
+                // there is a possibility that value is not populated
+                // so we cannot destructure the object because code will break
+                if (!value) {
+                    return {};
+                }
+                const {address, coordinates} = value;
                 const {country, city, zipCode, street, streetNumber} = address;
                 return {
                     country,
