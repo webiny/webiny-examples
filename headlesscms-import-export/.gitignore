@@ -1,0 +1,10 @@
+.idea
+npm-debug.log
+node_modules
+# yarn2 files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
