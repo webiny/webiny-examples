@@ -18,8 +18,6 @@ const LIST_CONTENT_MODELS_WITH_GROUPS = gql`
                 description
                 group {
                     id
-                    slug
-                    icon
                 }
                 fields {
                     id
@@ -51,6 +49,8 @@ const LIST_CONTENT_MODELS_WITH_GROUPS = gql`
                     }
                     settings
                 }
+                layout
+                titleFieldId
             }
         }
     }
@@ -86,8 +86,38 @@ const CREATE_CONTENT_MODEL = gql`
     }
 `;
 
+const UPDATE_CONTENT_MODEL = gql`
+    mutation CmsUpdateContentModel($modelId: ID!, $data: CmsContentModelUpdateInput!) {
+        updateContentModel(modelId: $modelId, data: $data) {
+            data {
+                modelId
+            }
+            error {
+                code
+                message
+                data
+            }
+        }
+    }
+`;
+
+const DELETE_CONTENT_MODEL = gql`
+    mutation CmsDeleteContentModel($modelId: ID!) {
+        deleteContentModel(modelId: $modelId) {
+            data
+            error {
+                code
+                message
+                data
+            }
+        }
+    }
+`;
+
 module.exports = {
-    LIST_CONTENT_MODELS_WITH_GROUPS,
     CREATE_CONTENT_MODEL_GROUP,
     CREATE_CONTENT_MODEL,
+    UPDATE_CONTENT_MODEL,
+    DELETE_CONTENT_MODEL,
+    LIST_CONTENT_MODELS_WITH_GROUPS,
 };

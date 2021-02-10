@@ -7,7 +7,10 @@
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "graphql-tag": "^2.11.0",
+    "inquirer": "^7.3.3",
+    "listr": "^0.14.3",
     "load-json-file": "^6.2.0",
+    "lodash": "^4.17.20",
     "prettier": "^2.2.1",
     "write-json-file": "^4.3.0"
   }
