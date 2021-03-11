@@ -1,0 +1,14 @@
+{
+  "name": "storage-backup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.11.0",
+    "aws-sdk": "^2.861.0",
+    "aws-elasticsearch-connector": "^9.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
