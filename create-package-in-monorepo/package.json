@@ -1,0 +1,72 @@
+{
+	"name": "cwp-beta",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@webiny/cwp-template-aws": "^5.0.0-beta.4",
+		"@webiny/aws-layers": "^5.0.0-beta.4",
+		"@webiny/cli": "^5.0.0-beta.4",
+		"@webiny/cli-plugin-workspaces": "^5.0.0-beta.4",
+		"@webiny/cli-plugin-deploy-pulumi": "^5.0.0-beta.4",
+		"@webiny/project-utils": "^5.0.0-beta.4"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.10.4",
+		"@babel/plugin-proposal-class-properties": "^7.10.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+		"@babel/plugin-proposal-throw-expressions": "^7.10.4",
+		"@babel/plugin-transform-runtime": "^7.10.4",
+		"@babel/preset-env": "^7.10.4",
+		"@babel/preset-typescript": "^7.10.4",
+		"@types/node": "^12.12.22",
+		"@types/react": "^16.9.17",
+		"@types/react-dom": "^16.9.4",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"babel-plugin-dynamic-import-node": "^2.3.3",
+		"babel-plugin-lodash": "^3.3.4",
+		"eslint": "^7.18.0",
+		"eslint-config-standard": "^16.0.2",
+		"eslint-import-resolver-babel-module": "^5.2.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^23.1.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-react": "^7.22.0",
+		"eslint-plugin-standard": "^5.0.0",
+		"jest": "^26.1.0",
+		"merge": "^1.2.1",
+		"typescript": "^4.1.3",
+		"ts-jest": "^26.1.1",
+		"execa": "4.1.0",
+		"prettier": "^1.14.2",
+		"chalk": "^4.1.0"
+	},
+	"workspaces": {
+		"packages": [
+			"packages/*",
+			"apps/admin/code",
+			"apps/website/code",
+			"apps/theme",
+			"api/code/fileManager/*",
+			"api/code/graphql",
+			"api/code/headlessCMS",
+			"api/code/pageBuilder/*",
+			"api/code/prerenderingService/render",
+			"api/code/prerenderingService/flush",
+			"api/code/prerenderingService/queue/*"
+		]
+	},
+	"scripts": {
+		"setup-repo": "node ./scripts/setupRepository.js",
+		"setup-env-files": "node ./scripts/setupEnvFiles.js",
+		"link-workspaces": "node ./scripts/linkWorkspaces.js",
+		"postinstall": "yarn link-workspaces",
+		"test": "jest --config jest.config.js"
+	},
+	"resolutions": {
+		"@types/react": "16.14.2",
+		"react": "16.14.0",
+		"react-dom": "16.14.0"
+	}
+}
