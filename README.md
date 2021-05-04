@@ -8,17 +8,17 @@
 
 ## Documentation
 
-### Create an Application
+### Tutorials
 
-- [Securing Your Application]()
+- [Securing Your Application](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area) - full code samples for the ([Securing Your Application](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction/)) tutorial
 
 ## Webiny Blog
 
 ### Lighting Fast Search with Elasticsearch
 
-- [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - Simple Node.js script for running Elasticsearch examples
+- [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples
   
-<!-- OLD LINKS BELOW --> 
+<!-- OLD (v4) LINKS BELOW --> 
 <!--  
 - [Webiny Starter E-commerce with Next.js + Stripe](http://docs.webiny.com/docs/guides/headless-cms/)\
    `Headless CMS` `Stripe` `Webiny`
