@@ -14,7 +14,7 @@
 
 ## Webiny Blog
 
-- [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples
+- [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch](Lighting fast search with Elasticsearch) blog post)
   
 <!-- OLD (v4) LINKS BELOW --> 
 <!--  
