@@ -72,6 +72,7 @@ export default {
                                     <Cell span={12}>
                                         <Bind name={"rwd"}>
                                             <Select label={t`Access Level`}>
+                                                <option value={""}>{t`No Access`}</option>
                                                 <option value={"r"}>{t`Read`}</option>
                                                 <option value={"rw"}>{t`Read, write`}</option>
                                                 <option value={"rwd"}>{t`Read, write, delete`}</option>

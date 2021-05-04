@@ -3,6 +3,12 @@ import { AdminMenuPlugin } from "@webiny/app-admin/types";
 import { ReactComponent as Icon } from "./assets/directions_car-24px.svg";
 import { useSecurity } from "@webiny/app-security";
 
+// We use this when specifying the return types of the getPermission function call (below).
+import { FullAccessPermission } from "@webiny/app-security/types";
+
+// Creating types for security permissions makes our code less error-prone and more readable.
+import { CarManufacturersPermission } from "./types";
+
 export default (): AdminMenuPlugin => ({
     type: "admin-menu",
     name: "admin-menu-car-manufacturers",
@@ -10,7 +16,9 @@ export default (): AdminMenuPlugin => ({
         const { identity } = useSecurity();
 
         // We get the "car-manufacturers" permission from current identity (logged in user).
-        const permission = identity.getPermission("cms.content-models");
+        const permission = identity.getPermission<
+            CarManufacturersPermission | FullAccessPermission
+        >("car-manufacturers");
 
         if (!permission) {
             return null;

@@ -23,7 +23,8 @@ import { useRouter } from "@webiny/react-router";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { CarManufacturerItem, DataListChildProps } from "../types";
+import { CarManufacturerItem, DataListChildProps, CarManufacturersPermission } from "../types";
+import { FullAccessPermission } from "@webiny/app-security/types";
 import { DELETE_CAR_MANUFACTURER, LIST_CAR_MANUFACTURERS } from "./graphql";
 import { removeFromListCache } from "./cache";
 import { QueryResult } from "@apollo/react-common";
@@ -141,7 +142,11 @@ const CarManufacturersDataList: React.FunctionComponent<Props> = ({
             title={t`CarManufacturers`}
             data={data}
             actions={
-                <SecureView permission={"car-manufacturers"}>
+                /* The SecureView component conditionally renders child components
+                (depending on the result of the permissions check we provided) */
+                <SecureView<CarManufacturersPermission | FullAccessPermission>
+                    permission={"car-manufacturers"}
+                >
                     {({ permission }) => {
                         if (!permission) {
                             return null;
@@ -151,11 +156,11 @@ const CarManufacturersDataList: React.FunctionComponent<Props> = ({
                         // means we are dealing with the super admin, who has unlimited access.
                         let hasAccess = permission.name === "*";
                         if (!hasAccess) {
-                            // If not super admin, let's check if we have the "r" in the `rwd` property.
+                            // If not super admin, let's check if we have the "w" in the `rwd` property.
                             hasAccess =
                                 permission.name === "car-manufacturers" &&
                                 permission.rwd &&
-                                permission.rwd.includes("r");
+                                permission.rwd.includes("w");
                         }
 
                         // Finally, if current identity doesn't have access, we immediately exit.
@@ -194,7 +199,37 @@ const CarManufacturersDataList: React.FunctionComponent<Props> = ({
 
                             <ListItemMeta>
                                 <ListActions>
-                                    <DeleteIcon onClick={() => deleteCarManufacturerItem(item)} />
+                                    <SecureView<CarManufacturersPermission | FullAccessPermission>
+                                        permission={"car-manufacturers"}
+                                    >
+                                        {({ permission }) => {
+                                            if (!permission) {
+                                                return null;
+                                            }
+
+                                            // Note that the received permission object can also be `{ name: "*" }`. If so, that
+                                            // means we are dealing with the super admin, who has unlimited access.
+                                            let hasAccess = permission.name === "*";
+                                            if (!hasAccess) {
+                                                // If not super admin, let's check if we have the "d" in the `rwd` property.
+                                                hasAccess =
+                                                    permission.name === "car-manufacturers" &&
+                                                    permission.rwd &&
+                                                    permission.rwd.includes("d");
+                                            }
+
+                                            // Finally, if current identity doesn't have access, we immediately exit.
+                                            if (!hasAccess) {
+                                                return null;
+                                            }
+
+                                            return (
+                                                <DeleteIcon
+                                                    onClick={() => deleteCarManufacturerItem(item)}
+                                                />
+                                            );
+                                        }}
+                                    </SecureView>
                                 </ListActions>
                             </ListItemMeta>
                         </ListItem>

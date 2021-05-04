@@ -17,11 +17,17 @@ import {
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useMutation, useQuery } from "@apollo/react-hooks";
+import { useSecurity } from "@webiny/app-security";
+import { FullAccessPermission } from "@webiny/app-security/types";
 import { CREATE_CAR_MANUFACTURER, READ_CAR_MANUFACTURER, UPDATE_CAR_MANUFACTURER } from "./graphql";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { CarManufacturerItem, CarManufacturerItemUserFields } from "../types";
+import {
+    CarManufacturerItem,
+    CarManufacturerItemUserFields,
+    CarManufacturersPermission
+} from "../types";
 import { addToListCache, updateToListCache } from "./cache";
 
 const t = i18n.ns("admin-app-carManufacturer/form");
@@ -45,6 +51,24 @@ const CarManufacturerForm: React.FunctionComponent<Props> = ({ limit, sortBy }) 
     const searchParams = new URLSearchParams(location.search);
     const newCarManufacturer = searchParams.get("new") === "true";
     const id = searchParams.get("id");
+
+    const { identity } = useSecurity();
+
+    // We get the "car-manufacturers" permission from current identity (logged in user).
+    const permission = identity.getPermission<CarManufacturersPermission | FullAccessPermission>(
+        "car-manufacturers"
+    );
+
+    // Note that the received permission object can also be `{ name: "*" }`. If so, that
+    // means we are dealing with the super admin, who has unlimited access.
+    let canWrite = permission.name === "*";
+    if (!canWrite) {
+        // If not super admin, let's check if we have the "w" in the `rwd` property.
+        canWrite =
+            permission.name === "car-manufacturers" &&
+            permission.rwd &&
+            permission.rwd.includes("w");
+    }
 
     const getQuery = useQuery(READ_CAR_MANUFACTURER, {
         variables: { id },
@@ -92,7 +116,9 @@ const CarManufacturerForm: React.FunctionComponent<Props> = ({ limit, sortBy }) 
                         if (error) {
                             return showSnackbar(error.message);
                         } else if (!carManufacturer) {
-                            return showSnackbar(t`There is no CarManufacturer data in the response.`);
+                            return showSnackbar(
+                                t`There is no CarManufacturer data in the response.`
+                            );
                         }
                         updateToListCache(cache, listVariables, carManufacturer);
 
@@ -135,9 +161,13 @@ const CarManufacturerForm: React.FunctionComponent<Props> = ({ limit, sortBy }) 
 
     const loading = [getQuery, createMutation, updateMutation].some(item => !!item.loading);
 
-    const carManufacturerData = dotProp.get(getQuery, "data.carManufacturers.getCarManufacturer.data", null);
+    const carManufacturerData = dotProp.get(
+        getQuery,
+        "data.carManufacturers.getCarManufacturer.data",
+        null
+    );
 
-    const showEmptyView = !newCarManufacturer && !loading && !carManufacturerData;
+    const showEmptyView = canWrite && !newCarManufacturer && !loading && !carManufacturerData;
     // Render "No content" selected view.
     if (showEmptyView) {
         return (
@@ -193,7 +223,11 @@ const CarManufacturerForm: React.FunctionComponent<Props> = ({ limit, sortBy }) 
                         </Grid>
                     </SimpleFormContent>
                     <SimpleFormFooter>
-                        <ButtonPrimary onClick={form.submit}>{t`Save carManufacturer`}</ButtonPrimary>
+                        {canWrite && (
+                            <ButtonPrimary
+                                onClick={form.submit}
+                            >{t`Save carManufacturer`}</ButtonPrimary>
+                        )}
                     </SimpleFormFooter>
                 </SimpleForm>
             )}

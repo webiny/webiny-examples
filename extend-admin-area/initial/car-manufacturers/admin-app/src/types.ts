@@ -1,3 +1,5 @@
+import { SecurityPermission } from "@webiny/app-security/types";
+
 export interface CarManufacturerItemUserFields {
     title: string;
     description?: string | null;
@@ -17,4 +19,10 @@ export interface CarManufacturerItem extends CarManufacturerItemUserFields {
 
 export interface DataListChildProps {
     data: null | CarManufacturerItem[];
+}
+
+export interface CarManufacturersPermission extends SecurityPermission {
+    name: "car-manufacturers";
+    rwd?: "r" | "rw" | "rwd";
+    specialFeature?: boolean;
 }

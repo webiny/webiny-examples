@@ -6,15 +6,16 @@
 
 ---
 
-Webiny Tutorials:
+## Tutorials
 
-- [Build Your Serverless GraphQL API with Webiny](http://docs.webiny.com/docs/tutorials/build-your-serverless-graphql-api-webiny)\
-   `GraphQL` `API` `Webiny`
+### Create an Application
+
+- [Securing Your Application]() `GraphQL` `API` `Webiny`
 
 - [Webiny Starter E-commerce with Next.js + Stripe](http://docs.webiny.com/docs/guides/headless-cms/)\
    `Headless CMS` `Stripe` `Webiny`
 
-Using Webiny's Headless CMS with:
+### Using Webiny's Headless CMS with:
 
 - [Gatsby](https://github.com/webiny/webiny-examples/blob/master/headlesscms-gatsby) - [Personal blog using Webiny's Headless CMS & Gatsby](https://docs.webiny.com/docs/guides/headless-gatsby-tutorial)\
    `Headless` `CMS` `Gatsby`
@@ -29,7 +30,7 @@ Using Webiny's Headless CMS with:
 - [Angular](https://github.com/webiny/webiny-examples/blob/master/headlesscms-angular) - [Simple web app using Webiny Headless CMS & Angular](https://docs.webiny.com/docs/guides/headless-angular-tutorial)\
    `Headless` `CMS` `Angular`
 
-Creating Custom Page Elements
+### Creating Custom Page Elements
 
 - [iFrame Page Element](https://github.com/webiny/webiny-examples/blob/master/iframe-page-element) - [Creating Custom Page Elements (iframe)](https://docs.webiny.com/docs/guides/creating-iframe-element-plugin)\
    `Page Builder App` `Custom Elements`
@@ -51,7 +52,8 @@ How to Create Github Contributors Plugin for Gatsby
 - [Gatsby plugin github contributors](https://github.com/webiny/webiny-examples/tree/master/gatsby-plugin-github-contributors) - A simple plugin that will source all contributors to a Github repo.
 - [Gatsby example site](https://github.com/webiny/webiny-examples/tree/master/gatsby-github-plugin-example-site) - A Gatsby example site.
 
-Lighting fast search with Elasticsearch
+## Other
+Lighting Fast Search with Elasticsearch
 
 - [Elasticsearch example nodejs](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - Simple Node.js script for running Elasticsearch examples
 `Node.js` `Elasticsearch`

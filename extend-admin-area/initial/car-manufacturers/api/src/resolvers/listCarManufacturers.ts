@@ -1,4 +1,9 @@
 import { ListErrorResponse, ListResponse } from "@webiny/handler-graphql";
+import { NotAuthorizedResponse } from "@webiny/api-security";
+
+// We use this when specifying the return types of the getPermission function call (below).
+import { FullAccessPermission } from "@webiny/api-security/types";
+
 import { utils } from "../utils";
 import {
     createElasticsearchQuery,
@@ -6,13 +11,21 @@ import {
     decodeElasticsearchCursor,
     createElasticsearchSort
 } from "../es";
-import { ApplicationContext, ListResolverResponse, ListCarManufacturersArgs, CarManufacturer } from "../types";
+import {
+    ApplicationContext,
+    ListResolverResponse,
+    ListCarManufacturersArgs,
+    CarManufacturer,
+    // Creating types for security permissions makes our code less error-prone and more readable.
+    CarManufacturersPermission
+} from "../types";
 
 interface GetResultSizeArgs {
     limit?: number;
     maxLimit?: number;
     defaultLimit?: number;
 }
+
 const getResultSize = (args: GetResultSizeArgs): number => {
     const { limit, maxLimit = 1000, defaultLimit = 50 } = args;
     if (!limit || limit <= 0) {
@@ -22,6 +35,7 @@ const getResultSize = (args: GetResultSizeArgs): number => {
     }
     return limit;
 };
+
 /**
  * Listing carManufacturers is using Elasticsearch only.
  * If you want to remove the Elasticsearch, you will need to write your own DynamoDB fetching.
@@ -31,6 +45,40 @@ const listCarManufacturers = async (
     args: ListCarManufacturersArgs,
     context: ApplicationContext
 ): Promise<ListResolverResponse<CarManufacturer>> => {
+    // First, check if the current identity can perform the "getCarManufacturer" query,
+    // within the detected locale. An error will be thrown if access is not allowed.
+    const hasLocaleAccess = await context.i18nContent.hasI18NContentPermission();
+    if (!hasLocaleAccess) {
+        return new NotAuthorizedResponse();
+    }
+
+    // Next, check if the current identity possesses the "car-manufacturers" permission.
+    // Note that, if the identity has full access, "FullAccessPermission" permission
+    // will be returned instead, which is equal to: { name: "*"}.
+    const permission = await context.security.getPermission<
+        CarManufacturersPermission | FullAccessPermission
+    >("car-manufacturers");
+
+    if (!permission) {
+        return new NotAuthorizedResponse();
+    }
+
+    // Note that the received permission object can also be `{ name: "*" }`. If so, that
+    // means we are dealing with the super admin, who has unlimited access.
+    let hasAccess = permission.name === "*";
+    if (!hasAccess) {
+        // If not super admin, let's check if we have the "r" in the `rwd` property.
+        hasAccess =
+            permission.name === "car-manufacturers" &&
+            permission.rwd &&
+            permission.rwd.includes("r");
+    }
+
+    // Finally, if current identity doesn't have access, we immediately exit.
+    if (!hasAccess) {
+        return new NotAuthorizedResponse();
+    }
+
     const { elasticSearch } = context;
     const { where, sort, limit, after } = args;
     /**

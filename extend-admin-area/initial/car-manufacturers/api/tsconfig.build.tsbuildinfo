@@ -187,8 +187,8 @@
         "affectsGlobalScope": false
       },
       "../../../node_modules/@webiny/api-security/types.d.ts": {
-        "version": "d823820a106f52e5f722999c7088d77accac049d63a1847ea9ac043602f8c295",
-        "signature": "d823820a106f52e5f722999c7088d77accac049d63a1847ea9ac043602f8c295",
+        "version": "b6e3f91688683a915f556a8e48280805ccbd32f38cf36987dbedb32da672253e",
+        "signature": "b6e3f91688683a915f556a8e48280805ccbd32f38cf36987dbedb32da672253e",
         "affectsGlobalScope": false
       },
       "../../../node_modules/@webiny/api-security-tenancy/types.d.ts": {
@@ -487,8 +487,8 @@
         "affectsGlobalScope": false
       },
       "./src/types.ts": {
-        "version": "5843c83f92343be962c50c5cb6fafd4262932cbe9aefd21f30b06ace99c59716",
-        "signature": "d2bbf5985325c69056b0a268a4a32198c28318c1842cdb434bd1f87b006f8827",
+        "version": "c3fff473cd77a630b7d3f58ad9b732bf5d3704815a9f86663a293c11c74da430",
+        "signature": "ad060cff3b0fe5d201d03d85622cbfb75fad37ab5cca22a0e431e061ce565cd6",
         "affectsGlobalScope": false
       },
       "./src/es.ts": {
@@ -1031,26 +1031,6 @@
         "signature": "c73e19ff6cab40eb9a352b26981dbd5ce21a256449b7447515a8db7f1975387f",
         "affectsGlobalScope": false
       },
-      "./src/utils.ts": {
-        "version": "f56f6ff3952d76fff433b80f4296baece653ad6e24a835e6dcdcd1b72f520676",
-        "signature": "f2e180099d11579b0364237a1584f72823cf9f4c0d63960f53eaae323a8fb3e3",
-        "affectsGlobalScope": false
-      },
-      "./src/resolvers/getcarmanufacturer.ts": {
-        "version": "37445b41ade791adcefb9c6114cdbb4a10aa31d63770d1bc076095bef3cbf191",
-        "signature": "c2af92c9cd04cc0251a04db7f475643c2fc4b0825c346b4387bfff3de7a65b7c",
-        "affectsGlobalScope": false
-      },
-      "./src/resolvers/listcarmanufacturers.ts": {
-        "version": "0e9fd78495ba94fe656b44ca2673e3c1ffe8f54b3fc5773c4a5593aca5386048",
-        "signature": "753c838623b98c0897e3bbc514054413d2c53035a42206d6129c57c6168ca71b",
-        "affectsGlobalScope": false
-      },
-      "../../../node_modules/@webiny/api-security/haspermission.d.ts": {
-        "version": "1fe304ec63a90aa1fdeb95142da9369e6fdb2c5da24ba63114b1cbc837cec972",
-        "signature": "1fe304ec63a90aa1fdeb95142da9369e6fdb2c5da24ba63114b1cbc837cec972",
-        "affectsGlobalScope": false
-      },
       "../../../node_modules/@webiny/api-security/authenticator/securityidentity.d.ts": {
         "version": "91644a45cb0ae94f1cd9a8724dcb7a40043760c30ec74b1bb2596eeacc7a7fce",
         "signature": "91644a45cb0ae94f1cd9a8724dcb7a40043760c30ec74b1bb2596eeacc7a7fce",
@@ -1067,8 +1047,23 @@
         "affectsGlobalScope": false
       },
       "../../../node_modules/@webiny/api-security/index.d.ts": {
-        "version": "ab2516a5bedac5ae0689d3e638e75774a0332681279235484eefd9d0871f8067",
-        "signature": "ab2516a5bedac5ae0689d3e638e75774a0332681279235484eefd9d0871f8067",
+        "version": "5cc553defdd0a9b346e3c7be8eafaef9f8ebf7b5712ddac44d7093e7921fd942",
+        "signature": "5cc553defdd0a9b346e3c7be8eafaef9f8ebf7b5712ddac44d7093e7921fd942",
+        "affectsGlobalScope": false
+      },
+      "./src/utils.ts": {
+        "version": "f56f6ff3952d76fff433b80f4296baece653ad6e24a835e6dcdcd1b72f520676",
+        "signature": "f2e180099d11579b0364237a1584f72823cf9f4c0d63960f53eaae323a8fb3e3",
+        "affectsGlobalScope": false
+      },
+      "./src/resolvers/getcarmanufacturer.ts": {
+        "version": "d5dffdff6c04f5cc995b81cd97796a3d9373e9268a4a1a3984d5ed35240783ae",
+        "signature": "c2af92c9cd04cc0251a04db7f475643c2fc4b0825c346b4387bfff3de7a65b7c",
+        "affectsGlobalScope": false
+      },
+      "./src/resolvers/listcarmanufacturers.ts": {
+        "version": "0e9fd78495ba94fe656b44ca2673e3c1ffe8f54b3fc5773c4a5593aca5386048",
+        "signature": "753c838623b98c0897e3bbc514054413d2c53035a42206d6129c57c6168ca71b",
         "affectsGlobalScope": false
       },
       "./src/resolvers/isinstalled.ts": {
@@ -1795,12 +1790,8 @@
         "../../../node_modules/@webiny/handler/types.d.ts",
         "../../../node_modules/@webiny/plugins/types.d.ts"
       ],
-      "../../../node_modules/@webiny/api-security/haspermission.d.ts": [
-        "../../../node_modules/@webiny/handler/types.d.ts"
-      ],
       "../../../node_modules/@webiny/api-security/index.d.ts": [
         "../../../node_modules/@webiny/api-security/authenticator/securityidentity.d.ts",
-        "../../../node_modules/@webiny/api-security/haspermission.d.ts",
         "../../../node_modules/@webiny/api-security/notauthorizederror.d.ts",
         "../../../node_modules/@webiny/api-security/notauthorizedresponse.d.ts"
       ],
@@ -2416,6 +2407,8 @@
         "./src/utils.ts"
       ],
       "./src/resolvers/getcarmanufacturer.ts": [
+        "../../../node_modules/@webiny/api-security/index.d.ts",
+        "../../../node_modules/@webiny/api-security/types.d.ts",
         "../../../node_modules/@webiny/handler-graphql/index.d.ts",
         "./src/types.ts",
         "./src/utils.ts"
@@ -2463,6 +2456,7 @@
         "../../../node_modules/@webiny/api-i18n/graphql/types.d.ts",
         "../../../node_modules/@webiny/api-plugin-elastic-search-client/types.d.ts",
         "../../../node_modules/@webiny/api-security-tenancy/types.d.ts",
+        "../../../node_modules/@webiny/api-security/types.d.ts",
         "../../../node_modules/@webiny/handler-db/types.d.ts",
         "../../../node_modules/@webiny/handler-http/types.d.ts",
         "../../../node_modules/@webiny/handler/types.d.ts"
@@ -2854,12 +2848,8 @@
         "../../../node_modules/@webiny/handler/types.d.ts",
         "../../../node_modules/@webiny/plugins/types.d.ts"
       ],
-      "../../../node_modules/@webiny/api-security/haspermission.d.ts": [
-        "../../../node_modules/@webiny/handler/types.d.ts"
-      ],
       "../../../node_modules/@webiny/api-security/index.d.ts": [
         "../../../node_modules/@webiny/api-security/authenticator/securityidentity.d.ts",
-        "../../../node_modules/@webiny/api-security/haspermission.d.ts",
         "../../../node_modules/@webiny/api-security/notauthorizederror.d.ts",
         "../../../node_modules/@webiny/api-security/notauthorizedresponse.d.ts"
       ],
@@ -3504,6 +3494,7 @@
         "../../../node_modules/@webiny/api-i18n/graphql/types.d.ts",
         "../../../node_modules/@webiny/api-plugin-elastic-search-client/types.d.ts",
         "../../../node_modules/@webiny/api-security-tenancy/types.d.ts",
+        "../../../node_modules/@webiny/api-security/types.d.ts",
         "../../../node_modules/@webiny/handler-db/types.d.ts",
         "../../../node_modules/@webiny/handler-http/types.d.ts",
         "../../../node_modules/@webiny/handler/types.d.ts"
@@ -3618,9 +3609,20 @@
       "../../../node_modules/@webiny/api-i18n/graphql/types.d.ts",
       "../../../node_modules/@webiny/api-i18n/types.d.ts",
       "../../../node_modules/@webiny/api-plugin-elastic-search-client/types.d.ts",
-      "../../../node_modules/@webiny/api-security-tenancy/types.d.ts",
+      [
+        "../../../node_modules/@webiny/api-security-tenancy/types.d.ts",
+        [
+          {
+            "file": "../../../node_modules/@webiny/api-security-tenancy/types.d.ts",
+            "start": 6067,
+            "length": 52,
+            "messageText": "Type 'SecurityPermission' is not generic.",
+            "category": 1,
+            "code": 2315
+          }
+        ]
+      ],
       "../../../node_modules/@webiny/api-security/authenticator/securityidentity.d.ts",
-      "../../../node_modules/@webiny/api-security/haspermission.d.ts",
       "../../../node_modules/@webiny/api-security/index.d.ts",
       "../../../node_modules/@webiny/api-security/notauthorizederror.d.ts",
       "../../../node_modules/@webiny/api-security/notauthorizedresponse.d.ts",
@@ -3789,7 +3791,19 @@
       "./src/resolvers/listcarmanufacturers.ts",
       "./src/resolvers/uninstall.ts",
       "./src/resolvers/updatecarmanufacturer.ts",
-      "./src/types.ts",
+      [
+        "./src/types.ts",
+        [
+          {
+            "file": "./src/types.ts",
+            "start": 4203,
+            "length": 114,
+            "messageText": "Type 'SecurityPermission' is not generic.",
+            "category": 1,
+            "code": 2315
+          }
+        ]
+      ],
       "./src/utils.ts",
       "../../../types/apps/index.d.ts"
     ]

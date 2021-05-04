@@ -1,12 +1,16 @@
 import { Response, NotFoundResponse } from "@webiny/handler-graphql";
 import { NotAuthorizedResponse } from "@webiny/api-security";
 
+// We use this when specifying the return types of the getPermission function call (below).
+import { FullAccessPermission } from "@webiny/api-security/types";
+
 import { utils } from "../utils";
 import {
     ApplicationContext,
     GetCarManufacturerArgs,
     ResolverResponse,
     CarManufacturer,
+    // Creating types for security permissions makes our code less error-prone and more readable.
     CarManufacturersPermission
 } from "../types";
 
@@ -15,8 +19,20 @@ const getCarManufacturer = async (
     args: GetCarManufacturerArgs,
     context: ApplicationContext
 ): Promise<ResolverResponse<CarManufacturer>> => {
-    // We get the "car-manufacturers" permission from current identity (logged in user).
-    const permission = await context.security.getPermission<CarManufacturersPermission>("car-manufacturers");
+    // First, check if the current identity can perform the "getCarManufacturer" query,
+    // within the detected locale. An error will be thrown if access is not allowed.
+    const hasLocaleAccess = await context.i18nContent.hasI18NContentPermission();
+    if (!hasLocaleAccess) {
+        return new NotAuthorizedResponse();
+    }
+
+    // Next, check if the current identity possesses the "car-manufacturers" permission.
+    // Note that, if the identity has full access, "FullAccessPermission" permission
+    // will be returned instead, which is equal to: { name: "*"}.
+    const permission = await context.security.getPermission<
+        CarManufacturersPermission | FullAccessPermission
+    >("car-manufacturers");
+
     if (!permission) {
         return new NotAuthorizedResponse();
     }

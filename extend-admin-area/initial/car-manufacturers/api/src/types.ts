@@ -5,7 +5,7 @@ import { I18NContext } from "@webiny/api-i18n/graphql/types";
 import { BaseI18NContentContext } from "@webiny/api-i18n-content/types";
 import { ElasticSearchClientContext } from "@webiny/api-plugin-elastic-search-client/types";
 import { TenancyContext } from "@webiny/api-security-tenancy/types";
-import { SecurityPermission, FullAccessPermission } from "@webiny/api-security/types";
+import { SecurityPermission } from "@webiny/api-security/types";
 
 /**
  * The context that is available to you.
@@ -170,8 +170,8 @@ export interface ListCarManufacturersArgs {
     after?: string;
 }
 
-export type CarManufacturersPermission = SecurityPermission<{
+export interface CarManufacturersPermission extends SecurityPermission {
     name: "car-manufacturers";
     rwd?: "r" | "rw" | "rwd";
-    specialFeature?: boolean
-}> | FullAccessPermission;
+    specialFeature?: boolean;
+}
