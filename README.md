@@ -10,7 +10,7 @@
 
 ### Tutorials
 
-- [Securing Your Application](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area) - full code samples for the ([Securing Your Application](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction/)) tutorial
+- [Securing Your Application](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area) - full code samples for the [Securing Your Application](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction/) tutorial
 
 ## Webiny Blog
 
