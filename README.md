@@ -14,8 +14,6 @@
 
 ## Webiny Blog
 
-### Lighting Fast Search with Elasticsearch
-
 - [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples
   
 <!-- OLD (v4) LINKS BELOW --> 
