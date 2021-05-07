@@ -12,6 +12,9 @@
 
 - [Securing Your Application](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area) - full code samples for the [Securing Your Application](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction/) tutorial
 
+### How-to Guides
+- [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code smaple for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
+
 ## Webiny Blog
 
 - [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
