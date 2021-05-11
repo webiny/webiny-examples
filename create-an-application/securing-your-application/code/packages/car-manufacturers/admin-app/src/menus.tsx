@@ -1,6 +1,9 @@
 import React from "react";
 import { AdminMenuPlugin } from "@webiny/app-admin/types";
+
+// Note that we've changed the icon (this one is more appropriate).
 import { ReactComponent as Icon } from "./assets/directions_car-24px.svg";
+
 import { useSecurity } from "@webiny/app-security";
 
 // We use this when specifying the return types of the getPermission function call (below).
