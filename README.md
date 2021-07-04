@@ -15,7 +15,7 @@
     - [Security](https://github.com/webiny/webiny-examples/tree/master/create-an-application/securing-your-application) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction) tutorial
 
 ### How-to Guides
-- [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code smaple for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
+- [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code sample for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
 
 ## Webiny Blog
 
