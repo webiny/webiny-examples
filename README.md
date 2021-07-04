@@ -21,6 +21,8 @@
 
 - [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
   
+- [Webiny v5.9.0 - Improved Scaffolding and Development Workflows](https://www.webiny.com/blog/webiny-v5.9.0-improved-scaffolds-and-development) - contains code samples presented in the linked blog post
+
 <!-- OLD (v4) LINKS BELOW --> 
 <!--  
 - [Webiny Starter E-commerce with Next.js + Stripe](http://docs.webiny.com/docs/guides/headless-cms/)\
