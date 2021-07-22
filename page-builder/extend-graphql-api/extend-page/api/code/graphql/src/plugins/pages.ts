@@ -1,4 +1,3 @@
-import { PagePlugin } from "@webiny/api-page-builder/plugins/PagePlugin";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { IndexPageDataPlugin } from "@webiny/api-page-builder/plugins/IndexPageDataPlugin";
 import { Page } from "@webiny/api-page-builder/types";
