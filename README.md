@@ -17,6 +17,9 @@
 ### How-to Guides
 - [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code sample for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
 
+- [Page Builder / Extend GraphQL API](page-builder/extend-graphql-api) - shows how to extend Page Builder-related GraphQL types and operations
+
+- 
 ## Webiny Blog
 
 - [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
