@@ -23,7 +23,7 @@ import headlessCmsDynamoDbElasticStorageOperation from "@webiny/api-headless-cms
 // Imports plugins created via scaffolding utilities.
 import scaffoldsPlugins from "./plugins/scaffolds";
 
-// Import the pages-related plugins here.
+// Import the posts-related plugins here.
 import posts from "./plugins/posts"
 
 const debug = process.env.DEBUG === "true";
