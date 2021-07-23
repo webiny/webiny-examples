@@ -24,7 +24,7 @@ import headlessCmsDynamoDbElasticStorageOperation from "@webiny/api-headless-cms
 import scaffoldsPlugins from "./plugins/scaffolds";
 
 // Import the pages-related plugins here.
-import page from "./plugins/pages"
+import pages from "./plugins/pages"
 
 const debug = process.env.DEBUG === "true";
 
@@ -67,7 +67,7 @@ export const handler = createHandler({
         headlessCmsPlugins(),
         headlessCmsDynamoDbElasticStorageOperation(),
         scaffoldsPlugins(),
-        page
+        pages
     ],
     http: { debug }
 });
