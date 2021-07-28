@@ -1,0 +1,1 @@
+This is the code covered in the [Define Content Models via Plugins - Define a Content Model Only for a Specific Locale](https://www.webiny.com/docs/how-to-guides/webiny-applications/headless-cms/content-model-plugins#define-a-content-model-only-for-a-specific-locale) guide.

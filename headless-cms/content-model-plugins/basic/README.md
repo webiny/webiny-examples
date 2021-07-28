@@ -1,0 +1,1 @@
+This is the code covered in the [Define Content Models via Plugins - Basic Example](https://www.webiny.com/docs/how-to-guides/webiny-applications/headless-cms/content-model-plugins#basic-example) guide.
