@@ -15,6 +15,9 @@
     - [Security](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area-security) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/extend-admin-area/security/introduction) tutorial
 
 ### How-to Guides
+
+- [Headless CMS / Define Content Models via Plugins](headless-cms/content-model-plugins) - shows how to define content models and content model groups via plugins
+
 - [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code sample for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
 
 - [Page Builder / Extend GraphQL API](page-builder/extend-graphql-api) - shows how to extend Page Builder-related GraphQL types and operations
