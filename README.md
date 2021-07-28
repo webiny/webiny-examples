@@ -10,23 +10,23 @@
 
 ### Tutorials
 
-- [Extend Admin Area](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area) - full code samples for the [Extend Admin Area](https://www.webiny.com/docs/tutorials/extend-admin-area/introduction) tutorial
+- [Extend Admin Area](extend-admin-area) - full code samples for the [Extend Admin Area](https://www.webiny.com/docs/tutorials/extend-admin-area/introduction) tutorial
 
-    - [Security](https://github.com/webiny/webiny-examples/tree/master/extend-admin-area-security) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/extend-admin-area/security/introduction) tutorial
+    - [Security](extend-admin-area-security) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/extend-admin-area/security/introduction) tutorial
 
 ### How-to Guides
 
 - [Headless CMS / Define Content Models via Plugins](headless-cms/content-model-plugins) - shows how to define content models and content model groups via plugins
 
-- [Integrate Tailwind CSS](https://github.com/webiny/webiny-examples/tree/master/integrate-tailwind-css) - full code sample for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
+- [Integrate Tailwind CSS](integrate-tailwind-css) - full code sample for the [Integrate Tailwind CSS](https://www.webiny.com/docs/how-to-guides/integrate-tailwindcss/) guide
 
 - [Page Builder / Extend GraphQL API](page-builder/extend-graphql-api) - shows how to extend Page Builder-related GraphQL types and operations
 
 ## Webiny Blog
 
-- [Elasticsearch Example Node.js](https://github.com/webiny/webiny-examples/tree/master/elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
+- [Elasticsearch Example Node.js](elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
   
-- [Improved Scaffolding and Development Workflows](https://github.com/webiny/webiny-examples/tree/master/blog/webiny-v5.9.0-improved-scaffolds-and-development/) - contains code samples presented in the [Webiny v5.9.0 - Improved Scaffolding and Development Workflows](https://www.webiny.com/blog/webiny-v5.9.0-improved-scaffolds-and-development) blog post
+- [Improved Scaffolding and Development Workflows](blog/webiny-v5.9.0-improved-scaffolds-and-development/) - contains code samples presented in the [Webiny v5.9.0 - Improved Scaffolding and Development Workflows](https://www.webiny.com/blog/webiny-v5.9.0-improved-scaffolds-and-development) blog post
 
 <!-- OLD (v4) LINKS BELOW --> 
 <!--  
@@ -67,7 +67,7 @@ Use Form Builder in a custom app
 
 How to Create Github Contributors Plugin for Gatsby
 
-- [Gatsby plugin github contributors](https://github.com/webiny/webiny-examples/tree/master/gatsby-plugin-github-contributors) - A simple plugin that will source all contributors to a Github repo.
-- [Gatsby example site](https://github.com/webiny/webiny-examples/tree/master/gatsby-github-plugin-example-site) - A Gatsby example site.
+- [Gatsby plugin github contributors](gatsby-plugin-github-contributors) - A simple plugin that will source all contributors to a Github repo.
+- [Gatsby example site](gatsby-github-plugin-example-site) - A Gatsby example site.
 
 -->
