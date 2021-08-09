@@ -36,8 +36,3 @@ plugins.register([
      */
     mp4Plugin
 ]);
-
-/**
- *
- */
-plugins.byType<WebinyInitPlugin>("webiny-init").forEach(plugin => plugin.init());
