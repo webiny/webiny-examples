@@ -1,10 +1,11 @@
-# Creating Custom Page Element (iframe)
+# Creating a New Page Builder Element (iframe)
 
-Create a new page element that will allow content creators to embed content using an iframe.
+This repository only contains the code snippets used in the [create a new Page Builder element](https://docs.webiny.com/docs/tutorials/page-builder/create-a-new-page-builder-element) tutorial.
+It is NOT meant to be used as a standalone Webiny project.
 
-Make sure to follow up the [Prerequisites section](http://docs.webiny.com/docs/tutorials/page-builder/create-a-new-page-builder-element#prerequisites) in the tutorial.
+If you're looking to create a new Webiny project please follow the [Install Webiny](https://www.webiny.com/docs/tutorials/install-webiny/) tutorial.
 
-Steps to reproduce the project:
+## Contents
 
-1. Install dependencies by running: `yarn install`
-2. Build package by running: `yarn webiny ws run build --folder=packages/iFrameElement`
+The full code sample for the `pb-element-iframe` is located at [apps/extensions/pb-element-iframe](https://github.com/webiny/webiny-examples/tree/master/iframe-page-element/apps/extensions/pb-element-iframe).
+

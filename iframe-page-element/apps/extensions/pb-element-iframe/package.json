@@ -1,0 +1,15 @@
+{
+  "name": "@extensions/pb-element-iframe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/styled": "10.0.27",
+    "@webiny/app-page-builder": "5.12.0",
+    "@webiny/ui": "5.12.0",
+    "@webiny/validation": "5.12.0",
+    "classnames": "^2.2.6",
+    "emotion": "10.0.27",
+    "react": "^16.14.0"
+  }
+}
