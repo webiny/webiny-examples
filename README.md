@@ -14,6 +14,8 @@
 
     - [Security](extend-admin-area-security) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/extend-admin-area/security/introduction) tutorial
 
+- [Iframe Page Element](iframe-page-element) - full code sample for the [Create a New Page Builder Element](https://www.webiny.com/docs/tutorials/page-builder/create-a-new-page-builder-element#what-well-build) tutorial
+
 ### How-to Guides
 
 - [Headless CMS / Define Content Models via Plugins](headless-cms/content-model-plugins) - shows how to define content models and content model groups via plugins
