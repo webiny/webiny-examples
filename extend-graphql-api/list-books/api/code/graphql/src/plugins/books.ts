@@ -1,6 +1,11 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 
-export default new GraphQLSchemaPlugin({
+// Make sure to import the `Context` interface and pass it to the `GraphQLSchemaPlugin`
+// plugin. Apart from making your application code type-safe, it will also make the
+// interaction with the `context` object significantly easier.
+import { Context } from "~/types";
+
+export default new GraphQLSchemaPlugin<Context>({
     // Extend the `Query` type with the `Book` type and `listBooks` query field,
     // which returns a list of all books previously saved in the database.
     typeDefs: /* GraphQL */ `

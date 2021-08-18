@@ -2,6 +2,11 @@ import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { IndexPageDataPlugin } from "@webiny/api-page-builder/plugins/IndexPageDataPlugin";
 import { Page } from "@webiny/api-page-builder/types";
 
+// Make sure to import the `Context` interface and pass it to the `GraphQLSchemaPlugin`
+// plugin. Apart from making your application code type-safe, it will also make the
+// interaction with the `context` object significantly easier.
+import { Context } from "~/types";
+
 interface ExtendedPage extends Page {
     special: boolean;
 }
@@ -11,7 +16,7 @@ export default [
     // 1. Extend the fundamental `PbPage` type.
     // 2. Extend the `PbPageListItem` type which is used when listing pages.
     // 3. In order to update the field, we also need to extend the `PbUpdatePageInput` input.
-    new GraphQLSchemaPlugin({
+    new GraphQLSchemaPlugin<Context>({
         typeDefs: /* GraphQL */ `
             extend type PbPage {
                 special: Boolean

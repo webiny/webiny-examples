@@ -2,8 +2,13 @@ import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { PbContext } from "@webiny/api-page-builder/types";
 import { Response, ErrorResponse, NotFoundResponse } from "@webiny/handler-graphql";
 
+// Make sure to import the `Context` interface and pass it to the `GraphQLSchemaPlugin`
+// plugin. Apart from making your application code type-safe, it will also make the
+// interaction with the `context` object significantly easier.
+import { Context } from "~/types";
+
 export default [
-    new GraphQLSchemaPlugin({
+    new GraphQLSchemaPlugin<Context>({
         // Extend the `PbMutation` type with the `duplicatePage` mutation.
         typeDefs: /* GraphQL */ `
             extend type PbMutation {
