@@ -1,0 +1,15 @@
+// Pin page styles.
+.pin {
+  padding: 25px 125px;
+  .user {
+    display: flex;
+    align-items: center;
+    > * {
+      margin-right: 5px;
+    }
+  }
+  .back-link {
+    text-align: center;
+    padding: 50px;
+  }
+}
