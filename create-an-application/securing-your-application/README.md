@@ -1,7 +1,0 @@
-This folder contains full code samples for the [Securing Your Application](https://www.webiny.com/docs/tutorials/create-an-application/security/introduction/) tutorial.
-
-Note that the code is a bit rudimentary - meaning it could be refactored a bit. For example, throughout the whole code, we're essentially copying authorization logic code. This should probably be abstracted within a simple utility function, or, in case of React code, a simple React hook.
-
-This can be seen in GraphQL API resolvers, for example [`getCarManufacturer.ts`](https://github.com/webiny/webiny-examples/blob/master/extend-admin-area/securing-your-application/code/car-manufacturers/api/src/resolvers/getCarManufacturer.ts#L22-L38) and [`listCarManufacturers.ts`](https://github.com/webiny/webiny-examples/blob/master/extend-admin-area/securing-your-application/code/car-manufacturers/api/src/resolvers/listCarManufacturers.ts#L48-L80). In React code, this can be seen in [`menus.tsx`](https://github.com/webiny/webiny-examples/blob/master/extend-admin-area/securing-your-application/code/car-manufacturers/admin-app/src/menus.tsx#L16-L41) and [`CarManufacturersDataList.tsx`](https://github.com/webiny/webiny-examples/blob/master/extend-admin-area/securing-your-application/code/car-manufacturers/admin-app/src/views/CarManufacturersDataList.tsx#L151-L169). 
-
-If you'd like to see a refactored version here as well, please give us a ping on our community [Slack](https://www.webiny.com/slack).
