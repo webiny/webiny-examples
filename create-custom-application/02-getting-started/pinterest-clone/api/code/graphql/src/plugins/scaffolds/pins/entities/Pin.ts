@@ -20,7 +20,7 @@ export default new Entity<PinEntity>({
         coverImage: { type: "string" },
         createdOn: { type: "string" },
         savedOn: { type: "string" },
-        createdBy: { type: "map" },
+        // createdBy: { type: "map" },
 
         // Will store current version of Webiny, for example "5.9.1".
         // Might be useful in the future or while performing upgrades.
