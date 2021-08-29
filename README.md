@@ -10,6 +10,8 @@
 
 ### Tutorials
 
+- [Create Custom Application](create-custom-application) - full code samples for the [Create Custom Application](https://www.webiny.com/docs/tutorials/create-custom-application/introduction) tutorial
+
 - [Extend Admin Area](extend-admin-area) - full code samples for the [Extend Admin Area](https://www.webiny.com/docs/tutorials/extend-admin-area/introduction) tutorial
 
     - [Security](extend-admin-area-security) - full code samples for the [Extend Admin Area / Security](https://www.webiny.com/docs/tutorials/extend-admin-area/security/introduction) tutorial
