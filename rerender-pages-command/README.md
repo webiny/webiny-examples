@@ -10,12 +10,12 @@ With this example, we show how you can create a simple `rerender-pages` Webiny C
 
 The mutation can be created by simply registering a new `GraphQLSchemaPlugin` plugin.
 
-Check this file [`api/code/graphql/src/plugins/rerenderPage.ts`](./api/code/graphql/src/plugins/rerenderPage.ts:43) to see how it's done. Also, make sure the plugin is imported and registered in [`api/code/graphql/src/index.ts`](./api/code/graphql/src/index.ts) file.
+Check this file [`api/code/graphql/src/plugins/rerenderPage.ts`](./api/code/graphql/src/plugins/rerenderPage.ts) to see how it's done. Also, make sure the plugin is imported and registered in [`api/code/graphql/src/index.ts`](./api/code/graphql/src/index.ts#L72) file.
 
 Further reading: [Extend GraphQL API](https://www.webiny.com/docs/how-to-guides/webiny-applications/page-builder/extend-graphql-api#custom-graphql-mutations).
 
 # Create custom `rerender-pages` Webiny CLI command
 
-Check this file [`scripts/rerenderPages.ts`](./scripts/rerenderPages.ts) to see how it's done. Also, make sure the plugin is imported and registered in the root [`webiny.project.ts`](./webiny.project.ts) file.
+Check this file [`scripts/rerenderPages.ts`](./scripts/rerenderPages.ts) to see how it's done. Also, make sure the plugin is imported and registered in the root [`webiny.project.ts`](./webiny.project.ts#L39) file.
 
 Further reading: [Adding Custom Commands](https://www.webiny.com/docs/tutorials/webiny-cli/adding-custom-commands/).
