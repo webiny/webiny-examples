@@ -24,4 +24,4 @@ Further reading: [Adding Custom Commands](https://www.webiny.com/docs/tutorials/
 
 Once all of the above is in place, in your terminal of choice, from your project root, simply run the `yarn webiny rerender-pages --env {environment}` command.
 
-![./images/usage.png](Command Usage)
+![Example Usage](./images/usage.png)
