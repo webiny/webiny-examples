@@ -33,7 +33,7 @@ export default {
                 for (let i = 0; i < pages.length; i++) {
                     const page = pages[i];
                     const { status } = await fetch(page.url);
-                    if (status !== 100) {
+                    if (status !== 200) {
                         try {
                             await client.request(RERENDER_PAGE, page);
                             context.success(
