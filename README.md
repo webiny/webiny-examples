@@ -26,6 +26,10 @@
 
 - [Page Builder / Extend GraphQL API](page-builder/extend-graphql-api) - shows how to extend Page Builder-related GraphQL types and operations
 
+### Other
+
+- [Creating a Custom `rerender-pages` Webiny CLI Command](rerender-pages-command) - shows how to create a new `rerender-pages` Webiny CLI command that issues a couple of GraphQL operations, one of which is a custom `rerenderPage` mutation
+
 ## Webiny Blog
 
 - [Elasticsearch Example Node.js](elasticsearch-example-nodejs) - simple Node.js script for running Elasticsearch examples (provided with the [Lighting fast search with Elasticsearch](https://www.webiny.com/blog/lighting-fast-search-with-elasticsearch) blog post)
