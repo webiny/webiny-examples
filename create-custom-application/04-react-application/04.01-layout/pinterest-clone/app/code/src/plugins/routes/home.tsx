@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 function Home() {
     return (
         <Layout className={"home"}>
-            This is a cleaned up homepage.
+            {/* This is where we will be rendering the list of pins. */}
         </Layout>
     );
 }
