@@ -8,7 +8,7 @@ With this example, we show how you can create a simple `rerender-pages` Webiny C
 
 # Create the `rerenderPage` Mutation
 
-The mutation can be created by simply registering a new `GraphQLSchemaPlugin` plugin.
+The mutation can be created by simply registering a new [`GraphQLSchemaPlugin`](https://github.com/webiny/webiny-js/blob/v5.14.0/packages/handler-graphql/src/plugins/GraphQLSchemaPlugin.ts#L10) plugin.
 
 Check this file [`api/code/graphql/src/plugins/rerenderPage.ts`](./api/code/graphql/src/plugins/rerenderPage.ts) to see how it's done. Also, make sure the plugin is imported and registered in [`api/code/graphql/src/index.ts`](./api/code/graphql/src/index.ts#L72) file.
 
