@@ -1,5 +1,4 @@
 import React from "react";
-// Can't resolve '../src/images/inner-transparent-bg.svg'
 import transparentBackground from "~/images/inner-transparent-bg.svg";
 import { Link } from "@webiny/react-router";
 
