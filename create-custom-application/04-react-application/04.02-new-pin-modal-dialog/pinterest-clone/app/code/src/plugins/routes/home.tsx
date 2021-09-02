@@ -1,7 +1,7 @@
 import React from "react";
 import { RoutePlugin } from "@webiny/app/plugins/RoutePlugin";
 import { Route } from "@webiny/react-router";
-import Layout from "../../components/Layout";
+import Layout from "~/components/Layout";
 
 // The home page.
 function Home() {
