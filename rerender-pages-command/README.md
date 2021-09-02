@@ -19,3 +19,9 @@ Further reading: [Extend GraphQL API](https://www.webiny.com/docs/how-to-guides/
 Check this file [`scripts/rerenderPages.ts`](./scripts/rerenderPages.ts) to see how it's done. Also, make sure the plugin is imported and registered in the root [`webiny.project.ts`](./webiny.project.ts#L39) file.
 
 Further reading: [Adding Custom Commands](https://www.webiny.com/docs/tutorials/webiny-cli/adding-custom-commands/).
+
+# Usage
+
+Once all of the above is in place, in your terminal of choice, from your project root, simply run the `yarn webiny rerender-pages --env {environment}` command.
+
+![./images/usage.png](Command Usage)
