@@ -1,0 +1,25 @@
+// Styles for the global Layout component (components/Layout.tsx).
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  > div {
+    display: flex;
+    align-content: center;
+    > * {
+      margin: 0 2px;
+    }
+    .logo {
+      height: 40px;
+    }
+  }
+}
+
+main {
+  padding: 25px 50px;
+}
+
+// Utilities.
+.centered {
+  text-align: center;
+}

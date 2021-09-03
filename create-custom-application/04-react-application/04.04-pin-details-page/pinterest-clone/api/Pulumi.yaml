@@ -1,0 +1,4 @@
+name: pinterestClone
+runtime: nodejs
+description: Represents cloud infrastructure needed for hosting the "Pinterest Clone" GraphQL API.
+main: pulumi/

@@ -1,0 +1,14 @@
+// Pin details page styles.
+.pin-details {
+  padding: 25px 125px;
+  .user {
+    display: flex;
+    align-items: center;
+    > * {
+      margin-right: 5px;
+    }
+  }
+  img {
+    border-radius: 20px;
+  }
+}
