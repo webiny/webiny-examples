@@ -17,6 +17,7 @@ export default new Entity<PinEntity>({
         id: { type: "string" },
         title: { type: "string" },
         description: { type: "string" },
+        coverImage: { type: "string" },
         createdOn: { type: "string" },
         savedOn: { type: "string" },
 
