@@ -1,4 +1,0 @@
-name: instagramClone
-runtime: nodejs
-description: Represents cloud infrastructure needed for hosting the "instagram-clone" React application.
-main: pulumi/
