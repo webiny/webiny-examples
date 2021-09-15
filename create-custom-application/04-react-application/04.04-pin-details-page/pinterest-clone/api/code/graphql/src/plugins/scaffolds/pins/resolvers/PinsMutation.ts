@@ -45,16 +45,10 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
      * @param data
      */
     async createPin({ data }: CreatePinParams) {
-        // If our GraphQL API uses Webiny Security Framework, we can retrieve the
-        // currently logged in identity and assign it to the `createdBy` property.
-        // https://www.webiny.com/docs/key-topics/security-framework/introduction
-        // const { security } = this.context;
-
         // We use `mdbid` (https://www.npmjs.com/package/mdbid) library to generate
         // a random, unique, and sequential (sortable) ID for our new entry.
         const id = mdbid();
 
-        // const identity = await security.getIdentity();
         const pin = {
             ...data,
             PK: this.getPK(),
@@ -62,11 +56,6 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
             id,
             createdOn: new Date().toISOString(),
             savedOn: new Date().toISOString(),
-            /* createdBy: identity && {
-                id: identity.id,
-                type: identity.type,
-                displayName: identity.displayName
-            }, */
             webinyVersion: process.env.WEBINY_VERSION
         };
 
