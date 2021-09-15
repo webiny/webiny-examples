@@ -1,11 +1,12 @@
 import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
 import ApiGateway from "./apiGateway";
 import { parse } from "url";
 
 class Cloudfront {
-    cloudfront: aws.cloudfront.Distribution;
+    distribution: aws.cloudfront.Distribution;
     constructor({ apiGateway }: { apiGateway: ApiGateway }) {
-        this.cloudfront = new aws.cloudfront.Distribution("pinterest-clone", {
+        this.distribution = new aws.cloudfront.Distribution("pinterest-clone", {
             waitForDeployment: true,
             defaultCacheBehavior: {
                 compress: true,
@@ -53,6 +54,10 @@ class Cloudfront {
                 cloudfrontDefaultCertificate: true
             }
         });
+    }
+
+    getDistributionUrl(path = "") {
+        return pulumi.interpolate`https://${this.distribution.domainName}${path}`;
     }
 }
 
