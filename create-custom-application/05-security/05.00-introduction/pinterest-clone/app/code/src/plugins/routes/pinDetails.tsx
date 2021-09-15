@@ -16,11 +16,6 @@ const GET_PIN = gql`
                 title
                 description
                 coverImage
-                createdBy {
-                    id
-                    type
-                    displayName
-                }
             }
         }
     }

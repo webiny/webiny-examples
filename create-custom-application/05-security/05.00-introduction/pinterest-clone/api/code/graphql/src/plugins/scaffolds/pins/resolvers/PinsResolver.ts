@@ -12,12 +12,6 @@ export default class PinsResolver {
      * @param base
      */
     getPK(base = "Pin") {
-        // If our GraphQL API uses the Webiny I18N application, we can use
-        // the current locale code as the prefix for our primary keys (PKs).
-        // https://github.com/webiny/webiny-js/tree/v5.12.0/packages/api-i18n
-        // const locale = this.context.i18nContent.getLocale().code;
-        // base = `L#;${locale}#${base}`;
-
         // In integration test environments, we use the `process.env.TEST_RUN_ID` as a suffix.
         // This helps us isolate the created test data and perform assertions in our tests.
         if (process.env.TEST_RUN_ID) {
