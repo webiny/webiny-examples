@@ -1,0 +1,23 @@
+{
+  "name": "pinterest-clone-api",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "yarn webiny run build",
+    "watch": "yarn webiny run watch"
+  },
+  "dependencies": {
+    "@webiny/handler": "^5.15.0-next.0",
+    "@webiny/handler-args": "^5.15.0-next.0",
+    "@webiny/handler-aws": "^5.15.0-next.0",
+    "@webiny/handler-client": "^5.15.0-next.0",
+    "@webiny/handler-graphql": "^5.15.0-next.0",
+    "@webiny/handler-http": "^5.15.0-next.0",
+    "@webiny/handler-logs": "^5.15.0-next.0"
+  },
+  "devDependencies": {
+    "@webiny/cli": "^5.15.0-next.0",
+    "@webiny/cli-plugin-deploy-pulumi": "^5.15.0-next.0",
+    "@webiny/project-utils": "^5.15.0-next.0",
+    "graphql-request": "^3.4.0"
+  }
+}
