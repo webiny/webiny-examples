@@ -9,3 +9,6 @@ build
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+Pulumi.*.yaml
+!Pulumi.yaml
