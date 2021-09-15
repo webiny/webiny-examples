@@ -15,11 +15,11 @@ const API_MAP = {
     REACT_APP_GRAPHQL_API_URL: "${apiUrl}/graphql",
     REACT_APP_USER_POOL_REGION: "${region}",
     REACT_APP_USER_POOL_ID: "${cognitoUserPool.id}",
-    REACT_APP_USER_POOL_DOMAIN: "${cognitoUserPool.domain}",
+    REACT_APP_USER_POOL_DOMAIN: "${cognitoUserPool.domain}"
 };
 
 const APP_MAP = {
-    REACT_APP_USER_POOL_WEB_CLIENT_ID: "${cognitoUserPoolClientId}",
+    REACT_APP_USER_POOL_WEB_CLIENT_ID: "${cognitoUserPool.clientId}"
 };
 
 const NO_ENV_MESSAGE = `Please specify the environment via the "--env" argument, for example: "--env dev".`;
