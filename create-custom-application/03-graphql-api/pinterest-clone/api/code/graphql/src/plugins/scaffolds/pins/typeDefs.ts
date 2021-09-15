@@ -3,28 +3,18 @@ export default /* GraphQL */ `
         id: ID!
         title: String!
         description: String
-        coverImage: String
         createdOn: DateTime!
         savedOn: DateTime!
-        createdBy: PinCreatedBy
-    }
-
-    type PinCreatedBy {
-        id: String!
-        type: String!
-        displayName: String!
     }
 
     input PinCreateInput {
         title: String!
         description: String
-        coverImage: String
     }
 
     input PinUpdateInput {
         title: String
         description: String
-        coverImage: String
     }
 
     type PinsListMeta {
