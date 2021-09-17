@@ -36,8 +36,3 @@ Once created, we've imported and registered the plugin in [`./api/code/graphql/s
 # Sample Data
 
 In order to easier understand how the ElasticSearch query works, we've included some sample data [here](./pagesIndexSample.json). Notice how we have both `latest: true` and `published: true` entries for each page. So, when performing searches, you'll need to also append the proper filter (shown in the example code).
-
-# Want to inspect your own ElasticSearch cluster and the data in it?
-
-To explore your up and running ElasticSearch cluster, we recommend the [aws-es-kibana](https://www.npmjs.com/package/aws-es-kibana) library.
-
