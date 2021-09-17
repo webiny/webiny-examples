@@ -1,6 +1,6 @@
 # Introduction
 
-With this example, we show how you can perform custom searches on pages, using the automatically included [ElasticSearch client](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html).
+With this example, we show how you can perform custom searches on pages created with the [Page Builder](https://www.webiny.com/docs/webiny-overview/serverless-cms/apps/page-builder) application, using the automatically included [ElasticSearch client](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html).
 
 > TIP: When it comes to performing advanced text and filtering queries, by default, every Webiny CMS project relies on [Elasticsearch](https://www.elastic.co/elasticsearch/).
 
