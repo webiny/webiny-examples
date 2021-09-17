@@ -1,10 +1,10 @@
 # Introduction
 
-With this example, we show how you can perform custom searches on pages, using ElasticSearch which is included in the default Webiny setup.
+With this example, we show how you can perform custom searches on pages, using the automatically included [ElasticSearch client](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html).
 
-> TIP: When it comes to performing advanced text and filtering queries, by default, every Webiny CMS project relies on Elasticsearch.
+> TIP: When it comes to performing advanced text and filtering queries, by default, every Webiny CMS project relies on [Elasticsearch](https://www.elastic.co/elasticsearch/).
 
-So, once you implement this example, via your [API Playground](https://www.webiny.com/docs/how-to-guides/webiny-applications/admin-area/api-playground/), you should be able to perform queries like:
+Once you implement this example, via your [API Playground](https://www.webiny.com/docs/how-to-guides/webiny-applications/admin-area/api-playground/), you should be able to perform a text search like:
 
 ```graphql
 {
