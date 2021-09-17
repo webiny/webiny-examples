@@ -29,9 +29,9 @@ Once you implement this example, via your [API Playground](https://www.webiny.co
 
 # Implementation
 
-In order to implement this, we've simply created a new [`GraphQLSchemaPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/handler-graphql/src/plugins/GraphQLSchemaPlugin.ts#L10), in [`./api/code/graphql/src/plugins/pagesCustomSearch.ts`](./api/code/graphql/src/plugins/pagesCustomSearch.ts:39).
+In order to implement this, we've simply created a new [`GraphQLSchemaPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/handler-graphql/src/plugins/GraphQLSchemaPlugin.ts#L10), in [`./api/code/graphql/src/plugins/pagesCustomSearch.ts`](./api/code/graphql/src/plugins/pagesCustomSearch.ts#L21).
 
-Once created, we've imported and registered the plugin in [`./api/code/graphql/src/index.ts`](./api/code/graphql/src/index.ts:27)
+Once created, we've imported and registered the plugin in [`./api/code/graphql/src/index.ts`](./api/code/graphql/src/index.ts#L73)
 
 # Sample Data
 
