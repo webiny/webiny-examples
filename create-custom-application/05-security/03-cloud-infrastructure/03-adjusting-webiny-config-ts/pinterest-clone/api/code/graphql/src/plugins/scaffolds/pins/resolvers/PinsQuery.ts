@@ -34,7 +34,7 @@ interface PinsQuery {
  * To define our GraphQL resolvers, we are using the "class method resolvers" approach.
  * https://www.graphql-tools.com/docs/resolvers#class-method-resolvers
  */
-export default class PinsQueryResolver extends PinsResolver implements PinsQuery {
+export default class PinsQuery extends PinsResolver implements PinsQuery {
     /**
      * Returns a single Pin entry from the database.
      * @param id
