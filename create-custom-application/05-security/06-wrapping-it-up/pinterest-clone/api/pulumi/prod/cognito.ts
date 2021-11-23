@@ -1,5 +1,6 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
+import * as crypto from "crypto";
 
 const BASE_ATTRIBUTE_NAMES = ["email", "given_name", "family_name"];
 
@@ -43,7 +44,10 @@ class Cognito {
         // https://www.pulumi.com/docs/reference/pkg/aws/cognito/userpooldomain/
         // https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.html
         this.userPoolDomain = new aws.cognito.UserPoolDomain("pinterest-clone", {
-            domain: `pinterest-clone-${process.env.WEBINY_ENV}`,
+            domain: this.userPool.id.apply((id: string) => {
+                // Create a unique MD5 hash of the User Pool ID and use that for the domain name.
+                return crypto.createHash("md5").update(id).digest("hex");
+            }),
             userPoolId: this.userPool.id
         });
     }

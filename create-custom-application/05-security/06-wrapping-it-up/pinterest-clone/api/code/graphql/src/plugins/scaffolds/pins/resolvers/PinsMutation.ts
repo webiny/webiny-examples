@@ -39,15 +39,15 @@ interface PinsMutation {
  * To define our GraphQL resolvers, we are using the "class method resolvers" approach.
  * https://www.graphql-tools.com/docs/resolvers#class-method-resolvers
  */
-export default class PinsMutationResolver extends PinsResolver implements PinsMutation {
+export default class PinsMutation extends PinsResolver implements PinsMutation {
     /**
      * Creates and returns a new Pin entry.
      * @param data
      */
     async createPin({ data }: CreatePinParams) {
         // Before doing anything, let's make sure the user is signed in.
-        const { security } = this.context;
-        const identity = await security.getIdentity();
+        const { authentication } = this.context;
+        const identity = await authentication.getIdentity();
         if (!identity) {
             throw new Error("Not authenticated.");
         }
@@ -84,8 +84,8 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
      */
     async updatePin({ id, data }: UpdatePinParams) {
         // Before doing anything, let's make sure the user is signed in.
-        const { security } = this.context;
-        const identity = await security.getIdentity();
+        const { authentication } = this.context;
+        const identity = await authentication.getIdentity();
         if (!identity) {
             throw new Error("Not authenticated.");
         }
@@ -97,7 +97,7 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
         }
 
         if (pin.createdBy.id !== identity.id) {
-            throw new Error("Not authenticated.");
+            throw new Error("Not authorized.");
         }
 
         const updatedPin = { ...pin, ...data };
@@ -114,8 +114,8 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
      */
     async deletePin({ id }: DeletePinParams) {
         // Before doing anything, let's make sure the user is signed in.
-        const { security } = this.context;
-        const identity = await security.getIdentity();
+        const { authentication } = this.context;
+        const identity = await authentication.getIdentity();
         if (!identity) {
             throw new Error("Not authenticated.");
         }
@@ -126,9 +126,8 @@ export default class PinsMutationResolver extends PinsResolver implements PinsMu
             throw new Error(`Pin "${id}" not found.`);
         }
 
-
         if (pin.createdBy.id !== identity.id) {
-            throw new Error("Not authenticated.");
+            throw new Error("Not authorized.");
         }
 
         // Will throw an error if something goes wrong.

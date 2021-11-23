@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "@webiny/api-security";
+import { Identity } from "@webiny/api-authentication/types";
 
 export interface PinEntity {
     PK: string;
@@ -11,7 +11,7 @@ export interface PinEntity {
     savedOn: string;
 
     // For the `PinEntity` type, let's be specific and specify which fields are accepted.
-    createdBy: Pick<SecurityIdentity, "id" | "type" | "displayName">;
+    createdBy: Pick<Identity, "id" | "type" | "displayName">;
 
     webinyVersion: string;
 }
