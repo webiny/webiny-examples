@@ -2,7 +2,7 @@ import { HandlerContext } from "@webiny/handler/types";
 import { HttpContext } from "@webiny/handler-http/types";
 import { ArgsContext } from "@webiny/handler-args/types";
 import { ClientContext } from "@webiny/handler-client/types";
-import { SecurityContext } from "@webiny/api-security/types";
+import { AuthenticationContext } from "@webiny/api-authentication/types";
 
 // When working with the `context` object (for example while defining a new GraphQL resolver function),
 // you can import this interface and assign it to it. This will give you full autocomplete functionality
@@ -15,4 +15,4 @@ export interface Context
         HttpContext,
         ArgsContext,
         ClientContext,
-        SecurityContext {}
+        AuthenticationContext {}

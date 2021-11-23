@@ -21,8 +21,6 @@ export default () => {
         env: {
             // The single DynamoDB table in which data can be stored and queried.
             DB_TABLE: dynamoDb.table.name,
-            COGNITO_REGION: String(process.env.AWS_REGION),
-            COGNITO_USER_POOL_ID: cognito.userPool.id,
             DEBUG,
             WEBINY_LOGS_FORWARD_URL
         }

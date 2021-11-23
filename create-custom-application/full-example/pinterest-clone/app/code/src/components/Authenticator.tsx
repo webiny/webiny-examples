@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Auth from "@aws-amplify/auth";
-import { useSecurity, SecurityIdentity } from "@webiny/app-security";
+import { useSecurity } from "@webiny/app-security";
 
 // Apart from the React component, we also configure the Auth class here.
 Auth.configure({
@@ -11,30 +11,29 @@ Auth.configure({
         domain: process.env.REACT_APP_USER_POOL_DOMAIN,
         redirectSignIn: `${location.origin}?signIn`,
         redirectSignOut: `${location.origin}?signOut`,
-        responseType: "token",
-    },
+        responseType: "token"
+    }
 });
 
 // The `Authenticator` component.
-const Authenticator: React.FC = (props) => {
+const Authenticator: React.FC = props => {
     const { setIdentity } = useSecurity();
 
     useEffect(() => {
-        // Get the currently signed-in user.
+        // Get the currently signed in user.
         Auth.currentSession()
-            .then((response) => {
+            .then(response => {
                 const user = response.getIdToken().payload;
-                setIdentity(
-                    new SecurityIdentity({
-                        login: user.email,
-                        firstName: user.given_name,
-                        lastName: user.family_name,
-                        logout: () => {
-                            Auth.signOut();
-                            setIdentity(null);
-                        },
-                    })
-                );
+                setIdentity({
+                    id: user.email,
+                    type: "user",
+                    displayName: user.given_name + " " + user.family_name,
+                    permissions: [],
+                    logout: () => {
+                        Auth.signOut();
+                        setIdentity(null);
+                    }
+                });
             })
             .catch(() => {
                 /* Do nothing. */

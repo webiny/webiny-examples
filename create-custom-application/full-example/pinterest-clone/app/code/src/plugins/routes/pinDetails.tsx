@@ -16,6 +16,9 @@ const GET_PIN = gql`
                 title
                 description
                 coverImage
+                createdBy {
+                    displayName
+                }
             }
         }
     }
@@ -45,6 +48,10 @@ const PinDetails: React.FC<Props> = props => {
                     <Col span={12}>
                         <h1>{data.title}</h1>
                         <p>{data.description}</p>
+                        <Divider />
+                        <p>
+                            Created by: <b>{data.createdBy?.displayName || "Unknown"}</b>
+                        </p>
                     </Col>
                 </Row>
             ) : (

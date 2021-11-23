@@ -1,8 +1,9 @@
 {
 	"extends": "../../../../tsconfig.json",
 	"include": [
-		"./src"
-	],
+      "./src",
+      "../../../../node_modules/eslint-plugin-react/lib/types.d.ts"
+    ],
 	"compilerOptions": {
 		"paths": {
 			"~/*": [
