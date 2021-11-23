@@ -3,7 +3,7 @@ export default /* GraphQL */ `
         id: ID!
         title: String!
         description: String
-        coverImage: String 
+        coverImage: String
         createdOn: DateTime!
         savedOn: DateTime!
     }
@@ -37,7 +37,10 @@ export default /* GraphQL */ `
     }
 
     type PinQuery {
+        # Returns a single Pin entry.
         getPin(id: ID!): Pin
+
+        # Lists one or more Pin entries.
         listPins(limit: Int, before: String, after: String, sort: PinsListSort): PinsList!
     }
 

@@ -39,7 +39,7 @@ interface PinsMutation {
  * To define our GraphQL resolvers, we are using the "class method resolvers" approach.
  * https://www.graphql-tools.com/docs/resolvers#class-method-resolvers
  */
-export default class PinsMutationResolver extends PinsResolver implements PinsMutation {
+export default class PinsMutation extends PinsResolver implements PinsMutation {
     /**
      * Creates and returns a new Pin entry.
      * @param data
