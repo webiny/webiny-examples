@@ -15,7 +15,7 @@ const Layout: React.FC<{ className: string }> = (props) => {
     const [visible, setVisible] = useState(false);
     const { identity } = useSecurity();
     const signIn = useCallback(() => Auth.federatedSignIn(), []);
-    const signOut = useCallback(() => identity.logout, [identity]);
+    const signOut = useCallback(() => identity.logout(), [identity]);
 
     return (
         <div className="layout">
@@ -46,7 +46,7 @@ const Layout: React.FC<{ className: string }> = (props) => {
                                 }
                             >
                                 <Avatar size={"large"} style={{ cursor: "pointer" }}>
-                                    {identity.firstName.charAt(0)}
+                                    {identity.displayName.charAt(0)}
                                 </Avatar>
                             </Dropdown>
                         </>

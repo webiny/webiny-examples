@@ -12,7 +12,7 @@ class Cognito {
 
         // Allowed callback and logout URLs. We need localhost for development purposes,
         // and the Cloudfront distribution for the deployed application.
-        const local = `http://localhost:3001`;
+        const local = `http://localhost:3002`;
         const callbackUrls = [`${local}?signIn`, cloudfront.getDistributionUrl("?signIn")];
         const logoutUrls = [`${local}?signOut`, cloudfront.getDistributionUrl("?signOut")];
 
