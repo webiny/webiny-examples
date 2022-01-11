@@ -1,9 +1,9 @@
-import { ContentModelPlugin } from "@webiny/api-headless-cms/content/plugins/ContentModelPlugin";
-import { ContentModelGroupPlugin } from "@webiny/api-headless-cms/content/plugins/ContentModelGroupPlugin";
+import { CmsModelPlugin } from "@webiny/api-headless-cms/content/plugins/CmsModelPlugin";
+import { ContentGroupPlugin } from "@webiny/api-headless-cms/content/plugins/ContentGroupPlugin";
 
 export default [
     // Defines a new "E-Commerce" content models group.
-    new ContentModelGroupPlugin({
+    new ContentGroupPlugin({
         id: "ecommerce",
         name: "E-Commerce",
         slug: "e-commerce",
@@ -11,7 +11,7 @@ export default [
     }),
 
     // Defines a new "Product" content model.
-    new ContentModelPlugin({
+    new CmsModelPlugin({
         name: "Product",
         modelId: "product",
         group: {

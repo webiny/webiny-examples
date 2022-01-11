@@ -1,5 +1,5 @@
-import { ContentModelPlugin } from "@webiny/api-headless-cms/content/plugins/ContentModelPlugin";
-import { ContentModelGroupPlugin } from "@webiny/api-headless-cms/content/plugins/ContentModelGroupPlugin";
+import { CmsModelPlugin } from "@webiny/api-headless-cms/content/plugins/CmsModelPlugin";
+import { ContentGroupPlugin } from "@webiny/api-headless-cms/content/plugins/ContentGroupPlugin";
 import { ContextPlugin } from "@webiny/handler/plugins/ContextPlugin";
 import { CmsContext } from "@webiny/api-headless-cms/types";
 
@@ -12,7 +12,7 @@ export default [
 
         context.plugins.register([
             // Defines a new "E-Commerce" content models group (only for "en-US" locale).
-            new ContentModelGroupPlugin({
+            new ContentGroupPlugin({
                 id: "ecommerce",
                 name: "E-Commerce",
                 slug: "e-commerce",
@@ -20,7 +20,7 @@ export default [
             }),
 
             // Defines a new "Product" content model (only for "en-US" locale).
-            new ContentModelPlugin({
+            new CmsModelPlugin({
                 name: "Product",
                 modelId: "product",
                 group: {
