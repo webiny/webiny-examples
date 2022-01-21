@@ -1,17 +1,19 @@
-import { CmsModelFieldToStoragePlugin } from "@webiny/api-headless-cms/types";
+import { StorageTransformPlugin } from "@webiny/api-headless-cms/content/plugins/storage/StorageTransformPlugin";
 import cryptr from "cryptr";
 
-export default (): CmsModelFieldToStoragePlugin<String> => ({
-  type: "cms-model-field-to-storage",
-  name: "cms-model-field-to-storage-address",
+const plugin = new StorageTransformPlugin({
   fieldType: "secret-text",
-  async toStorage({ value }) {
+  toStorage: async ({ value, field }) => {
     const encryptText = new cryptr("myTotallySecretKey").encrypt(value);
     return {
       value: encryptText
     };
   },
-  async fromStorage({ value }) {
+  fromStorage: async ({ value, field }) => {
     return new cryptr('myTotallySecretKey').decrypt(value.value)
   }
 });
+
+export default () => {
+  return plugin;
+};

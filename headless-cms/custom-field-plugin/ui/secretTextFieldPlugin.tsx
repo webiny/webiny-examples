@@ -3,7 +3,7 @@ import { CmsEditorFieldTypePlugin } from "@webiny/app-headless-cms/types";
 
 const TextIcon: React.FunctionComponent = () => <i>icon</i>;
 
-export default (): CmsEditorFieldTypePlugin => ({
+const plugin: CmsEditorFieldTypePlugin = {
   type: "cms-editor-field-type",
   name: "cms-editor-field-type-secret-text",
   field: {
@@ -24,4 +24,6 @@ export default (): CmsEditorFieldTypePlugin => ({
       };
     }
   }
-});
+};
+
+export default plugin;
