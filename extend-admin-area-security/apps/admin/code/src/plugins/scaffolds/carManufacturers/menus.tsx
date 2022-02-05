@@ -14,7 +14,7 @@ import { CarManufacturersPermission } from "./types";
 
 // We need a component which will perform security checks, and conditionally render menu items.
 const CarManufacturersMenu = ({ Menu, Item }) => {
-  const { get } = useSecurity();
+  const { identity } = useSecurity();
 
   // We get the "car-manufacturers" permission from current identity (logged-in user).
   const permission = identity.getPermission<CarManufacturersPermission | FullAccessPermission>(
