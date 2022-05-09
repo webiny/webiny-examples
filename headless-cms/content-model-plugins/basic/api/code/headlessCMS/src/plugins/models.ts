@@ -53,11 +53,11 @@ export default [
           fieldId: "productCategory",
           type: "ref",
           label: "Category",
-          renderer: { "name": "ref-input" },
-          "settings": {
-           "models": [
+          renderer: { name: "ref-input" },
+          settings: {
+           models: [
             {
-             "modelId": "category"
+             modelId: "category"
             }
            ]
           }
