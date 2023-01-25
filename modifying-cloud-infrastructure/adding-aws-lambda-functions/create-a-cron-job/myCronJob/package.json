@@ -1,0 +1,8 @@
+{
+  "name": "api-my-cron-job",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "yarn webiny run build",
+    "watch": "yarn webiny run watch"
+  }
+}
