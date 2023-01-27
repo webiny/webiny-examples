@@ -31,6 +31,8 @@ import pinterest from "@webiny/app-page-builder/render/plugins/elements/embeds/p
 import iframe from "@webiny/app-page-builder/render/plugins/elements/iframe";
 import pagesList from "@webiny/app-page-builder/render/plugins/elements/pagesList";
 import imagesList from "@webiny/app-page-builder/render/plugins/elements/imagesList";
+import spaceX from "theme/pageElements/spaceX/website";
+
 
 /**
  * Page settings plugins (seo, social, etc.).
@@ -53,13 +55,10 @@ import margin from "@webiny/app-page-builder/render/plugins/elementSettings/marg
 import textSetting from "@webiny/app-page-builder/render/plugins/elementSettings/text";
 import property from "@webiny/app-page-builder/render/plugins/elementSettings/property";
 
-import
 /**
  * Responsive display mode plugins.
  */
 import responsiveMode from "@webiny/app-page-builder/render/plugins/responsiveMode";
-
-import spaceX from "theme/pageElements/spaceX/website";
 
 export default [
     linkPreload(),
