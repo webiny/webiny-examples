@@ -1,11 +1,11 @@
 # Cards Page Element Example
 
-This examples shows how to create a simple Cards page element.
+This examples shows how to create a custom **Cards** page element.
 
 ![Cards Page Element](./screenshot.png)
 
-The element allows the user to pick any number of cards to be rendered in the actual page element.
+In short, the element allows the user to pick any number of cards to be rendered in the dropped page element.
 
-Every element consists of two fields: title and image (picked via Webiny's File Manager app). Of course, fields can be adjusted if need be.
+Every card item consists of two fields: title and image. Of course, fields can be adjusted if need be. Finally, the image field brings Webiny's File Manager app, so that the user can choose an image from an existing library of images.
 
 All files are located in the [`/apps/theme/pageElements/cards`](https://github.com/webiny/webiny-examples/tree/master/page-builder/cards-page-element/apps/theme/pageElements/cards) folder.
