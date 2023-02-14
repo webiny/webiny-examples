@@ -35,6 +35,8 @@ export const CardsSettings: React.VFC<Props> = ({ Bind, submit }) => {
     return (
         <Styles>
             <Bind name={"variables.cards"}>
+                {/* We use the `DynamicFieldset` component which helps us with
+                rendering a dynamic list of field sets (one card = one field set). */}
                 <DynamicFieldset>
                     {({ actions, row }) => (
                         <>
