@@ -20,7 +20,7 @@ const CardsList = styled.ul`
     padding: 10px;
     box-sizing: border-box;
     display: block;
-    flex-basis: 33.333333%;
+    flex-basis: 33.333333%; // Ensures three items in a row.
 
     img {
       width: 100%;
