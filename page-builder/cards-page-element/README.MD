@@ -2,7 +2,7 @@
 
 This examples shows how to create a custom **Cards** page element.
 
-![Cards Page Element](./element-screenshot.png)
+![Cards Page Element](./screenshot-element.png)
 
 In short, the element allows the user to pick any number of cards to be rendered within the dropped page element.
 
