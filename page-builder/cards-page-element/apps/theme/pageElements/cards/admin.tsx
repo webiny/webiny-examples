@@ -16,7 +16,7 @@ const INITIAL_ELEMENT_DATA: CardsElementData = {
 export default [
     // The `PbEditorPageElementPlugin` plugin.
     {
-        name: "pb-editor-page-element-space-x",
+        name: "pb-editor-page-element-cards",
         type: "pb-editor-page-element",
         elementType: "cards",
         render: Cards,
@@ -28,7 +28,7 @@ export default [
             preview() {
                 // We can return any JSX / React code here. To keep it
                 // simple, we are simply returning the element's name.
-                return <>Space X Page Element</>;
+                return <>Cards Page Element</>;
             }
         },
 
@@ -61,7 +61,7 @@ export default [
 
     // The `PbEditorPageElementAdvancedSettingsPlugin` plugin.
     {
-        name: "pb-editor-page-element-advanced-settings-space-x",
+        name: "pb-editor-page-element-advanced-settings-cards",
         type: "pb-editor-page-element-advanced-settings",
         elementType: "cards",
         render(props) {
