@@ -1,0 +1,114 @@
+.rte-block-delimiter {
+  line-height: 1.6em;
+  width: 100%;
+  text-align: center;
+  &:before {
+    display: inline-block;
+    content: "***";
+    font-size: 30px;
+    line-height: 65px;
+    height: 30px;
+    letter-spacing: 0.2em;
+  }
+}
+
+p.rte-block-paragraph {
+  margin: 0px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #0a0a0a;
+  font-weight: 400;
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16.5px;
+  text-align: left;
+  padding: 0px;
+}
+
+.rte-block-image {
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+}
+
+.rte-block-heading {
+  font-family: inherit;
+  box-sizing: border-box;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+  color: rgba(17, 24, 39, 1);
+}
+
+h1.rte-block-heading--h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 48px;
+}
+
+h2.rte-block-heading--h2 {
+  font-size: 36px;
+}
+
+h3.rte-block-heading--h3 {
+  font-size: 30px;
+}
+
+h4.rte-block-heading--h4 {
+  font-size: 24px;
+}
+
+h5.rte-block-heading--h5 {
+  font-size: 20px;
+}
+
+h6.rte-block-heading--h6 {
+  font-size: 18px;
+  line-height: 1.75rem;
+}
+
+.rte-block-blockquote {
+  font-size: 1.125rem;
+  line-height: 1.7777778;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-style: italic;
+  color: #1a202c;
+  border-left: 0.25rem solid #e2e8f0;
+  margin: 1.6666667em 0;
+  padding-left: 1em;
+
+  & p {
+    font-size: 1.125rem;
+    line-height: 1.7777778;
+    font-weight: 500;
+    font-style: italic;
+    color: #1a202c;
+    quotes: "“" "”" "‘" "’";
+    box-sizing: border-box;
+    margin: 1.3333333em 0;
+
+    &::before {
+      content: open-quote;
+      font-size: 1.5rem;
+    }
+    &::after {
+      content: close-quote;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.rte-block-list {
+  list-style: inherit;
+  line-height: 1.15;
+  box-sizing: inherit;
+  padding: 0 0 0 1rem;
+  font-size: 0.875rem;
+  color: rgba(17, 24, 39, 1);
+  margin: 1.5rem 0 0;
+  & li {
+    line-height: 1.15;
+    font-size: 0.875rem;
+    color: rgba(17, 24, 39, 1);
+    box-sizing: inherit;
+    border: 0 solid currentColor;
+    margin-bottom: 0.75rem;
+  }
+}
