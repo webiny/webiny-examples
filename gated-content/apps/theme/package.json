@@ -1,0 +1,26 @@
+{
+	"name": "theme",
+	"version": "0.1.0",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"@apollo/react-hooks": "^3.1.5",
+		"@emotion/core": "^10.0.17",
+		"@emotion/styled": "^10.0.17",
+		"@webiny/app-form-builder": "unstable",
+		"@webiny/app-page-builder": "unstable",
+		"@webiny/app-page-builder-elements": "unstable",
+		"@webiny/app-theme": "unstable",
+		"@webiny/app-website": "unstable",
+		"@webiny/form": "unstable",
+		"@webiny/react-rich-text-renderer": "unstable",
+		"@webiny/react-router": "unstable",
+		"@webiny/validation": "unstable",
+		"graphql": "^15.7.2",
+		"react": "17.0.2",
+		"react-hamburger-menu": "^1.1.1"
+	},
+	"devDependencies": {
+		"@types/react-hamburger-menu": "^0.0.4"
+	}
+}

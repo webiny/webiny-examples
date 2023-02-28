@@ -1,0 +1,49 @@
+{
+	"name": "website",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@emotion/core": "^10.0.17",
+		"@types/react": "17.0.39",
+		"@webiny/app": "unstable",
+		"@webiny/app-form-builder": "unstable",
+		"@webiny/app-page-builder": "unstable",
+		"@webiny/app-website": "unstable",
+		"@webiny/cli": "unstable",
+		"@webiny/plugins": "unstable",
+		"@webiny/project-utils": "unstable",
+		"@webiny/react-router": "unstable",
+		"@webiny/serverless-cms-aws": "unstable",
+		"apollo-client": "^2.6.10",
+		"apollo-link": "^1.2.14",
+		"core-js": "^3.0.1",
+		"cross-fetch": "^3.0.4",
+		"graphql": "^15.7.2",
+		"graphql-tag": "^2.12.6",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"regenerator-runtime": "^0.13.5",
+		"theme": "^0.1.0"
+	},
+	"devDependencies": {
+		"@types/react-helmet": "^6.1.0",
+		"cross-env": "^5.0.2"
+	},
+	"scripts": {
+		"analyze": "source-map-explorer build/static/js/main.*",
+		"watch": "cross-env PORT=3000 yarn webiny run watch",
+		"build": "yarn webiny run build"
+	},
+	"browserslist": {
+		"development": [
+			"last 2 chrome versions",
+			"last 2 firefox versions",
+			"last 2 edge versions"
+		],
+		"production": [
+			">0.25%",
+			"not op_mini all",
+			"ie 11"
+		]
+	}
+}
