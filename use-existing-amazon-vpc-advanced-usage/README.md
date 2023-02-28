@@ -13,26 +13,26 @@ The main issue is the fact that we're essentially copy and pasting the same VPC-
 
 This means that, once a need for a change arises, we'll need to apply the change four times, once for each configuration file.
 
-Also, the provided samples did not show how to use different configuration, depending on the environment into which the project is being deployed.
+Also, the provided samples did not demonstrate how we can apply different existing VPC-related configuration, depending on the environment into which the project is being deployed.
 
 ## Solution
 
-In this example, we're creating a new `apps/pulumi` folder, and in its `index.ts` file, we're exporting the `getVpcConfiguration` function, which, depending on the received environment, can return different configuration values.
+In this example, we're creating a new [`apps/pulumi`](./apps/pulumi) folder, and in its [`index.ts`](./apps/pulumi/index.ts) file, we're exporting the [`getVpcConfiguration`](./apps/pulumi/index.ts#L4) function, which, depending on the received environment, can return different existing VPC configuration values.
 
 ```ts
-apps/pulumi/index.ts
+// apps/pulumi/index.ts
 import { CorePulumiAppAdvancedVpcParams } from "@webiny/pulumi-aws/enterprise";
 
 // Returns VPC configuration depending on the provided environment name.
 export const getVpcConfiguration = (env: string): CorePulumiAppAdvancedVpcParams | undefined => {
     if (env === "preprod") {
         const subnetIds = [
-            "subnet-0f9e239881bc5a368",
-            "subnet-0e4b6a4fad1ca19e5",
-            "subnet-086ef94af1dac53af"
+            "subnet-A",
+            "subnet-B",
+            "subnet-C"
         ];
 
-        const securityGroupIds = ["sg-0ede3bd7017b51e33"];
+        const securityGroupIds = ["sg-A"];
         return {
             useExistingVpc: {
                 elasticSearchDomainVpcConfig: { subnetIds, securityGroupIds },
@@ -43,12 +43,12 @@ export const getVpcConfiguration = (env: string): CorePulumiAppAdvancedVpcParams
 
     if (env === "prod") {
         const subnetIds = [
-            "subnet-0b35e60dc4e094622",
-            "subnet-0ab15242744ebf75a",
-            "subnet-00d12d0f47d1888fa"
+            "subnet-X",
+            "subnet-Y",
+            "subnet-Z"
         ];
 
-        const securityGroupIds = ["sg-06e2c86cdcfabfa78"];
+        const securityGroupIds = ["sg-X"];
         return {
             useExistingVpc: {
                 elasticSearchDomainVpcConfig: { subnetIds, securityGroupIds },
