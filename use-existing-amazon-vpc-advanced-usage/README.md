@@ -25,7 +25,7 @@ import { CorePulumiAppAdvancedVpcParams } from "@webiny/pulumi-aws/enterprise";
 
 // Returns VPC configuration depending on the provided environment name.
 export const getVpcConfiguration = (env: string): CorePulumiAppAdvancedVpcParams | undefined => {
-    if (env === "preprod") {
+    if (env === "staging") {
         const subnetIds = [
             "subnet-A",
             "subnet-B",
@@ -62,11 +62,13 @@ export const getVpcConfiguration = (env: string): CorePulumiAppAdvancedVpcParams
 ```
 
 > **NOTE**
-> Note that the `apps/pulumi` is a new yarn workspace. As such, it needs to be declared in project root's `package.json` file, within the `workspaces` array. Once declared, in order for `yarn` to actually initialize the workspace, you'll also need to run `yarn` from your project root.
+>
+> Note that the [`apps/pulumi`](./apps/pulumi) folder is a new [yarn workspace](https://yarnpkg.com/features/workspaces#gatsby-focus-wrapper). As such, it needs to be declared in project root's `package.json` file, within the `workspaces` object. Once declared, in order for `yarn` to actually initialize the workspace, you'll also need to run `yarn` from your project root.
 
 With this function in place, we can easily use it across all four `webiny.project.ts` files, for example:
 
-```
+```ts
+// apps/core/webiny.application.ts
 import { createCoreApp } from "@webiny/serverless-cms-aws/enterprise";
 import { getVpcConfiguration } from "pulumi";
 
@@ -82,4 +84,4 @@ export default createCoreApp({
 
 ```
 
-Ultimately, with this approach, we no longer have to paste configuration values across four `webiny.application.ts` files. Once we apply a change in the shown `getVpcConfiguration`, the change will automatically be propagated.
+Ultimately, with this approach, we no longer have to paste configuration values across four `webiny.application.ts` files. Once we apply a change in the shown [`getVpcConfiguration`](./apps/pulumi/index.ts#L4) function, the change will automatically be propagated wherever the function was used.
