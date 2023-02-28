@@ -15,7 +15,7 @@ This means that, once a need for a change arises, we'll need to apply the change
 
 Also, the provided samples did not show how to use different configuration, depending on the environment into which the project is being deployed.
 
-## Overview
+## Solution
 
 In this example, we're creating a new `apps/pulumi` folder, and in its `index.ts` file, we're exporting the `getVpcConfiguration` function, which, depending on the received environment, can return different configuration values.
 
@@ -60,6 +60,9 @@ export const getVpcConfiguration = (env: string): CorePulumiAppAdvancedVpcParams
     return undefined;
 };
 ```
+
+> **NOTE**
+> Note that the `apps/pulumi` is a new yarn workspace. As such, it needs to be declared in project root's `package.json` file, within the `workspaces` array. Once declared, in order for `yarn` to actually initialize the workspace, you'll also need to run `yarn` from your project root.
 
 With this function in place, we can easily use it across all four `webiny.project.ts` files, for example:
 
