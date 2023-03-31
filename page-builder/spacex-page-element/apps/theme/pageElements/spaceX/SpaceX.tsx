@@ -57,7 +57,7 @@ export const SpaceX = createRenderer(() => {
 
   // This is where we fetch the data and store it into component's state.
   useEffect(() => {
-    request(GQL_API_URL, QUERIES[type], {
+    request<{ data: Spacecraft[] }>(GQL_API_URL, QUERIES[type], {
       limit: parseInt(limit),
       offset: parseInt(offset)
     }).then(({ data }) => setData(data));
