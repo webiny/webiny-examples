@@ -18,7 +18,7 @@ One other thing to notice in the above page settings screenshot is that, instead
 
 This is a new page layout ([`apps/theme/layouts/pages/Blank.tsx`](./apps/theme/layouts/pages/Blank.tsx)) that we've introduced as part of this example. Essentially, it's a layout that doesn't render any surrounding HTML. This is needed because, once we get to rendering page content in a modal, we don't want any extra HTML in it, apart from the actual page content. We've created this layout in the [`apps/theme/layouts/pages`](./apps/theme/layouts/pages) folder and then registered it in the [`apps/theme/index.ts`](./apps/theme/index.ts) entrypoint file.  
 
-With these initial steps in place, we proceeded by creating the Modals React component, which does the following:
+With these initial steps in place, we proceeded by creating the [`Modals`](./apps/theme/layouts/pages/components/Modals.tsx) React component, which does the following:
 
 1. Via Page Builder's GraphQL API, retrieves the page and its content. For this example, we've hardcoded the `/modals/modal-1` path of the page that is being fetched, but, naturally, this logic can be designed in a more robust fashion.
 2. Renders the modal content (retrieved page) via the `Page` React component, imported from the core [`@webiny/app-page-builder-elements`](https://github.com/webiny/webiny-js/tree/dev/packages/app-page-builder-elements) package.
