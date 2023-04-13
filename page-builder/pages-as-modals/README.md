@@ -6,6 +6,8 @@ For example, in the following screenshot, on the left, we can see a page with a 
 
 ![Pages as Modal Content Example](./screenshot.png)
 
+For this example, the modal will always be shown, with the same page content in it. Naturally, in a real world scenario, this can be implemented in a more robust fashion.
+
 In order to accomplish this, we've performed the following steps.
 
 For starters, as seen in the above screenshot, we've designed a rather simple page in Page Builder's page editor. Once designed, via page settings, we've set its path to `/modals/modal-1`.
@@ -20,7 +22,7 @@ This is a new page layout ([`apps/theme/layouts/pages/Blank.tsx`](./apps/theme/l
 
 With these initial steps in place, we proceeded by creating the [`Modals`](./apps/theme/layouts/pages/components/Modals.tsx#L42-L73) React component, which does the following.
 
-1. Via Webiny's GraphQL API, retrieves the page and its content. For this example, we've hardcoded the `/modals/modal-1` path of the page that is being retrieved, but, naturally, this logic can be designed in a more robust fashion.
+1. Via Webiny's GraphQL API, retrieves the page and its content. For this example, we've hardcoded the `/modals/modal-1` path of the page that is being retrieved.
 2. Renders the modal content (retrieved page) via the `Page` React component, imported from the core [`@webiny/app-page-builder-elements`](https://github.com/webiny/webiny-js/tree/dev/packages/app-page-builder-elements) package.
 
 For data fetching, we've used the preconfigured Apollo client and its `useQuery` React hook.
