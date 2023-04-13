@@ -66,6 +66,7 @@ const ExtraFields = () => {
     );
 };
 
+// We render this component (register the plugin) in `../App.tsx` file.
 export const TenantExtraSettings = () => {
     return (
         <AddTenantFormField
