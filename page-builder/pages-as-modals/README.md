@@ -22,7 +22,7 @@ This is a new page layout ([`apps/theme/layouts/pages/Blank.tsx`](./apps/theme/l
 
 With these initial steps in place, we proceeded by creating the [`Modals`](./apps/theme/layouts/pages/components/Modals.tsx#L42-L73) React component, which does the following.
 
-1. Via Webiny's GraphQL API, retrieves the page and its content. For this example, we've hardcoded the `/modals/modal-1` path of the page that is being retrieved.
+1. Via Webiny's GraphQL API, it retrieves the page and its content. For this example, we've hardcoded the `/modals/modal-1` path of the page that is being retrieved.
 2. Renders the modal content (retrieved page) via the `Page` React component, imported from the core [`@webiny/app-page-builder-elements`](https://github.com/webiny/webiny-js/tree/dev/packages/app-page-builder-elements) package.
 
 For data fetching, we've used the preconfigured Apollo client and its `useQuery` React hook.
