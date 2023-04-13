@@ -6,7 +6,7 @@ For example, in the following screenshot, on the left, we can see a page with a 
 
 ![Pages as Modal Content Example](./screenshot.png)
 
-For this example, the modal will always be shown, with the same page content in it. Naturally, in a real world scenario, this can be implemented in a more robust fashion.
+For this example, the modal will always be shown, with the same page content in it. Naturally, in a real world scenario, this can be implemented in a more robust fashion (for example only show a modal on a first visit, or once a user has scrolled to a specific portion of a page).
 
 In order to accomplish this, we've performed the following steps.
 
