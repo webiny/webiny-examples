@@ -62,12 +62,8 @@ export const Modals = () => {
 
   return (
     <Modal>
-      {/* It's recommended we also assign the `page` to `PageProvider` because */}
-      {/* some of the page elements might need to access the whole page. */}
-      <PageProvider page={page}>
-        {/* Render retrieved page's content. */}
-        <Page page={page} />
-      </PageProvider>
+      {/* Render retrieved page's content. */}
+      <Page page={page} />
     </Modal>
   );
 };
