@@ -1,0 +1,23 @@
+{
+  "extends": "../../../tsconfig.json",
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../../packages/pulumi-aws/tsconfig.build.json"
+    },
+    {
+      "path": "../../../packages/serverless-cms-aws/tsconfig.build.json"
+    },
+
+  ],
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"],
+      "@webiny/pulumi-aws/*": ["../../../packages/pulumi-aws/src/*"],
+      "@webiny/pulumi-aws": ["../../../packages/pulumi-aws/src"],
+      "@webiny/serverless-cms-aws/*": ["../../../packages/serverless-cms-aws/src/*"],
+      "@webiny/serverless-cms-aws": ["../../../packages/serverless-cms-aws/src"],
+    },
+    "baseUrl": "."
+  }
+}

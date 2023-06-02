@@ -1,0 +1,14 @@
+{
+  "name": "website-origin-request-router",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "yarn webiny run build",
+    "watch": "yarn webiny run watch"
+  },
+  "dependencies": {
+    "@webiny/cli": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
+    "@webiny/pulumi-aws": "0.0.0",
+    "@webiny/serverless-cms-aws": "0.0.0"
+  }
+}
