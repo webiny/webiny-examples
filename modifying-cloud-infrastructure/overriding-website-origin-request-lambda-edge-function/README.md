@@ -4,6 +4,8 @@ When Webiny's [multi-tenancy](https://webiny.com/docs/enterprise/multi-tenancy) 
 
 This example shows how to override the Lambda@Edge function's code, in order to add custom logic to it, if needed.
 
+## Adding the Code
+
 For starters, we copy the code located in the [`apps/website/originRequestRouter`](./apps/website/originRequestRouter) folder into our project's `apps/website/originRequestRouter` folder. This is the code that will be deployed as part of the **Website** project application. 
 
 Note that since the folder is a new [Yarn workspace](https://yarnpkg.com/features/workspaces#gatsby-focus-wrapper), we'll also need inform Yarn about it. This is done by adding a new entry into the `workspaces` array in the project's `package.json` file (note the `apps/website/originRequestRouter` entry):
@@ -42,3 +44,48 @@ export const handler = (event: any) => {
 
 As we can see, the code doesn't do anything special, but it's ready to be extended with custom logic.
 
+## Deploying the Code
+
+The next and final step is to update the `apps/website/webiny.application.ts` file, so that the new code is actually taken into consideration and deployed:
+
+```ts
+import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
+import * as path from "path";
+import { readFileSync } from "fs";
+
+import { createWebsiteApp } from "@webiny/serverless-cms-aws";
+import { isResourceOfType } from "@webiny/pulumi";
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+
+export default createWebsiteApp({
+    pulumiResourceNamePrefix: "wby-",
+    pulumi: ({ onResource, paths, params }) => {
+        onResource(resource => {
+            if (isResourceOfType(resource, aws.lambda.Function)) {
+                if (resource.name.endsWith("-origin-request")) {
+                    const { region, dynamoDbTable } = getStackOutput({
+                        folder: "api",
+                        env: params.run["env"]
+                    });
+
+                    const handler = readFileSync(
+                        path.join(paths.workspace, "originRequestRouter/build/handler.js"),
+                        "utf-8"
+                    );
+
+                    const source = handler
+                        .replace("{DB_TABLE_NAME}", dynamoDbTable)
+                        .replace("{DB_TABLE_REGION}", region);
+
+                    resource.config.code(
+                        new pulumi.asset.AssetArchive({
+                            "index.js": new pulumi.asset.StringAsset(source)
+                        })
+                    );
+                }
+            }
+        });
+    }
+});
+```
