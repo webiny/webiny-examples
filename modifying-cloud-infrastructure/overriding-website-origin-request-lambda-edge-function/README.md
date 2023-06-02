@@ -4,7 +4,7 @@ When Webiny's [multi-tenancy](https://webiny.com/docs/enterprise/multi-tenancy) 
 
 This example shows how to override the Lambda@Edge function's code, in order to add custom logic to it, if needed.
 
-For starters, we copy the code located in the [`apps/website/originRequestRouter`](./apps/website/originRequestRouter) folder into our project's `apps/website/originRequestRouter` folder. This is the code that will be deployed as part of the **Website** project application. Note that since this is a new Yarn workspace, we'll also need to add a new entry into the `workspaces` array in the project's `package.json` file (note the `apps/website/originRequestRouter` entry):
+For starters, we copy the code located in the [`apps/website/originRequestRouter`](./apps/website/originRequestRouter) folder into our project's `apps/website/originRequestRouter` folder. This is the code that will be deployed as part of the **Website** project application. Note that since the folder is a new Yarn workspace, we'll also need inform Yarn about it. This is done by adding a new entry into the `workspaces` array in the project's `package.json` file (note the `apps/website/originRequestRouter` entry):
 
 ```json
 	"workspaces": {
@@ -19,6 +19,10 @@ For starters, we copy the code located in the [`apps/website/originRequestRouter
 		]
 	},
 ```
+
+> **NOTE**
+> 
+> Don't forget to run `yarn` once you've added the new workspace. Without it, Yarn won't be able to find the new workspace. 
 
 The code of the handler can be found in the  [`apps/website/originRequestRouter/src/index.ts`](./apps/website/originRequestRouter/src/index.ts) file. 
 
