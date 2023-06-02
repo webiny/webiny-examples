@@ -63,6 +63,8 @@ export default createWebsiteApp({
     pulumi: ({ onResource, paths, params }) => {
         onResource(resource => {
             if (isResourceOfType(resource, aws.lambda.Function)) {
+                // Upon deploying the origin request AWs Lambda function, we are adjusting
+                // the path to the `handler.js` file, so that it points to our code.
                 if (resource.name.endsWith("-origin-request")) {
                     const { region, dynamoDbTable } = getStackOutput({
                         folder: "api",
@@ -89,3 +91,13 @@ export default createWebsiteApp({
     }
 });
 ```
+
+## Deployment
+
+Once the above steps are completed, we can deploy the **Website** project application, by running the following command:
+
+```bash
+yarn webiny deploy website --env dev
+```
+
+Note that redeploys of Lambda@Edge functions can take up to a couple of minutes to complete (AWS documentation even has mentions of 30 minutes). This is due to the fact that Lambda@Edge functions are replicated across all AWS CloudFront edge locations, and this replication process can take up to a couple of minutes to complete.

@@ -12,6 +12,8 @@ export default createWebsiteApp({
     pulumi: ({ onResource, paths, params }) => {
         onResource(resource => {
             if (isResourceOfType(resource, aws.lambda.Function)) {
+                // Upon deploying the origin request AWs Lambda function, we are adjusting
+                // the path to the `handler.js` file, so that it points to our code.
                 if (resource.name.endsWith("-origin-request")) {
                     const { region, dynamoDbTable } = getStackOutput({
                         folder: "api",
