@@ -7,7 +7,7 @@ export default [
     {
         name: "pb-editor-page-element-droppable-element-1",
         type: "pb-editor-page-element",
-        elementType: "droppableElement1",
+        elementType: "droppable-element-1",
         render: DroppableElement1,
         toolbar: {
             title: "Droppable Element 1",
@@ -17,13 +17,13 @@ export default [
             }
         },
         settings: ["pb-editor-page-element-settings-delete"],
-        target: ["contentGalleryDropzone"],
+        target: ["content-gallery-dropzone"],
         onCreate: "open-settings",
 
         // `create` function creates the initial data for the page element.
         create(options) {
             return {
-                type: "droppableElement1",
+                type: "droppable-element-1",
                 elements: [],
                 data: {},
                 ...options

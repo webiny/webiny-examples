@@ -64,8 +64,6 @@ export const ContentGalleryDropzone = createRenderer(() => {
         elementWithChildrenByIdSelector(element.id)
     ) as Element;
 
-    console.log('elementWithChildren', elementWithChildren)
-
     return (
         <>
             <Elements element={elementWithChildren} />

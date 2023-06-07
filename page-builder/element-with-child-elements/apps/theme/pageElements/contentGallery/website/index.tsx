@@ -1,11 +1,11 @@
 import { PbRenderElementPlugin } from "@webiny/app-page-builder/types";
-import { contentGallery } from "./contentGallery";
+import { ContentGallery } from "./ContentGallery";
 
 const plugin = {
     name: "pb-render-page-element-content-gallery",
     type: "pb-render-page-element",
-    elementType: "contentGallery",
-    render: contentGallery
+    elementType: "content-gallery",
+    render: ContentGallery
 } as PbRenderElementPlugin;
 
 export default plugin;

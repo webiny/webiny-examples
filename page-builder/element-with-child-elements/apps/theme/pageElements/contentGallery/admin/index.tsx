@@ -8,7 +8,7 @@ export default [
     {
         name: "pb-editor-page-element-content-gallery",
         type: "pb-editor-page-element",
-        elementType: "contentGallery",
+        elementType: "content-gallery",
         render: ContentGallery,
         toolbar: {
             title: "Content Gallery",
@@ -22,12 +22,12 @@ export default [
         onCreate: "open-settings",
         create(options) {
             return {
-                type: "contentGallery",
+                type: "content-gallery",
                 elements: [
                     createElement("heading"),
                     createElement("paragraph"),
                     createElement("paragraph"),
-                    createElement("contentGalleryDropzone")
+                    createElement("content-gallery-dropzone")
                 ],
                 data: {},
                 ...options

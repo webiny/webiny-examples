@@ -6,14 +6,14 @@ export default [
     {
         name: "pb-editor-page-element-content-gallery-dropzone",
         type: "pb-editor-page-element",
-        elementType: "contentGalleryDropzone",
+        elementType: "content-gallery-dropzone",
         render: ContentGalleryDropzone,
-        target: ["contentGallery"],
+        target: ["content-gallery"],
         canReceiveChildren: true,
         onCreate: "open-settings",
         create(options) {
             return {
-                type: "contentGalleryDropzone",
+                type: "content-gallery-dropzone",
                 elements: [],
                 data: {},
                 ...options
