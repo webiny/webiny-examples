@@ -25,8 +25,6 @@ export const LexicalHeadingEditor = () => {
 export const LexicalParagraphEditor = () => {
     return (
         <LexicalEditorConfig>
-          {/*  <Paragraph.ToolbarAction name={"link"} remove />
-            <Paragraph.ToolbarAction name={"custom-link-action"} element={<CustomLinkAction />} />*/}
             <Paragraph.Plugin name={"floatingLinkEditor"} element={<CustomFloatingLinkEditorPlugin />} />
         </LexicalEditorConfig>
     );
