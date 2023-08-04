@@ -1,12 +1,13 @@
-# Headless CMS - Cms Field Value Transformer
+# Transform Rich Text Field Value On Save
 
-This example show how you can transform the form field's value before it's saved into the database. We took as an example the rich text field that uses Lexical Editor.
+This example shows how you can transform the form field's value before it's saved into the database. We took as an example the rich text field that uses Lexical Editor.
 
-How it works
+## How it works
 
-When the user will try to save the model, the transformer function will execute. Now, you can change the JSON data and return it. After, Webiny will store your modified data in the database.
+Before the model's data is saved into the database, the transformer function will execute. Now, you can transform and return the modified JSON data.
 
+![Transform Rich Text Value on Save](images/hcms-transform-value-on-save.png)
 
+After, Webiny will store your transformed data in the database. We can see when we refresh the page that the retrieved data contain the extra value.
 
-
-
+![Fetched Rich Text Transformed Value from DB](images/hcmls-fetched-transformed-value.png)
