@@ -5,7 +5,7 @@ export const lexicalValueTransformer = (): CmsFieldValueTransformer => ({
     name: "cms-field-lexical-value-transformer",
     fieldType: "rich-text",
     transform: (value: any) => {
-        const newValue = { ...value, myOptimizedValue: { p: "text" } };
+        const newValue = { ...value, myCustomValue: { p: "My custom values" } };
         return newValue;
     }
 });
