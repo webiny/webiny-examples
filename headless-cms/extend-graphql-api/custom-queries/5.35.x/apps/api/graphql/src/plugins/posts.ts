@@ -1,14 +1,14 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
-import { ListResponse } from "@webiny/handler-graphql";
+import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms";
 import { CmsContentEntry, CmsContentEntryMeta } from "@webiny/api-headless-cms/types";
+import { ListResponse } from "@webiny/handler-graphql";
 
 // Make sure to import the `Context` interface and pass it to the `GraphQLSchemaPlugin`
 // plugin. Apart from making your application code type-safe, it will also make the
 // interaction with the `context` object significantly easier.
 import { Context } from "~/types";
 
-export default [
-    new GraphQLSchemaPlugin<Context>({
+export const myPosts = () => [
+    new CmsGraphQLSchemaPlugin<Context>({
         // Extend the `Query` type with the `listMyPosts` query. Note the `PostListResponse` type.
         // It exists because we've previously created the `Post` content model via Admin Area.
         typeDefs: /* GraphQL */ `
