@@ -3,14 +3,14 @@ import { Context } from "./types";
 import { CmsModelPlugin } from "@webiny/api-headless-cms";
 import WebinyError from "@webiny/error";
 import { booksGraphql } from "./books.graphql";
-import { BOOK_MODEL_ID, createBookModelDefinition } from "./book.model";
+import { BOOK_MODEL_ID, createBookModel } from "./book.model";
 import { BooksStorage } from "./books.storage";
 import { BooksCrud } from "./books.crud";
 
 export const createBooksApp = () => {
     return new ContextPlugin<Context>(async context => {
         // Registering the private model.
-        context.plugins.register(new CmsModelPlugin(createBookModelDefinition()));
+        context.plugins.register(new CmsModelPlugin(createBookModel()));
 
         const bookModel = await context.security.withoutAuthorization(() => {
             return context.cms.getModel(BOOK_MODEL_ID);
