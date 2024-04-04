@@ -1,0 +1,4 @@
+{
+  "name": "@myapp/books",
+  "main": "./src/index.ts"
+}
