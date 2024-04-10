@@ -3,5 +3,5 @@ Imagine an end-user-facing application, such as an E-Commerce site, Instagram, T
 
 This is the example codebase for the [Website Users](https://www.webiny.com/docs/headless-cms/extending/website-users) guide.
 
-- Webiny side codebase to create necessary infrastructure and authentication.
-- React Application that interacts with Webiny.
+- [Webiny side codebase to create necessary infrastructure and authentication](https://github.com/webiny/webiny-examples/tree/master/headless-cms/website-users/5.39.0/webiny).
+- [React Application that interacts with Webiny](https://github.com/webiny/webiny-examples/tree/master/headless-cms/website-users/5.39.0/react-app).
