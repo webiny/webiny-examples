@@ -1,0 +1,10 @@
+{
+  "name": "@plugins/pulumi",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@pulumi/aws": "^5.29.1",
+    "@pulumi/pulumi": "^3.55.0",
+    "@webiny/pulumi-aws": "unstable"
+  }
+}
