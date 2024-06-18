@@ -1,0 +1,9 @@
+{
+  "name": "@demo/api",
+  "main": "src/index.ts",
+  "version": "1.0.0",
+  "dependencies": {
+    "@webiny/api-headless-cms": "0.0.0",
+    "@webiny/api-serverless-cms": "0.0.0"
+  }
+}

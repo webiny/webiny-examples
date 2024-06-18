@@ -1,0 +1,12 @@
+{
+  "name": "@demo/admin",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "dependencies": {
+    "@demo/shared": "0.0.0",
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-headless-cms": "0.0.0",
+    "@webiny/ui": "0.0.0",
+    "react": "18.2.0"
+  }
+}
