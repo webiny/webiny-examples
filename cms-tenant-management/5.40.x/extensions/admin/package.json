@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@demo/shared": "0.0.0",
-    "@webiny/app-admin": "0.0.0",
-    "@webiny/app-headless-cms": "0.0.0",
-    "@webiny/ui": "0.0.0",
+    "@webiny/app-admin": "^5.40.0",
+    "@webiny/app-headless-cms": "^5.40.0",
+    "@webiny/ui": "^5.40.0",
     "react": "18.2.0"
   }
 }
