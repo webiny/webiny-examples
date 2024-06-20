@@ -2,6 +2,10 @@
   "name": "@demo/api",
   "main": "src/index.ts",
   "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:api"
+  ],
   "dependencies": {
     "@webiny/api-headless-cms": "^5.40.0",
     "@webiny/api-serverless-cms": "^5.40.0"
