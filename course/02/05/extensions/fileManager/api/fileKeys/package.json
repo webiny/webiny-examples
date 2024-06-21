@@ -1,0 +1,12 @@
+{
+	"name": "file-keys",
+	"main": "src/index.ts",
+	"keywords": [
+		"webiny-extension",
+		"webiny-extension-type:api"
+	],
+	"version": "1.0.0",
+	"dependencies": {
+		"@webiny/api-file-manager-s3": "^5.40.0"
+	}
+}

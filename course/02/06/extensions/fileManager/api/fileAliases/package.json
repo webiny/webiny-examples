@@ -1,0 +1,12 @@
+{
+	"name": "file-aliases",
+	"main": "src/index.ts",
+	"keywords": [
+		"webiny-extension",
+		"webiny-extension-type:api"
+	],
+	"version": "1.0.0",
+	"dependencies": {
+		"@webiny/api-serverless-cms": "^5.40.0"
+	}
+}
