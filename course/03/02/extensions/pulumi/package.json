@@ -1,0 +1,8 @@
+{
+	"name": "pulumi",
+	"main": "src/index.ts",
+	"version": "1.0.0",
+	"dependencies": {
+		"@webiny/pulumi-aws": "5.40.0"
+	}
+}
