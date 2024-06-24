@@ -7,6 +7,6 @@
 	],
 	"version": "1.0.0",
 	"dependencies": {
-		"@webiny/api-headless-cms": "5.40.0"
+		"@webiny/api-headless-cms": "^5.40.0"
 	}
 }
