@@ -1,10 +1,10 @@
-# 2.2 Admin - Changing Logo
+# 2.3 Admin - Custom Dashboard
 
-[Watch the video](https://drive.google.com/file/d/1tRMTkxEh7L-3YkKfA-gClEMSGcL64nRc/view)
+[Watch the video](https://drive.google.com/file/d/16dA6-WCoTUq2LA9Eaw6xoDTxtrk1A6kf/view)
 
 ## Using the Code
 
-Follow the steps below to quickly set up this example into your Webiny project: 
+Follow the steps below to quickly set up this example into your Webiny project:
 
 1. Clone this `webiny-examples` repository.
 2. Copy the contents of the [extensions](./extensions) folder into your project's `extensions` folder.
@@ -13,7 +13,7 @@ Follow the steps below to quickly set up this example into your Webiny project:
 
 **Further Reading**
 
-‣ Change Logo - https://www.webiny.com/docs/admin-area/extending/change-logo
+‣ Custom Dashboard - https://www.webiny.com/docs/admin-area/extending/custom-dashboard
 
 ‣ Watch Command - https://www.webiny.com/docs/core-development-concepts/basics/watch-command
 

@@ -1,10 +1,10 @@
-# 2.2 Admin - Changing Logo
+# 2.5 File Manager - Custom File Keys
 
-[Watch the video](https://drive.google.com/file/d/1tRMTkxEh7L-3YkKfA-gClEMSGcL64nRc/view)
+[Watch the video](https://drive.google.com/file/d/1tZVYlYsKCtJv9br5oqsNgRxEElf8VR-Y/view)
 
 ## Using the Code
 
-Follow the steps below to quickly set up this example into your Webiny project: 
+Follow the steps below to quickly set up this example into your Webiny project:
 
 1. Clone this `webiny-examples` repository.
 2. Copy the contents of the [extensions](./extensions) folder into your project's `extensions` folder.
@@ -13,7 +13,7 @@ Follow the steps below to quickly set up this example into your Webiny project:
 
 **Further Reading**
 
-‣ Change Logo - https://www.webiny.com/docs/admin-area/extending/change-logo
+‣ Customize File Keys **-** https://www.webiny.com/docs/file-manager/extending/customize-file-key
 
 ‣ Watch Command - https://www.webiny.com/docs/core-development-concepts/basics/watch-command
 

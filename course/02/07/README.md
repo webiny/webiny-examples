@@ -1,6 +1,6 @@
-# 2.2 Admin - Changing Logo
+# 2.7 File Manager - File Fields
 
-[Watch the video](https://drive.google.com/file/d/1tRMTkxEh7L-3YkKfA-gClEMSGcL64nRc/view)
+[Watch the video](https://drive.google.com/file/d/1TcQtgdMXt7PT-Ma8xVYZRoC_omywZF9H/view)
 
 ## Using the Code
 
@@ -13,7 +13,7 @@ Follow the steps below to quickly set up this example into your Webiny project:
 
 **Further Reading**
 
-‣ Change Logo - https://www.webiny.com/docs/admin-area/extending/change-logo
+‣ Customize File Fields - https://www.webiny.com/docs/file-manager/extending/customize-file-fields
 
 ‣ Watch Command - https://www.webiny.com/docs/core-development-concepts/basics/watch-command
 

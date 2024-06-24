@@ -1,10 +1,10 @@
-# 2.2 Admin - Changing Logo
+# 2.4 File Manager - Custom File Previews
 
-[Watch the video](https://drive.google.com/file/d/1tRMTkxEh7L-3YkKfA-gClEMSGcL64nRc/view)
+[Watch the video](https://drive.google.com/file/d/12CMJPoC4Rq9oxU0nhOI0rQV1dLtxxTKV/view)
 
 ## Using the Code
 
-Follow the steps below to quickly set up this example into your Webiny project: 
+Follow the steps below to quickly set up this example into your Webiny project:
 
 1. Clone this `webiny-examples` repository.
 2. Copy the contents of the [extensions](./extensions) folder into your project's `extensions` folder.
@@ -13,7 +13,7 @@ Follow the steps below to quickly set up this example into your Webiny project:
 
 **Further Reading**
 
-‣ Change Logo - https://www.webiny.com/docs/admin-area/extending/change-logo
+‣ Customize File Preview **-** https://www.webiny.com/docs/file-manager/extending/customize-file-preview
 
 ‣ Watch Command - https://www.webiny.com/docs/core-development-concepts/basics/watch-command
 
