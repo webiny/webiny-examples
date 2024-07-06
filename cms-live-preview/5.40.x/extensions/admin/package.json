@@ -8,8 +8,9 @@
 	],
 	"dependencies": {
 		"@emotion/styled": "^11.11.5",
-		"@webiny/app-headless-cms": "5.40.0-beta.6",
-		"@webiny/app-headless-cms-common": "5.40.0-beta.6",
+		"@webiny/app-admin": "5.40.1",
+		"@webiny/app-headless-cms": "5.40.1",
+		"@webiny/app-headless-cms-common": "5.40.1",
 		"lodash": "^4.17.21",
 		"react": "18.2.0"
 	},

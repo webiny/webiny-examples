@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { makeDecoratable } from "@webiny/app-admin";
 import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
 
 export type OnPreviewReady = () => void;
@@ -12,7 +13,7 @@ export interface PreviewWindowGetter {
     (): Window | null;
 }
 
-export function useLivePreview(windowGetter: PreviewWindowGetter) {
+function useBaseLivePreview(windowGetter: PreviewWindowGetter) {
     const onPreviewReadyRefs = useRef<OnPreviewReady>();
 
     const updateLivePreview = useCallback((data: Partial<CmsContentEntry>) => {
@@ -48,3 +49,5 @@ export function useLivePreview(windowGetter: PreviewWindowGetter) {
 
     return { updateLivePreview, onPreviewReady };
 }
+
+export const useLivePreview = makeDecoratable(useBaseLivePreview);
