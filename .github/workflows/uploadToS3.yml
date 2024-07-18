@@ -1,0 +1,31 @@
+name: Upload Examples to Amazon S3
+on:
+  push:
+    branches:
+      - master
+jobs:
+  upload:
+    name: Upload examples to Amazon S3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload to Amazon S3
+        run: |
+          aws s3 sync . s3://wby-examples-test --delete \
+              --exclude ".*" \
+              --exclude "blog*" \
+              --exclude "create-custom-application*" \
+              --exclude "headlesscms-*" \
+              --exclude "integrate-tailwind-css" \
+              --exclude "node_modules*" \
+              --exclude "package.json" \
+              --exclude "README.md" \
+              --exclude "storage-backup*" \
+              --exclude "use-existing-amazon-vpc-advanced-usage*" \
+              --exclude "webiny-v4*" \
+              --exclude "yarn.lock"
+
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
