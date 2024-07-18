@@ -11,6 +11,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Upload to Amazon S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 sync . s3://${{ secrets.WEBINY_EXAMPLES_S3_BUCKET_NAME }} --delete --region ${{ secrets.AWS_REGION }} \
               --exclude ".*" \
@@ -25,7 +28,3 @@ jobs:
               --exclude "use-existing-amazon-vpc-advanced-usage*" \
               --exclude "webiny-v4*" \
               --exclude "yarn.lock"
-
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
