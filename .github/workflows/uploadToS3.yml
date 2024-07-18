@@ -12,7 +12,7 @@ jobs:
 
       - name: Upload to Amazon S3
         run: |
-          aws s3 sync . s3://${{ secrets.WEBINY_EXAMPLES_S3_BUCKET_NAME }} --delete \
+          aws s3 sync . s3://${{ secrets.WEBINY_EXAMPLES_S3_BUCKET_NAME }} --delete --region ${{ secrets.AWS_REGION }} \
               --exclude ".*" \
               --exclude "blog*" \
               --exclude "create-custom-application*" \
