@@ -5,7 +5,7 @@ import { fetchAuthSession } from 'aws-amplify/auth';
 // Create an HTTP link
 const httpLink = createHttpLink({
     // Headless CMS GraphQL Manage API End Point
-    uri: 'https://dyxxvu3rygils.cloudfront.net/cms/manage/en-US'
+    uri: 'https://xxxxxxxxxxxx.cloudfront.net/cms/manage/en-US'
 });
 
 // Set up authentication context for the client
