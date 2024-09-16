@@ -27,11 +27,11 @@ export class CreateLanguageRepository {
             });
         }
 
-        await this.context.cms.createEntry(model, {
+        await this.context.cms.createEntry<CmsLanguageDTO>(model, {
             name: language.getName(),
             code: language.getCode(),
             direction: language.getDirection(),
-            isBaseLanguage: language.isBaseLanguage()
+            baseLanguage: language.isBaseLanguage()
         });
     }
 }
