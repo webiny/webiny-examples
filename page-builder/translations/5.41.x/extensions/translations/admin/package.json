@@ -7,11 +7,11 @@
     "webiny-extension-type:admin"
   ],
   "dependencies": {
-    "@webiny/app-page-builder": "0.0.0",
-    "@webiny/app-serverless-cms": "0.0.0",
-    "@webiny/error": "0.0.0",
-    "@webiny/lexical-editor-pb-element": "0.0.0",
-    "@webiny/ui": "0.0.0",
+    "@webiny/app-page-builder": "dbt",
+    "@webiny/app-serverless-cms": "dbt",
+    "@webiny/error": "dbt",
+    "@webiny/lexical-editor-pb-element": "dbt",
+    "@webiny/ui": "dbt",
     "react": "18.2.0"
   }
 }

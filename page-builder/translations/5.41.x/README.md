@@ -20,3 +20,20 @@ yarn up "@webiny/*@dbt"
 
 > EXPERIMENTAL FEATURE: please note that this code is only applicable to an experimental release published under the `dbt` NPM tag, until the official `5.41.0` is available.
 
+To install the example code into your existing `5.41.0-dbt.0` Webiny project, follow these steps:
+
+1. Clone the https://github.com/webiny/webiny-examples repository somewhere on your machine (this is a temporary clone, just so you can C/P files from the repo).
+2. From this new clone, copy the contents of the [page-builder/translations/5.41.0]() directory into your target project. You want to copy the `apps` and `extensions` directories.
+3. Install dependencies
+
+```
+yarn
+```
+
+4. Link the extensions with your project:
+
+```
+yarn webiny link-extensions
+```
+
+You're now ready to deploy your project!
