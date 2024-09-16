@@ -1,0 +1,14 @@
+{
+  "name": "@demo/translations-api",
+  "main": "src/index.ts",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:api"
+  ],
+  "version": "1.0.0",
+  "dependencies": {
+    "@webiny/api-page-builder": "0.0.0",
+    "@webiny/api-prerendering-service": "0.0.0",
+    "@webiny/api-serverless-cms": "0.0.0"
+  }
+}
