@@ -18,6 +18,10 @@ export const createExtension = () => {
                 const listLanguages = new ListLanguagesUseCase(context);
                 const languages = await listLanguages.execute();
 
+                if(!languages.length) {
+                    return;
+                }
+
                 const translatedPages: RenderEvent[] = languages.map(language => {
                     return {
                         path: `/${language.getCode()}${page.path}`,
