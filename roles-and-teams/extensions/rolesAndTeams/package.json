@@ -1,0 +1,12 @@
+{
+	"name": "roles-and-teams",
+	"main": "src/index.ts",
+	"keywords": [
+		"webiny-extension",
+		"webiny-extension-type:api"
+	],
+	"version": "1.0.0",
+	"dependencies": {
+		"@webiny/api-serverless-cms": "0.0.0"
+	}
+}
