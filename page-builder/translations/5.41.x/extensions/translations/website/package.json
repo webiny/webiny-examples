@@ -1,0 +1,10 @@
+{
+  "name": "@demo/translations-website",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "dependencies": {
+    "@webiny/app-page-builder": "dbt",
+    "@webiny/app-page-builder-elements": "dbt",
+    "react": "18.2.0"
+  }
+}

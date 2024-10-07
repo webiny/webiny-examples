@@ -1,0 +1,8 @@
+{
+	"name": "notes-app",
+	"main": "src/index.ts",
+	"version": "1.0.0",
+	"dependencies": {
+		"@webiny/api-headless-cms": "5.40.3"
+	}
+}

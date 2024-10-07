@@ -1,0 +1,14 @@
+{
+	"name": "@demo/conditional-validation",
+	"main": "src/index.tsx",
+	"version": "1.0.0",
+	"keywords": [
+		"webiny-extension",
+		"webiny-extension-type:admin"
+	],
+	"dependencies": {
+		"@webiny/app-headless-cms": "0.0.0",
+		"@webiny/form": "0.0.0",
+		"react": "18.2.0"
+	}
+}

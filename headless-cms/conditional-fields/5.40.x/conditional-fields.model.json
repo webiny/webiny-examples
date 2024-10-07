@@ -1,0 +1,97 @@
+{
+  "groups": [
+    {
+      "id": "66eea51190b9d50008de75d0",
+      "name": "Ungrouped",
+      "slug": "ungrouped",
+      "description": "A generic content model group",
+      "icon": "fas/star"
+    }
+  ],
+  "models": [
+    {
+      "modelId": "conditionalFields",
+      "name": "Conditional Fields",
+      "group": "66eea51190b9d50008de75d0",
+      "icon": "fas/pager",
+      "description": "Conditional inputs demo",
+      "singularApiName": "ConditionalField",
+      "pluralApiName": "ConditionalFields",
+      "fields": [
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "text-input", "settings": {} },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Title",
+          "type": "text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "dgm2bqk7",
+          "validation": [],
+          "storageId": "text@dgm2bqk7",
+          "fieldId": "title"
+        },
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "select-box", "settings": {} },
+          "helpText": null,
+          "predefinedValues": {
+            "enabled": true,
+            "values": [
+              { "value": "url", "selected": true, "label": "URL" },
+              { "value": "upload", "selected": false, "label": "Upload" }
+            ]
+          },
+          "label": "Video Type",
+          "type": "text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "ek9xbbmq",
+          "validation": [],
+          "storageId": "text@ek9xbbmq",
+          "fieldId": "videoType"
+        },
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "text-input", "settings": {} },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Video URL",
+          "type": "text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "jg902q8m",
+          "validation": [],
+          "storageId": "text@jg902q8m",
+          "fieldId": "videoUrl"
+        },
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "file-input", "settings": {} },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Video Upload",
+          "type": "file",
+          "tags": [],
+          "placeholderText": null,
+          "id": "k4fx0hqp",
+          "validation": [],
+          "storageId": "file@k4fx0hqp",
+          "fieldId": "videoUpload"
+        }
+      ],
+      "layout": [["dgm2bqk7"], ["ek9xbbmq"], ["jg902q8m"], ["k4fx0hqp"]],
+      "titleFieldId": "title",
+      "tags": ["type:model"]
+    }
+  ]
+}
