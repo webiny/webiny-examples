@@ -9,6 +9,6 @@
   "dependencies": {
     "@webiny/app-headless-cms": "0.0.0",
     "@material-design-icons/svg": "^0.14.3",
-    "react": "17.0.2"
+    "react": "18.2.0"
   }
 }

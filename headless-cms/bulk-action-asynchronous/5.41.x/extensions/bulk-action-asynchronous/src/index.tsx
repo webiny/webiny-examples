@@ -1,6 +1,6 @@
 import React from "react";
 import { ContentEntryListConfig } from "@webiny/app-headless-cms";
-import { ReactComponent as SyncIcon } from "@material-design-icons/svg/outlined/sync.svg
+import { ReactComponent as SyncIcon } from "@material-design-icons/svg/outlined/sync.svg";
 
 const { BulkAction } = ContentEntryListConfig.Browser;
 const { useWorker, useButtons, useDialog } = BulkAction;
