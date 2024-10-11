@@ -1,0 +1,15 @@
+{
+  "name": "@demo/bulk-action-simple",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:admin"
+  ],
+  "dependencies": {
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-headless-cms": "0.0.0",
+    "@material-design-icons/svg": "^0.14.3",
+    "react": "17.0.2"
+  }
+}
