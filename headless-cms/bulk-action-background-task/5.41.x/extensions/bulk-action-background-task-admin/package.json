@@ -1,5 +1,5 @@
 {
-  "name": "@demo/bulk-action-background-task",
+  "name": "@demo/bulk-action-background-task-admin",
   "main": "src/index.tsx",
   "version": "1.0.0",
   "keywords": [

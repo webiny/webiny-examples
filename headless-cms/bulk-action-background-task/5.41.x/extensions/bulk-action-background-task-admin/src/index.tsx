@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 import { ContentEntryListConfig, useCms, useModel } from "@webiny/app-headless-cms";
+import { getUpdatedTag } from "@demo/bulk-action-background-task-shared"
 import { ReactComponent as CalendarIcon } from "@material-design-icons/svg/outlined/calendar_month.svg";
 
 const { BulkAction } = ContentEntryListConfig.Browser;
@@ -15,11 +16,6 @@ const ActionUpdateYear = () => {
     const { createEntryRevisionFrom } = useCms();
     const { updateRecordInCache } = useRecords();
     const { showSnackbar } = useSnackbar();
-
-    const getUpdatedTag = useCallback(() => {
-        const currentYear = new Date().getFullYear();
-        return `Updated ${currentYear} - `;
-    }, []);
 
     const openUpdateYearDialog = () =>
         showConfirmationDialog({
