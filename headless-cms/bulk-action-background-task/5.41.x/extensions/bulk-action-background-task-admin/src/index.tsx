@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 import { ContentEntryListConfig, useCms, useModel } from "@webiny/app-headless-cms";
@@ -39,7 +39,7 @@ const ActionUpdateYear = () => {
                         const response = await createEntryRevisionFrom({
                             model,
                             id: item.id,
-                            input: { title: getUpdatedTag() + item.title }
+                            input: { title: getUpdatedTag() + item["title"] }
                         });
 
                         const { error } = response;
