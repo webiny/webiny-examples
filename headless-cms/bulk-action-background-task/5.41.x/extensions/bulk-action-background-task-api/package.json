@@ -1,5 +1,5 @@
 {
-  "name": "@demo/bulk-action-background-task-api",
+  "name": "@demo/api",
   "main": "src/index.ts",
   "version": "1.0.0",
   "keywords": [

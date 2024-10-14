@@ -1,5 +1,5 @@
 {
-  "name": "@demo/bulk-action-background-task-shared",
+  "name": "@demo/shared",
   "version": "1.0.0",
   "main": "src/index.ts"
 }
