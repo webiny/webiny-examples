@@ -7,15 +7,12 @@ const { BulkAction } = ContentEntryListConfig.Browser;
 const { useWorker, useButtons, useDialog } = BulkAction;
 
 const ActionCopyJson = () => {
-    // useButtons() exposes the button components also used internally: use these to keep the UI consistent.
     const { IconButton } = useButtons();
-    // useWorker() exposes the currently selected items within the context.
-    const { items } = useWorker();
-    // showSnackbar allows to provide a feedback to users.
     const { showSnackbar } = useSnackbar();
+    const worker = useWorker();
 
     const copyJson = () => {
-        navigator.clipboard.writeText(JSON.stringify(items, null, 2));
+        navigator.clipboard.writeText(JSON.stringify(worker.items, null, 2));
         showSnackbar("JSON data copied to clipboard.");
     };
 
@@ -25,6 +22,7 @@ const ActionCopyJson = () => {
             onAction={copyJson}
             label={`Copy as JSON`}
             tooltipPlacement={"bottom"}
+            disabled={worker.isSelectedAll}
         />
     );
 };

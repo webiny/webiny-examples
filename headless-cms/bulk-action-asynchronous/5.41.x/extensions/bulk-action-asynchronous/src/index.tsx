@@ -7,8 +7,8 @@ const { useWorker, useButtons, useDialog } = BulkAction;
 
 const ActionSync = () => {
     const { IconButton } = useButtons();
-    const worker = useWorker();
     const { showConfirmationDialog, showResultsDialog } = useDialog();
+    const worker = useWorker();
 
     const openSyncDialog = () =>
         showConfirmationDialog({
