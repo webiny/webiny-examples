@@ -2,7 +2,7 @@ import React from "react";
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 import { ContentEntryListConfig, useCms, useModel } from "@webiny/app-headless-cms";
-import { getUpdatedTag } from "@demo/bulk-action-background-task-shared"
+import { getUpdatedTag } from "@demo/shared"
 import { ReactComponent as CalendarIcon } from "@material-design-icons/svg/outlined/calendar_month.svg";
 
 const { BulkAction } = ContentEntryListConfig.Browser;

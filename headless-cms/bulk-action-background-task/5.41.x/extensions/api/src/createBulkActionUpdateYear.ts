@@ -3,7 +3,7 @@ import {
     IProcessEntry,
     IListEntries
 } from "@webiny/api-headless-cms-bulk-actions";
-import { getUpdatedTag } from "@demo/bulk-action-background-task-shared"
+import { getUpdatedTag } from "@demo/shared"
 import { HcmsBulkActionsContext } from "@webiny/api-headless-cms-bulk-actions/types";
 import { CmsEntryListParams, CmsModel } from "@webiny/api-headless-cms/types";
 
