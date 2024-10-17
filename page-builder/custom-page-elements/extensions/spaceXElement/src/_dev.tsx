@@ -11,6 +11,7 @@ export interface LegacyPluginToReactComponentParams {
     componentDisplayName: string;
 }
 
+
 const legacyPluginToReactComponent = function <TProps extends Record<string, any>>(
     params: LegacyPluginToReactComponentParams
 ) {
