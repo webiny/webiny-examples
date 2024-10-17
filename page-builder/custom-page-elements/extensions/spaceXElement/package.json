@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "keywords": [
     "webiny-extension",
-    "webiny-extension-type:pb-element"
+    "webiny-extension-type:pbElement"
   ],
   "dependencies": {
     "@webiny/app-page-builder": "0.0.0",
