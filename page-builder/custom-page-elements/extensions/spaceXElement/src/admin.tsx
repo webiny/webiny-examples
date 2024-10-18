@@ -15,6 +15,7 @@ const INITIAL_ELEMENT_DATA: SpaceXElementData = {
 
 export const Extension = () => (
     <>
+        <PbRenderElementPlugin elementType={"spaceX"} render={SpaceX} />
         <PbEditorPageElementPlugin
             elementType={"spaceX"}
             render={({ element }) => <SpaceX element={element as Element} />}
