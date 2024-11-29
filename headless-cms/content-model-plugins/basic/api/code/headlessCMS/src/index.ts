@@ -14,7 +14,7 @@ import logsPlugins from "@webiny/handler-logs";
 
 // Imports plugins created via scaffolding utilities.
 import scaffoldsPlugins from "./plugins/scaffolds";
-import posts from './plugins/models';
+import eCommerceGroupAndModels from "./plugins/models";
 
 const debug = process.env.DEBUG === "true";
 
@@ -39,7 +39,7 @@ export const handler = createHandler({
         headlessCmsPlugins({ debug }),
         headlessCmsDynamoDbElasticStorageOperation(),
         scaffoldsPlugins(),
-        posts
+        eCommerceGroupAndModels
     ],
     http: { debug }
 });
