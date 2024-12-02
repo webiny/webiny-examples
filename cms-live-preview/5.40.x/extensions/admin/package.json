@@ -1,5 +1,5 @@
 {
-	"name": "@demo/live-preview-admin",
+	"name": "@demo/admin",
 	"main": "src/index.tsx",
 	"version": "1.0.0",
 	"keywords": [
