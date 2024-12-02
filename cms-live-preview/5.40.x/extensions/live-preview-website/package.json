@@ -1,5 +1,5 @@
 {
-  "name": "@demo/website",
+  "name": "@demo/live-preview-website",
   "main": "src/index.tsx",
   "version": "1.0.0",
   "dependencies": {
