@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { request } from "graphql-request";
-import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
+import { createRenderer, useRenderer, useLoader } from "@webiny/app-page-builder-elements";
 
 // For simplicity, we're hard-coding the GraphQL HTTP API URL here.
 const GQL_API_URL = "https://spacex-production.up.railway.app/";
@@ -53,17 +53,19 @@ export const SpaceX = createRenderer(() => {
     const element = getElement<SpaceXElementData>();
     const { limit, offset, type } = element.data.variables;
 
-    const [data, setData] = useState<Spacecraft[]>([]);
-
     // This is where we fetch the data and store it into component's state.
-    useEffect(() => {
-        request(GQL_API_URL, QUERIES[type], {
+    const { data, loading } = useLoader<Spacecraft[]>(() => {
+        return request(GQL_API_URL, QUERIES[type], {
             limit: parseInt(limit),
             offset: parseInt(offset)
-        }).then(({ data }) => setData(data));
-    }, [limit, offset, type]);
+        }).then(res => res.data);
+    });
 
-    if (!data.length) {
+    if (loading) {
+        return <>Loading...</>;
+    }
+
+    if (!data?.length) {
         return <>Nothing to show.</>;
     }
 
