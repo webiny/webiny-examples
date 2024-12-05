@@ -9,7 +9,7 @@ export const createExtension = () => {
             id: "full-cms-access",
             name: "Full CMS Access",
             description: "Full access to the CMS application",
-            permissions: [{ name: "cms.*" }],
+            permissions: [{ name: "cms.*" }, { name: "content.i18n" }],
 
             // Use the `tenant` property to ensure role is only available in a specific tenant.
             // tenant: "root"
@@ -18,7 +18,7 @@ export const createExtension = () => {
             id: "full-pb-access",
             name: "Full Page Builder",
             description: "Full access to the Page Builder application",
-            permissions: [{ name: "pb.*" }],
+            permissions: [{ name: "pb.*" }, { name: "content.i18n" }],
 
             // Use the `tenant` property to ensure role is only available in a specific tenant.
             // tenant: "root"
