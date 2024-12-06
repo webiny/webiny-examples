@@ -120,7 +120,7 @@ export const SmartSeo = () => {
             name={"askAi"}
             before={"save"}
             element={<GetSeoData />}
-            modelIds={["article"]}
+            modelIds={["article-smart-seo"]}
         />
     );
 };
