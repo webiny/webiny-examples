@@ -24,7 +24,7 @@ export const DecorateContentEntryFormBind = useBind.createDecorator(baseHook => 
             const { model } = useModel();
 
             // Skip tracking for non-article models
-            if (model.modelId !== "article") {
+            if (model.modelId !== "article-smart-seo") {
                 return baseHook(params);
             }
 
