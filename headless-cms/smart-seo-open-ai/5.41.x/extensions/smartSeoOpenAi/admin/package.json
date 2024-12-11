@@ -1,5 +1,5 @@
 {
-  "name": "smart-seo-open-ai",
+  "name": "smart-seo-open-ai-admin",
   "main": "src/index.tsx",
   "version": "1.0.0",
   "keywords": [
