@@ -5,7 +5,6 @@ import {
 
 export const Article = () => {
     return [
-        // Defines a new Ungrouped content models group.
         createCmsModelPlugin({
             name: "Article - Smart SEO",
             modelId: "article-smart-seo",
