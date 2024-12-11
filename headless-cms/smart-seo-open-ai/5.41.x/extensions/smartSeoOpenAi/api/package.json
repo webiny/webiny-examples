@@ -1,5 +1,5 @@
 {
-  "name": "test-plugin-ai-api",
+  "name": "smart-seo-open-ai-api",
   "main": "src/index.ts",
   "keywords": [
     "webiny-extension",

@@ -7,7 +7,7 @@ import { FieldWithValue, useFieldTracker } from "./FieldTracker";
 import { extractRichTextHtml } from "./extractFromRichText";
 import { useSnackbar } from "@webiny/app-admin";
 
-const OPENAI_API_KEY = String(process.env["REACT_APP_OPEN_AI_API_KEY"]);
+const OPENAI_API_KEY = String(process.env["WEBINY_ADMIN_OPEN_AI_API_KEY"]);
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true });
 
@@ -120,7 +120,7 @@ export const SmartSeo = () => {
             name={"askAi"}
             before={"save"}
             element={<GetSeoData />}
-            modelIds={["article"]}
+            modelIds={["article-smart-seo"]}
         />
     );
 };
