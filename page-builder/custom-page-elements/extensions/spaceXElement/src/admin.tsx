@@ -6,7 +6,6 @@ import {
 } from "@webiny/app-page-builder";
 import { SpaceX, SpaceXElementData } from "./SpaceX";
 import { OnCreateActions } from "@webiny/app-page-builder/types";
-import { Element } from "@webiny/app-page-builder-elements/types";
 import { AdvancedSettings } from "./admin/AdvancedSettings";
 
 const INITIAL_ELEMENT_DATA: SpaceXElementData = {
@@ -15,10 +14,10 @@ const INITIAL_ELEMENT_DATA: SpaceXElementData = {
 
 export const Extension = () => (
     <>
-        <PbRenderElementPlugin elementType={"spaceX"} render={SpaceX} />
+        <PbRenderElementPlugin elementType={"spaceX"} renderer={SpaceX} />
         <PbEditorPageElementPlugin
             elementType={"spaceX"}
-            render={({ element }) => <SpaceX element={element as Element} />}
+            renderer={SpaceX}
             toolbar={{
                 // We use `pb-editor-element-group-media` to put our new
                 // page element into the Media group in the left sidebar.

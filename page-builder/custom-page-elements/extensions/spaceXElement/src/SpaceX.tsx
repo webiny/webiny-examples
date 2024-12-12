@@ -54,12 +54,15 @@ export const SpaceX = createRenderer(() => {
     const { limit, offset, type } = element.data.variables;
 
     // This is where we fetch the data and store it into component's state.
-    const { data, loading } = useLoader<Spacecraft[]>(() => {
-        return request(GQL_API_URL, QUERIES[type], {
-            limit: parseInt(limit),
-            offset: parseInt(offset)
-        }).then(res => res.data);
-    });
+    const { data, loading } = useLoader<Spacecraft[]>(
+        () => {
+            return request(GQL_API_URL, QUERIES[type], {
+                limit: parseInt(limit),
+                offset: parseInt(offset)
+            }).then(res => res.data);
+        },
+        { cacheKey: [limit, offset, type] }
+    );
 
     if (loading) {
         return <>Loading...</>;
