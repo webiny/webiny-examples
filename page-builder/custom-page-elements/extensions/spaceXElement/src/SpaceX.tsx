@@ -53,8 +53,7 @@ export const SpaceX = createRenderer(() => {
     const element = getElement<SpaceXElementData>();
     const { limit, offset, type } = element.data.variables;
 
-    // This is where we fetch the data and store it into component's state.
-    const { data, loading } = useLoader<Spacecraft[]>(
+    const { data, error, loading } = useLoader<Spacecraft[]>(
         () => {
             return request(GQL_API_URL, QUERIES[type], {
                 limit: parseInt(limit),
@@ -66,6 +65,12 @@ export const SpaceX = createRenderer(() => {
 
     if (loading) {
         return <>Loading...</>;
+    }
+
+    // Displaying an error message if the data fetching failed.
+    if (error) {
+        console.error("An error occurred while fetching data:", error);
+        return <>An error occurred: {error.message}</>;
     }
 
     if (!data?.length) {
