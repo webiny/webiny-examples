@@ -13,7 +13,7 @@ To enable these extensions in your existing Webiny project, follow these steps:
 In your project, run:
 
 ```shell
-yarn webiny scaffold extension cms-live-preview
+yarn webiny extension cms-live-preview
 ```
 
 ### 2. Configure the `website` app
