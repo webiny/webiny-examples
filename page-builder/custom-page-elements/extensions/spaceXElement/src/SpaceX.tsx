@@ -53,7 +53,7 @@ export const SpaceX = createRenderer(() => {
     const element = getElement<SpaceXElementData>();
     const { limit, offset, type } = element.data.variables;
 
-    const { data, error, loading } = useLoader<Spacecraft[]>(
+    const { data, error, loading } = useLoader<Spacecraft[], Error>(
         () => {
             return request(GQL_API_URL, QUERIES[type], {
                 limit: parseInt(limit),
