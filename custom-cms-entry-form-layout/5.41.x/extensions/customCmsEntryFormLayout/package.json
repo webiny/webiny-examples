@@ -7,8 +7,8 @@
     "webiny-extension-type:admin"
   ],
   "dependencies": {
-    "@webiny/app-serverless-cms": "0.0.0",
     "@webiny/app-headless-cms": "0.0.0",
+    "@webiny/app-serverless-cms": "0.0.0",
     "@webiny/ui": "0.0.0",
     "react": "18.2.0"
   }
