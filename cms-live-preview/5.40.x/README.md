@@ -30,14 +30,15 @@ Add component styles to the `website` app, in `apps/website/public/index.html`:
 
 Add live preview route in `apps/website/src/App.tsx`:
 
-```tsx
+```diff tsx
 import React from "react";
 import { Website } from "@webiny/app-website";
-import { createLivePreviewRoute } from "@demo/live-preview-website";
++ import { createLivePreviewRoute } from "@demo/website";
 import "./App.scss";
 
 export const App = () => {
-  return <Website routes={[createLivePreviewRoute()]} />;
+-  return <Website/>;
++  return <Website routes={[createLivePreviewRoute()]} />;
 };
 ```
 
