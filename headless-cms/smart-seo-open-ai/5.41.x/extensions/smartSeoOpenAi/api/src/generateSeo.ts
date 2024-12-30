@@ -1,5 +1,4 @@
-import { CmsGraphQLSchemaPlugin, ContentContextParams } from "@webiny/api-headless-cms";
-import { Context } from "@webiny/api-serverless-cms"
+import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms";
 import OpenAI from "openai";
 
 /*
@@ -16,7 +15,7 @@ const OPENAI_API_KEY = process.env["WEBINY_API_OPEN_AI_API_KEY"];
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 export const generateSeo = () => [
-    new CmsGraphQLSchemaPlugin<Context>({
+    new CmsGraphQLSchemaPlugin({
         typeDefs: `
                 type SeoData {
                     title: String
