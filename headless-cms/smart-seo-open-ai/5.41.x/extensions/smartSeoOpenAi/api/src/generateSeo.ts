@@ -1,5 +1,6 @@
 import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms";
 import OpenAI from "openai";
+import { Context } from "@webiny/api-serverless-cms"
 
 /*
  * This file adds a GraphQL schema for generating SEO metadata.
@@ -15,7 +16,7 @@ const OPENAI_API_KEY = process.env["WEBINY_API_OPEN_AI_API_KEY"];
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 export const generateSeo = () => [
-    new CmsGraphQLSchemaPlugin({
+    new CmsGraphQLSchemaPlugin<Context>({
         typeDefs: `
                 type SeoData {
                     title: String
