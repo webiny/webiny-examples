@@ -7,7 +7,13 @@
     "webiny-extension-type:admin"
   ],
   "dependencies": {
-    "openai": "^4.33.0",
-    "react": "18.2.0"
+    "react": "18.2.0",
+    "graphql-tag": "2.12.6",
+    "@material-design-icons/svg": "0.14.13",
+    "@webiny/app-admin": "5.41.4",
+    "@webiny/app-headless-cms": "5.41.4",
+    "@webiny/form": "5.41.4",
+    "@webiny/ui": "5.41.4",
+    "@webiny/lexical-converter": "5.41.4"
   }
 }
