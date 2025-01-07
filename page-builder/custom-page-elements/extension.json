@@ -1,0 +1,16 @@
+{
+  "additionalNotes": [
+    {
+      "message": [
+        "run %s to start Admin app locally",
+        "yarn webiny watch admin --env dev"
+      ]
+    },
+    {
+      "message": [
+        "run %s to start Website app locally",
+        "yarn webiny watch website --env dev"
+      ]
+    }
+  ]
+}
