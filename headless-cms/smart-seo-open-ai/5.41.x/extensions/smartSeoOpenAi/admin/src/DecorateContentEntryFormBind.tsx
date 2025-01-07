@@ -33,13 +33,13 @@ export const DecorateContentEntryFormBind = useBind.createDecorator(baseHook => 
             useEffect(() => {
                 // Track rich-text fields and SEO fields
                 if (field.type === "rich-text") {
-                    trackField(field.label, field.type, params.name, bind.value, bind.onChange);
+                    trackField(field.label, field.type, params.name, bind.value);
                 }
 
                 if (seoFields.includes(field.fieldId) && !parent) {
-                    trackField(field.label, field.fieldId, params.name, bind.value, bind.onChange);
+                    trackField(field.label, field.fieldId, params.name, bind.value);
                 }
-            }, [bind.value]);
+            }, [JSON.stringify(bind.value)]);
 
             return bind;
         } catch {

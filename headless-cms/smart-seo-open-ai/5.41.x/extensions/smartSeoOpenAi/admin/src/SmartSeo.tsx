@@ -1,36 +1,91 @@
 import React, { useState } from "react";
-import OpenAI from "openai";
-import { ReactComponent as MagicIcon } from "@material-design-icons/svg/round/school.svg";
-import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
+import gql from "graphql-tag";
+import { useForm } from "@webiny/form";
+import { ContentEntryEditorConfig, useApolloClient } from "@webiny/app-headless-cms";
 import { ButtonSecondary, ButtonIcon } from "@webiny/ui/Button";
+import { ReactComponent as MagicIcon } from "@material-design-icons/svg/round/school.svg";
+import { useSnackbar } from "@webiny/app-admin";
 import { FieldWithValue, useFieldTracker } from "./FieldTracker";
 import { extractRichTextHtml } from "./extractFromRichText";
-import { useSnackbar } from "@webiny/app-admin";
-
-const OPENAI_API_KEY = String(process.env["WEBINY_ADMIN_OPEN_AI_API_KEY"]);
-
-const openai = new OpenAI({ apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true });
-
-const prompt = `You will be provided with one or more paragraphs of HTML, and you need to extract a SEO optimized page title, a page summary, and up to 5 keywords. Response should be returned as a plain JSON object, with "title" field for the page title, "description" field for page summary, and "keywords" field as an array of keywords.`;
 
 const { Actions } = ContentEntryEditorConfig;
 
-const populateSeoTitle = (fields: FieldWithValue[], value: string) => {
-    const field = fields.find(field => field.type === "seoTitle");
-    if (!field) {
-        return;
+const GENERATE_SEO_QUERY = gql`
+    query GenerateSeo($input: GenerateSeoInput!) {
+        generateSeo(input: $input) {
+            title
+            description
+            keywords
+        }
     }
+`;
 
-    field.onChange(value);
+const GetSeoData = () => {
+    const client = useApolloClient();
+    const form = useForm();
+    const { showSnackbar } = useSnackbar();
+    const [loading, setLoading] = useState(false);
+    const { fields } = useFieldTracker();
+
+    const askChatGpt = async () => {
+        setLoading(true);
+        try {
+            const { data } = await client.query({
+                query: GENERATE_SEO_QUERY,
+                variables: {
+                    input: {
+                        content: extractRichTextHtml(fields).join("\n")
+                    }
+                }
+            });
+
+            const seo = data?.generateSeo;
+            if (!seo) {
+                console.error("Invalid response received from AI.");
+                showSnackbar("No valid data received from AI.");
+                return;
+            }
+
+            populateSeoTitle(form, fields, seo.title);
+            populateSeoDescription(form, fields, seo.description);
+            populateSeoKeywords(form, fields, seo.keywords);
+
+            showSnackbar("Success! We've populated the SEO fields with the recommended values.");
+        } catch (err) {
+            console.error("Error during SEO generation:", err);
+            showSnackbar("We were unable to get a recommendation from AI at this point.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <ButtonSecondary onClick={askChatGpt} disabled={loading}>
+            <ButtonIcon icon={<MagicIcon />} /> AI-optimized SEO
+        </ButtonSecondary>
+    );
 };
 
-const populateSeoDescription = (fields: FieldWithValue[], value: string) => {
-    const field = fields.find(field => field.type === "seoDescription");
-    if (!field) {
-        return;
+const populateSeoTitle = (
+    form: ReturnType<typeof useForm>,
+    fields: FieldWithValue[],
+    value: string
+) => {
+    const field = fields.find(field => field.type === "seoTitle");
+    if (field) {
+        form.setValue(field.path, value);
     }
+};
 
-    field.onChange(value);
+const populateSeoDescription = (
+    form: ReturnType<typeof useForm>,
+    fields: FieldWithValue[],
+    value: string
+) => {
+    const field = fields.find(field => field.type === "seoDescription");
+    if (field) {
+        form.setValue(field.path, value);
+    }
 };
 
 interface Tag {
@@ -38,80 +93,26 @@ interface Tag {
     tagValue: string;
 }
 
-const populateSeoKeywords = (fields: FieldWithValue[], keywords: string[]) => {
+const populateSeoKeywords = (
+    form: ReturnType<typeof useForm>,
+    fields: FieldWithValue[],
+    keywords: string[]
+) => {
     const field = fields.find(field => field.type === "seoMetaTags");
     if (!field) {
-        console.warn("no meta tags field!");
+        console.warn("No meta tags field!");
         return;
     }
+
     const tags: Tag[] = Array.isArray(field.value) ? field.value : [];
     const tagsWithoutKeywords = tags.filter(tag => tag.tagName !== "keywords");
 
-    field.onChange([
-        ...tagsWithoutKeywords,
-        { tagName: "keywords", tagValue: keywords.join(", ") }
-    ]);
-};
-
-/**
- * A button component to trigger OpenAI's GPT model to generate SEO fields.
- * Extracts rich-text content, sends it to GPT, and updates the form fields with the AI's suggestions.
- */
-const GetSeoData = () => {
-    const { showSnackbar } = useSnackbar();
-    const [loading, setLoading] = useState(false);
-    const { fields } = useFieldTracker();
-
-    const askChatGpt = async () => {
-        let response;
-        setLoading(true);
-        try {
-            response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
-                messages: [
-                    {
-                        role: "system",
-                        content: prompt
-                    },
-                    {
-                        role: "user",
-                        content: extractRichTextHtml(fields).join("\n")
-                    }
-                ],
-                temperature: 0.5,
-                max_tokens: 128,
-                top_p: 1
-            });
-        } catch (e) {
-            console.log(e);
-        }
-        setLoading(false);
-
-        console.log("ChatGPT response", response);
-        try {
-            // const seo = {
-            //     title: "Node.js, Yarn, and AWS Setup Guide for Webiny",
-            //     description:
-            //         "Learn how to set up Node.js, yarn, and AWS account and user credentials for deploying Webiny. Make sure you have the required versions installed.",
-            //     keywords: ["Node.js", "Yarn", "AWS", "Webiny", "setup"]
-            // };
-            const seo = JSON.parse(response?.choices[0].message.content as string);
-            console.log("parsed response", seo);
-            populateSeoTitle(fields, seo.title);
-            populateSeoDescription(fields, seo.description);
-            populateSeoKeywords(fields, seo.keywords);
-            showSnackbar("Success! We've populated the SEO fields with the recommended values.");
-        } catch (e) {
-            console.log(e);
-            showSnackbar("We were unable to get a recommendation from AI at this point.");
-        }
-    };
-
-    return (
-        <ButtonSecondary onClick={() => askChatGpt()} disabled={loading}>
-            <ButtonIcon icon={<MagicIcon />} /> AI-optimized SEO
-        </ButtonSecondary>
-    );
+    if (field) {
+        form.setValue(field.path, [
+            ...tagsWithoutKeywords,
+            { tagName: "keywords", tagValue: keywords.join(", ") }
+        ]);
+    }
 };
 
 export const SmartSeo = () => {

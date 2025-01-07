@@ -9,7 +9,6 @@ export interface FieldWithValue {
     path: string;
     type: string;
     label: string;
-    onChange: (value: any) => void;
 }
 
 interface FieldTrackerContext {
@@ -20,7 +19,6 @@ interface FieldTrackerContext {
         type: string,
         path: string,
         value: any,
-        onChange: (value: any) => void
     ) => void;
 }
 
@@ -33,14 +31,13 @@ const FieldTrackerContext = React.createContext<FieldTrackerContext | undefined>
 export const FieldTracker = ({ children }: FieldTrackerProps) => {
     const [fields, setFields] = useState<FieldWithValue[]>([]);
 
-    const trackField = useCallback((label:string, type:string, path:string, value:any, onChange: any) => {
+    const trackField = useCallback((label:string, type:string, path:string, value:any) => {
         setFields(fields => {
             const newValue: FieldWithValue = {
                 label,
                 type,
                 path,
                 value,
-                onChange
             };
 
             const index = fields.findIndex(trackedField => trackedField.path === path);
