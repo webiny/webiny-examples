@@ -1,5 +1,6 @@
 {
   "additionalNotes": {
+    "clearExisting":  true,
     "messages": [
       {
         "text": "run %s to start Admin app locally",
@@ -16,6 +17,7 @@
     ]
   },
   "nextSteps": {
+    "clearExisting": true,
     "messages": [
       {
         "text": "NS run %s to start Admin app locally",
