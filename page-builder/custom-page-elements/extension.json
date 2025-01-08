@@ -4,6 +4,20 @@
       "message": [
         "run %s to start Admin app locally",
         "yarn webiny watch admin --env dev"
+      ],
+      "children": [
+        {
+          "message": [
+            "run %s to start Headless CMS app locally",
+            "yarn webiny watch headless-cms --env dev"
+          ]
+        },
+        {
+          "message": [
+            "run %s to start Serverless CMS app locally",
+            "yarn webiny watch serverless-cms --env dev"
+          ]
+        }
       ]
     },
     {
