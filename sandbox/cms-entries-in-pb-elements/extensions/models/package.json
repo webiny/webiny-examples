@@ -1,5 +1,5 @@
 {
-  "name": "smart-seo-open-ai-api",
+  "name": "models",
   "main": "src/index.ts",
   "keywords": [
     "webiny-extension",
@@ -8,7 +8,6 @@
   "version": "1.0.0",
   "dependencies": {
     "@webiny/api-headless-cms": "5.41.4",
-    "@webiny/api-serverless-cms": "5.41.4",
-    "openai": "^4.33.0"
+    "@webiny/api-serverless-cms": "5.41.4"
   }
 }

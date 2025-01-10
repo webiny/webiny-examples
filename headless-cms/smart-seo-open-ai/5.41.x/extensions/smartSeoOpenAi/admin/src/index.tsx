@@ -5,7 +5,7 @@ import { DecorateContentEntryFormBind} from "./DecorateContentEntryFormBind";
 import { SmartSeo } from "./SmartSeo";
 
 export const Extension = () => {
-    return <>{/* Your code here. */}
+    return <>
         <DecorateContentEntryForm />
         <ContentEntryEditorConfig>
             <SmartSeo />
