@@ -9,6 +9,7 @@ const { ContentEntry } = ContentEntryEditorConfig;
 
 const SplitView = styled.div`
     display: flex;
+    width: 95vw; // Remove this line in case you are using the legacy entry editor ("cmsLegacyEntryEditor" flag is equal to true).
     > div {
         flex: 1;
     }
