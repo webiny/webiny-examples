@@ -1,0 +1,20 @@
+{
+	"name": "@demo/admin",
+	"main": "src/index.tsx",
+	"version": "1.0.0",
+	"keywords": [
+		"webiny-extension",
+		"webiny-extension-type:admin"
+	],
+	"dependencies": {
+		"@emotion/styled": "^11.11.5",
+		"@webiny/app-admin": "5.42.0",
+		"@webiny/app-headless-cms": "5.42.0",
+		"@webiny/app-headless-cms-common": "5.42.0",
+		"lodash": "^4.17.21",
+		"react": "18.2.0"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.17.5"
+	}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@demo/website",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "dependencies": {
+    "@webiny/react-rich-text-lexical-renderer": "5.42.0",
+    "@webiny/react-router": "5.42.0"
+  }
+}

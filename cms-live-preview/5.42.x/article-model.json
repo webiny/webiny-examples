@@ -1,0 +1,354 @@
+{
+  "groups": [
+    {
+      "id": "66743699152220000834e4d1",
+      "name": "Ungrouped",
+      "slug": "ungrouped",
+      "description": "A generic content model group",
+      "icon": "fas/star"
+    }
+  ],
+  "models": [
+    {
+      "modelId": "article",
+      "name": "Article",
+      "group": "66743699152220000834e4d1",
+      "icon": "far/newspaper",
+      "description": "Content model containing pages and articles.",
+      "singularApiName": "Article",
+      "pluralApiName": "Articles",
+      "fields": [
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "text-input" },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Title",
+          "type": "text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "w7tsfmws",
+          "validation": [
+            { "name": "required", "message": "Title is a required field.", "settings": {} }
+          ],
+          "storageId": "text@w7tsfmws",
+          "fieldId": "title"
+        },
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "long-text-text-area" },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Description",
+          "type": "long-text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "hji82whb",
+          "validation": [],
+          "storageId": "long-text@hji82whb",
+          "fieldId": "description"
+        },
+        {
+          "multipleValues": false,
+          "listValidation": [],
+          "settings": {},
+          "renderer": { "name": "text-input" },
+          "helpText": "Page slug.",
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Slug",
+          "type": "text",
+          "tags": [],
+          "placeholderText": null,
+          "id": "hkuzkt9w",
+          "validation": [],
+          "storageId": "text@hkuzkt9w",
+          "fieldId": "slug"
+        },
+        {
+          "multipleValues": true,
+          "listValidation": [
+            { "name": "dynamicZone", "message": "Value is required.", "settings": {} },
+            {
+              "name": "minLength",
+              "message": "You must create at least {value} entries.",
+              "settings": { "value": "1" }
+            }
+          ],
+          "settings": {
+            "templates": [
+              {
+                "layout": [
+                  ["agxja91c"],
+                  ["c4ixrpup"],
+                  ["t7ua3rfo"],
+                  ["3d2dbw1u"],
+                  ["6j0iwjbl"],
+                  ["mgo9vbg8"]
+                ],
+                "gqlTypeName": "Hero",
+                "name": "Hero",
+                "icon": "fas/grin-alt",
+                "description": "Hero banner",
+                "id": "soi55qiv6zdpg5l46ag3q",
+                "fields": [
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Title",
+                    "id": "agxja91c",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "title",
+                    "storageId": "text@agxja91c"
+                  },
+                  {
+                    "renderer": { "name": "long-text-text-area" },
+                    "label": "Description",
+                    "id": "t7ua3rfo",
+                    "type": "long-text",
+                    "validation": [],
+                    "fieldId": "description",
+                    "storageId": "long-text@t7ua3rfo"
+                  },
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Call to action - Button Label",
+                    "id": "6j0iwjbl",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "callToActionButtonLabel",
+                    "storageId": "text@6j0iwjbl"
+                  },
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Call to action - Button URL",
+                    "id": "mgo9vbg8",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "callToActionButtonUrl",
+                    "storageId": "text@mgo9vbg8"
+                  },
+                  {
+                    "settings": { "imagesOnly": true },
+                    "renderer": { "name": "file-input" },
+                    "label": "Image",
+                    "id": "3d2dbw1u",
+                    "type": "file",
+                    "validation": [],
+                    "fieldId": "image",
+                    "storageId": "file@3d2dbw1u"
+                  },
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Subtitle",
+                    "id": "c4ixrpup",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "subtitle",
+                    "storageId": "text@c4ixrpup"
+                  }
+                ],
+                "validation": [],
+                "tags": []
+              },
+              {
+                "layout": [["i0kw1tft"]],
+                "gqlTypeName": "ThreeGridBox",
+                "name": "3-Grid Box",
+                "icon": "fas/3",
+                "description": "Section with three boxes",
+                "id": "4evd0r1hs67v6sy7lvp4d",
+                "fields": [
+                  {
+                    "multipleValues": true,
+                    "settings": {
+                      "fields": [
+                        {
+                          "renderer": { "name": "text-input" },
+                          "label": "Title",
+                          "id": "hn37hdb4",
+                          "type": "text",
+                          "validation": [],
+                          "fieldId": "title",
+                          "storageId": "text@hn37hdb4"
+                        },
+                        {
+                          "renderer": { "name": "long-text-text-area" },
+                          "label": "Description",
+                          "id": "jy7qcjot",
+                          "type": "long-text",
+                          "validation": [],
+                          "fieldId": "description",
+                          "storageId": "long-text@jy7qcjot"
+                        },
+                        {
+                          "settings": { "imagesOnly": true },
+                          "renderer": { "name": "file-input" },
+                          "label": "Icon",
+                          "id": "el6llh3p",
+                          "type": "file",
+                          "validation": [],
+                          "fieldId": "icon",
+                          "storageId": "file@el6llh3p"
+                        }
+                      ],
+                      "layout": [["hn37hdb4"], ["jy7qcjot"], ["el6llh3p"]]
+                    },
+                    "listValidation": [
+                      {
+                        "name": "minLength",
+                        "message": "You have to have three boxes exactly.",
+                        "settings": { "value": "3" }
+                      },
+                      {
+                        "name": "maxLength",
+                        "message": "You have to have three boxes exactly.",
+                        "settings": { "value": "3" }
+                      }
+                    ],
+                    "renderer": { "name": "objects" },
+                    "label": "Boxes",
+                    "id": "i0kw1tft",
+                    "type": "object",
+                    "validation": [],
+                    "fieldId": "boxes",
+                    "storageId": "object@i0kw1tft"
+                  }
+                ],
+                "validation": [],
+                "tags": []
+              },
+              {
+                "layout": [["v7ouga75"], ["wlk6jqqk"], ["dqo7gkwx"], ["dzwdsrgi"]],
+                "gqlTypeName": "Banner",
+                "name": "Banner",
+                "icon": "fas/rectangle-ad",
+                "description": "Call out banner",
+                "id": "s2mclt9b04geqrlofgwom",
+                "fields": [
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Title",
+                    "id": "v7ouga75",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "title",
+                    "storageId": "text@v7ouga75"
+                  },
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Action - Label",
+                    "id": "wlk6jqqk",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "actionLabel",
+                    "storageId": "text@wlk6jqqk"
+                  },
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Action - URL",
+                    "id": "dqo7gkwx",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "actionUrl",
+                    "storageId": "text@dqo7gkwx"
+                  },
+                  {
+                    "settings": { "imagesOnly": true },
+                    "renderer": { "name": "file-input" },
+                    "label": "Image",
+                    "id": "dzwdsrgi",
+                    "type": "file",
+                    "validation": [],
+                    "fieldId": "image",
+                    "storageId": "file@dzwdsrgi"
+                  }
+                ],
+                "validation": [],
+                "tags": []
+              },
+              {
+                "layout": [["mqi3xmwd"], ["c6yqt620"], ["bhnus20f"]],
+                "gqlTypeName": "Textwithimageblock",
+                "name": "Text&Image Block",
+                "icon": "fas/image",
+                "description": "Text with Image block",
+                "id": "yu774a27dmnfndxjekdje",
+                "fields": [
+                  {
+                    "renderer": { "name": "text-input" },
+                    "label": "Title",
+                    "id": "mqi3xmwd",
+                    "type": "text",
+                    "validation": [],
+                    "fieldId": "title",
+                    "storageId": "text@mqi3xmwd"
+                  },
+                  {
+                    "renderer": { "name": "lexical-text-input" },
+                    "label": "Content",
+                    "id": "c6yqt620",
+                    "type": "rich-text",
+                    "validation": [],
+                    "fieldId": "content",
+                    "storageId": "rich-text@c6yqt620"
+                  },
+                  {
+                    "settings": { "imagesOnly": true },
+                    "renderer": { "name": "file-input" },
+                    "label": "Image",
+                    "id": "bhnus20f",
+                    "type": "file",
+                    "validation": [],
+                    "fieldId": "image",
+                    "storageId": "file@bhnus20f"
+                  }
+                ],
+                "validation": [],
+                "tags": []
+              },
+              {
+                "layout": [["pvmtt8u7"]],
+                "gqlTypeName": "Richtextfield",
+                "name": "Rich text field",
+                "icon": "fas/font",
+                "description": "Rich text field",
+                "id": "42xjmo2vb2bgoz3e35xgs",
+                "fields": [
+                  {
+                    "renderer": { "name": "lexical-text-input" },
+                    "label": "Content",
+                    "id": "pvmtt8u7",
+                    "type": "rich-text",
+                    "validation": [],
+                    "fieldId": "content",
+                    "storageId": "rich-text@pvmtt8u7"
+                  }
+                ],
+                "validation": [],
+                "tags": []
+              }
+            ]
+          },
+          "renderer": { "name": "dynamicZone" },
+          "helpText": null,
+          "predefinedValues": { "enabled": false, "values": [] },
+          "label": "Content",
+          "type": "dynamicZone",
+          "tags": [],
+          "placeholderText": null,
+          "id": "gr99y010",
+          "validation": [],
+          "storageId": "dynamicZone@gr99y010",
+          "fieldId": "content"
+        }
+      ],
+      "layout": [["w7tsfmws"], ["hji82whb"], ["hkuzkt9w"], ["gr99y010"]],
+      "titleFieldId": "title",
+      "descriptionFieldId": "description"
+    }
+  ]
+}
