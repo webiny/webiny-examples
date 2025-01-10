@@ -7,6 +7,12 @@ const LivePreviewContainer = styled.div`
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--mdc-theme-on-background);
+
+    // Use a media query to disable the preview pane for screens under 960px wide (or any other preferred width).
+    // You can remove this line in case you are using the legacy entry editor ("cmsLegacyEntryEditor" flag is equal to true).
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
 `;
 
 const Location = styled.div`
