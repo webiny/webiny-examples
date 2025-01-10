@@ -24,7 +24,7 @@ const { preview: CMS_PREVIEW_API_URL, read: CMS_READ_API_URL } = getHeadlessCmsG
 
 // Create token via Admin app / API Keys section (could also be assigned va env variable).
 // A token that has READ access to the CMS Article content model is needed.
-const API_TOKEN = "a9125d00b8491b111d573911d1bb02eebc285393ae76b6fb";
+const API_TOKEN = "<...>";
 
 const createEntriesListQuery = (modelId: string) => {
     // TODO: This must return dynamically generated query based on the model ID.
