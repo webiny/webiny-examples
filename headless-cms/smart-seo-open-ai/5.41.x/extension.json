@@ -1,0 +1,20 @@
+{
+  "nextSteps": {
+    "messages": [
+      {
+        "text": "deploy your %s app by running %s",
+        "variables": [
+          "API",
+          "yarn webiny deploy api --env dev"
+        ]
+      },
+      {
+        "text": "run %s to start %s app locally",
+        "variables": [
+          "yarn webiny watch admin --env dev",
+          "Admin"
+        ]
+      }
+    ]
+  }
+}
