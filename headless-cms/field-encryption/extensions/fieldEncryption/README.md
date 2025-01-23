@@ -24,6 +24,6 @@ new StorageTransformPlugin({
 })
 ```
 
-As we can see, in the plugin, via the `usesEncryption` function, we're first ensuring that we only apply encryption to a specific model and field ID. In this case, we're only doing it for the `sku` field of the `product` content model entries. 
+As we can see, in the plugin, via the `usesEncryption` function, we're first ensuring that we only apply encryption to a specific model and field ID. In this case, we're only doing it for the `productSku` field of the `product` content model entries. 
 
 When it comes to actual encryption/decryption, this is something that needs to be still implemented (this example just provides an overview how to do it).
