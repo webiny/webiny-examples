@@ -2,7 +2,7 @@
 
 This extension serves as an example of how to introduce encryption on a content model field level.
 
-The most important part of this extension is the use of `StorageTransformPlugin`, found in `extensions/fieldEncryption/src/index.ts:79`:
+The most important part of this extension is the use of `StorageTransformPlugin`, found in `extensions/fieldEncryption/src/index.ts`:
 
 ```ts
 new StorageTransformPlugin({
