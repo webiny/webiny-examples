@@ -4,7 +4,7 @@
       {
         "text": "check out the %s file for more information",
         "variables": [
-          "README.md"
+          "extensions/field-encryption/README.md"
         ]
       }
     ]
