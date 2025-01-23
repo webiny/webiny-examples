@@ -1,5 +1,5 @@
 {
-  "name": "field-value-encryption",
+  "name": "field-encryption",
   "main": "src/index.ts",
   "keywords": [
     "webiny-extension",
