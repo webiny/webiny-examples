@@ -6,6 +6,7 @@ import {
 export const configureAdminCognitoFederation: NonNullable<CreateCoreAppParams["pulumi"]> = app => {
     app.resources.userPool.config.schemas(schemas => {
         return [
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             ...schemas!,
             {
                 attributeDataType: "String",
@@ -21,7 +22,7 @@ export const configureAdminCognitoFederation: NonNullable<CreateCoreAppParams["p
         ];
     });
     baseConfigureAdminCognitoFederation(app, {
-        domain: "webiny-admin-a0",
+        domain: String(process.env["WEBINY_CORE_COGNITO_USER_POOL_DOMAIN"]),
         callbackUrls: ["http://localhost:3001"],
         identityProviders: [
             {

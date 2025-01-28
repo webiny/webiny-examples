@@ -1,5 +1,5 @@
 {
-	"name": "security",
+	"name": "cognito-federation-with-a0",
 	"main": "src/index.ts",
 	"version": "1.0.0",
 	"dependencies": {
