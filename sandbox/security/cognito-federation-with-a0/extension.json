@@ -1,0 +1,12 @@
+{
+  "additionalNotes": {
+    "messages": [
+      {
+        "text": "check out the %s file for more information",
+        "variables": [
+          "extensions/fieldEncryption/README.md"
+        ]
+      }
+    ]
+  }
+}
