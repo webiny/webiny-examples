@@ -53,9 +53,11 @@ yarn webiny deploy core --env dev
 
 ### `api.ts`
 
-The `api.ts` file exports two functions: `cognitoAuthentication` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny can authenticate users by using both the Amazon Cognito user pool and Auth0.
+The `api.ts` file exports two functions: `cognitoAuthentication` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny backend GraphQL API can authenticate users by using either the Amazon Cognito user pool or Auth0.
 
-In order for it to work, the functions must be imported and called in the `apps/api/graphql/src/security.ts` file. Note that upon doing that, we'll have to do two things:
+In order for it to work, the functions must be imported and called in the `apps/api/graphql/src/security.ts` file.
+
+Note that upon doing that, we'll have to do two things:
 
 1. remove old imports of `cognitoAuthentication` and `createSecurityGraphQL` functions
 2. replace the old `cognitoAuthentication` call with the new one
@@ -86,20 +88,23 @@ We now simply have this:
 cognitoAuthentication()
 ```
 
+Before deploying these changes, note that it's also recommended for the `cognito-federation-with-a0` package to be listed as a  dependency in the `apps/api/graphql/package.json` file. This can be easily achieved by running the following command:
+
+```bash
+yarn workspace api-graphql add cognito-federation-with-a0 
+```
+
 Finally, once all of these steps are done, you can run the following command to deploy the changes:
 
 ```bash
 yarn webiny deploy api --env dev
 ```
 
-[work in progress]
-- make sure to add `"cognito-federation-with-a0: "1.0.0"` to the `dependencies` in the `apps/api/graphql/package.json`
-
 ### `admin.tsx`
 
-[work in progress]
+The `admin.tsx` file exports a single `cognitoConfig` function. This function is used to configure the Amazon Cognito user pool (that comes with every Webiny project) with Auth0 as an additional identity provider, in the Admin app.
 
-Just import the `cognitoConfig` function in `apps/admin/src/App.tsx`:
+To use it, import the `cognitoConfig` function in `apps/admin/src/App.tsx` and pass it to the `Cognito` component:
 
 ```tsx
 import React from "react";
@@ -120,13 +125,18 @@ export const App = () => {
     );
 };
 ```
-- make sure to add `"cognito-federation-with-a0: "1.0.0"` to the `dependencies` in the `apps/admin/package.json`
 
+Same as in the previous step, before deploying these changes, note that it's also recommended for the `cognito-federation-with-a0` package to be listed as a  dependency in the `apps/admin/package.json` file. This can be easily achieved by running the following command:
 
-#### `apps/admin/webiny.config.ts
+```bash
+yarn workspace admin add cognito-federation-with-a0 
+```
+
+#### `apps/admin/webiny.config.ts` Changes
+
 [work in progress]
 
-This must aslo be added to the `apps/admin/webiny.config.ts` file:
+This must also be added to the `apps/admin/webiny.config.ts` file:
 ```ts
 import {
     createAdminAppConfig,
@@ -136,4 +146,10 @@ import {
 export default createAdminAppConfig(modifier => {
     configureAdminCognitoUserPoolDomain(modifier);
 });
+```
+
+Finally, once all of these steps are done, you can run the following command to deploy the changes:
+
+```bash
+yarn webiny deploy admin --env dev
 ```
