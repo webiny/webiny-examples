@@ -122,3 +122,18 @@ export const App = () => {
 ```
 - make sure to add `"cognito-federation-with-a0: "1.0.0"` to the `dependencies` in the `apps/admin/package.json`
 
+
+#### `apps/admin/webiny.config.ts
+[work in progress]
+
+This must aslo be added to the `apps/admin/webiny.config.ts` file:
+```ts
+import {
+    createAdminAppConfig,
+    configureAdminCognitoUserPoolDomain
+} from "@webiny/serverless-cms-aws";
+
+export default createAdminAppConfig(modifier => {
+    configureAdminCognitoUserPoolDomain(modifier);
+});
+```
