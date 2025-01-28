@@ -153,3 +153,9 @@ Finally, once all of these steps are done, you can run the following command to 
 ```bash
 yarn webiny deploy admin --env dev
 ```
+
+## Auth0 Configuration
+
+In order for this extension to work, you must also configure your Auth0 account to work with Amazon Cognito. Here's how you can do it:
+
+[work in progress]
