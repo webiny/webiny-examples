@@ -37,3 +37,7 @@ curl -X GET https://xyz.cloudfront.net/create
 ```
 
 > Note that `xyz` should be replaced with the actual CloudFront URL of your Webiny project.
+
+Alternatively, you can simply enter the https://xyz.cloudfront.net/create URL in your browser:
+
+![Testing In Browser](./screenshot.png)
