@@ -20,7 +20,7 @@ export const cognitoAuthentication = () => {
         userPoolId: String(process.env.COGNITO_USER_POOL_ID),
         identityType: "admin",
         getIdentity({ identity, token, context }) {
-            const isFederatedIdentity = Boolean(token.identities);
+            const isFederatedIdentity = Boolean(token["identities"]);
             if (!isFederatedIdentity) {
                 // If we're not dealing with a federated identity, we can return the identity as is.
                 // The base `cognitoAuthentication` plugin will take care of the rest (it will load
