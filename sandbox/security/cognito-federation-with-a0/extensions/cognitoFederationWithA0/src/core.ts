@@ -26,7 +26,7 @@ export const configureAdminCognitoFederation: NonNullable<CreateCoreAppParams["p
         callbackUrls: ["http://localhost:3001"],
         identityProviders: [
             {
-                name: "Auth0",
+                // name: "Auth0", // Can be used with 5.42.1 or greater.
                 type: "oidc",
                 attributeMapping: {
                     "custom:id": "sub",
