@@ -12,7 +12,7 @@ The function must be imported and called in the `apps/api/webiny.application.ts`
 
 ```ts
 import { createApiApp } from "@webiny/serverless-cms-aws";
-import { createRestEndpoints } from "cms-entries-with-rest/src/api";
+import { createRestEndpoints } from "cms-entries-with-rest/src/createRestEndpoints";
 
 export default createApiApp({
     pulumiResourceNamePrefix: "wby-",
