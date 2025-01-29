@@ -2,6 +2,9 @@
 
 Built on the back of [this article](https://www.webiny.com/docs/core-development-concepts/extending-and-customizing/add-custom-route-to-existing-lambda), this extension demonstrates how to introduce a simple REST API endpoint that works side by side with the existing Webiny GraphQL API. In particular, the extension introduces a new `/create` endpoint, which, once invoked via a simple GET request, creates a new `Product` CMS content entry.
 
+> [!NOTE]
+> We've used the code from the [Define Content Models via Code](https://www.webiny.com/docs/headless-cms/extending/content-models-via-code) article to quickly define a simple Product content model.
+
 ## Setup
 
 Once downloaded, this extension does involve a manual step to set up. Without this step, the extension will not work.
