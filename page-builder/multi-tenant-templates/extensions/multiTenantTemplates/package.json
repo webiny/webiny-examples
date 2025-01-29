@@ -1,0 +1,12 @@
+{
+  "name": "multi-tenant-templates",
+  "main": "src/index.ts",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:api"
+  ],
+  "dependencies": {
+    "@webiny/api-serverless-cms": "0.0.0"
+  },
+  "version": "1.0.0"
+}
