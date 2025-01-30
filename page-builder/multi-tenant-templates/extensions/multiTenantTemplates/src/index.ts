@@ -38,6 +38,34 @@ export const createExtension = () => {
                     await copyPageTemplates();
                 });
             });
+
+            pageBuilder.onPageTemplateAfterCreate.subscribe(async event => {
+                // We don't want to trigger this logic for tenants that are not the root tenant.
+                const currentTenant = tenancy.getCurrentTenant();
+                if (currentTenant.id !== "root") {
+                    return;
+                }
+
+                const tenantsList = await tenancy.listTenants();
+                const nonRootTenantsList = tenantsList.filter(t => t.id !== "root");
+
+                const template = event.pageTemplate;
+
+                await tenancy.withEachTenant(nonRootTenantsList, async tenant => {
+                    await tenancy.withTenant(tenant, async () => {
+                        await pageBuilder.createPageTemplate({
+                            id: template.id,
+                            title: template.title,
+                            slug: template.slug,
+                            description: template.description,
+                            tags: template.tags,
+                            layout: template.layout,
+                            pageCategory: template.pageCategory,
+                            content: template.content
+                        });
+                    });
+                });
+            });
         })
     ];
 };
