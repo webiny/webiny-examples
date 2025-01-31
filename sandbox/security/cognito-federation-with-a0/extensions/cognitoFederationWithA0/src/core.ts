@@ -1,7 +1,7 @@
 import {
     CreateCoreAppParams,
     configureAdminCognitoFederation as baseConfigureAdminCognitoFederation
-} from "@webiny/serverless-cms-aws";
+} from "@webiny/serverless-cms-aws/enterprise";
 
 export const configureAdminCognitoFederation: NonNullable<CreateCoreAppParams["pulumi"]> = app => {
     app.resources.userPool.config.schemas(schemas => {
