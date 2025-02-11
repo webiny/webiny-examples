@@ -17,7 +17,7 @@ Let's go through each of them and see what manual steps are required.
 
 ### `api.ts`
 
-The `api.ts` file exports two functions: `createMyIdp` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny backend GraphQL API can authenticate users by using your custom IdP.
+The `api.ts` file exports two functions: `myIdpAuthentication` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny backend GraphQL API can authenticate users by using your custom IdP.
 
 In order for it to work, the functions must be imported and called in the `apps/api/graphql/src/security.ts` file.
 
@@ -25,11 +25,12 @@ Note that upon doing that, we'll have to do two things:
 
 1. remove old imports of `cognitoAuthentication` and `createSecurityGraphQL` functions
 2. replace the old `cognitoAuthentication` call with the new one
+3. remove all other Cognito-related code
 
 So, for starters, we import the functions:
 
 ```ts
-import { createSecurityGraphQL, createMyIdp } from "cognito-federation-with-a0/src/api";
+import { createSecurityGraphQL, myIdpAuthentication } from "my-idp/src/api";
 ```
 
 Then, replace the old `cognitoAuthentication` call with the new one. So, instead of this:
@@ -66,6 +67,9 @@ yarn webiny deploy api --env dev
 
 ### `admin.tsx`
 
+> [!NOTE]
+> Work in progress, ignore the text below! ⚠️
+
 The `admin.tsx` file exports a single `cognitoConfig` function. This function is used to configure the Amazon Cognito user pool (that comes with every Webiny project) with Auth0 as an additional identity provider, in the Admin app.
 
 To use it, import the `cognitoConfig` function in `apps/admin/src/App.tsx` and pass it to the `Cognito` component:
@@ -96,30 +100,6 @@ Same as in the previous step, before deploying these changes, note that it's als
 yarn workspace admin add cognito-federation-with-a0 
 ```
 
-#### `apps/admin/webiny.config.ts` Changes
-
-[work in progress]
-
-This must also be added to the `apps/admin/webiny.config.ts` file:
-```ts
-import {
-    createAdminAppConfig,
-    configureAdminCognitoUserPoolDomain
-} from "@webiny/serverless-cms-aws";
-
-export default createAdminAppConfig(modifier => {
-    configureAdminCognitoUserPoolDomain(modifier);
-});
-```
-
-Finally, once all of these steps are done, you can run the following command to deploy the changes:
-
 ```bash
 yarn webiny deploy admin --env dev
 ```
-
-## Auth0 Configuration
-
-In order for this extension to work, you must also configure your Auth0 account to work with Amazon Cognito. Here's how you can do it:
-
-[work in progress]

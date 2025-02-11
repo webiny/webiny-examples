@@ -1,35 +1,18 @@
-import { type Context } from "@webiny/api-serverless-cms";
-import { createGroupsTeamsAuthorizer, GroupsTeamsAuthorizerConfig } from "@webiny/api-security";
+import { createGroupsTeamsAuthorizer } from "@webiny/api-security";
 import { createExternalIdpAdminUserHooks } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks";
-import { createAuthenticator, AuthenticatorConfig } from "./createAuthenticator";
+import { createAuthenticator } from "./createAuthenticator";
 import { createIdentityType } from "./createIdentityType";
+import { IDENTITY_TYPE, GRAPHQL_IDENTITY_TYPE } from "./constants";
 
-export interface MyIdpAuthenticationConfig<TContext extends Context = Context>
-    extends AuthenticatorConfig,
-        GroupsTeamsAuthorizerConfig<TContext> {
-    graphQLIdentityType?: string;
-}
-
-export const myIdpAuthentication = <TContext extends Context = Context>(
-    config: MyIdpAuthenticationConfig<TContext>
-) => {
-    const identityType = config.identityType || "admin";
-    const graphQLIdentityType = config.graphQLIdentityType || "MyIdpIdentity";
-
+export const myIdpAuthentication = () => {
     return [
-        createAuthenticator({
-            domain: config.domain,
-            getIdentity: config.getIdentity
-        }),
-        createGroupsTeamsAuthorizer<TContext>({
-            identityType,
-            getGroupSlug: config.getGroupSlug,
-            inheritGroupsFromParentTenant: config.inheritGroupsFromParentTenant,
-            canAccessTenant: config.canAccessTenant
+        createAuthenticator(),
+        createGroupsTeamsAuthorizer({
+            identityType: IDENTITY_TYPE
         }),
         createIdentityType({
-            identityType,
-            name: graphQLIdentityType
+            identityType: IDENTITY_TYPE,
+            name: GRAPHQL_IDENTITY_TYPE
         }),
         createExternalIdpAdminUserHooks()
     ];
