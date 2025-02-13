@@ -8,7 +8,7 @@ Note that Webiny already supports integration with IdPs like [Okta](https://www.
 
 Once downloaded, this extension does involve a couple of manual steps to set up. Without these steps, the extension will not work.
 
-In the `extensions/myCustomIdp/src` directory, you'll find three files:
+In the `extensions/myIdp/src` directory, you'll find two files:
 
 2. `api.ts`
 3. `admin.tsx`
@@ -17,23 +17,27 @@ Let's go through each of them and see what manual steps are required.
 
 ### `api.ts`
 
-The `api.ts` file exports two functions: `myIdpAuthentication` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny backend GraphQL API can authenticate users by using your custom IdP.
+The `api.ts` file exports two functions: `myIdpAuthentication` and `createSecurityGraphQL`. Essentially, these functions ensure that Webiny backend GraphQL API and other services can authenticate users by using your custom IdP.
 
-In order for it to work, the functions must be imported and called in the `apps/api/graphql/src/security.ts` file.
+In order for it to work, the functions must be imported and called in the `apps/api/graphql/src/security.ts` file. We'll also need to do a bit of cleanup. 
 
-Note that upon doing that, we'll have to do two things:
+Let's go through the steps required to set it up.
 
-1. remove old imports of `cognitoAuthentication` and `createSecurityGraphQL` functions
-2. replace the old `cognitoAuthentication` call with the new one
-3. remove all other Cognito-related code
+#### 1. Import the Functions
 
-So, for starters, we import the functions:
+We import the functions from the `api.ts` file in the `apps/api/graphql/src/security.ts` file. 
 
 ```ts
 import { createSecurityGraphQL, myIdpAuthentication } from "my-idp/src/api";
 ```
 
-Then, replace the old `cognitoAuthentication` call with the new one. So, instead of this:
+#### 2. Remove Old Imports Of `cognitoAuthentication` and `createSecurityGraphQL` Functions
+
+Since we've imported the new functions, we can now remove the old imports of `cognitoAuthentication` and `createSecurityGraphQL` functions.
+
+#### 3. Replace Old `cognitoAuthentication` Call With `myIdpAuthentication`
+
+We need to replace the old `cognitoAuthentication` call with the new one. So, instead of this:
 
 ```ts
 /**
@@ -47,19 +51,28 @@ cognitoAuthentication({
 })
 ```
 
-We now simply have this:
+...we now simply have this:
 
 ```ts
+/**
+ * Our custom authentication plugin.
+ */
 myIdpAuthentication()
 ```
 
-Before deploying these changes, note that it's also recommended for the `my-idp` package to be listed as a dependency in the `apps/api/graphql/package.json` file. This can be easily achieved by running the following command:
+#### 4. Remove Non-Required Cognito-related Code
+We need to remove any remaining Cognito-related code from the `security.ts` file. Basically, we can just search for the "cognito" keyword and remove all the code that's not needed anymore.
+
+#### 5. Update Dependencies
+Let's remove the `@webiny/api-security-cognito` package from the `apps/api/graphql/package.json` file. We also want to add the `my-idp` package as a dependency. We can achieve this by running the following commands:
 
 ```bash
-yarn workspace api-graphql add my-idp 
+yarn workspace api/graphql remove @webiny/api-security-cognito
+yarn workspace api/graphql add my-idp
 ```
 
-Finally, once all of these steps are done, you can run the following command to deploy the changes:
+#### 6. Deploy Changes
+Once all of the steps are done, we can run the following command to deploy the changes:
 
 ```bash
 yarn webiny deploy api --env dev
@@ -97,7 +110,7 @@ export const App = () => {
 Same as in the previous step, before deploying these changes, note that it's also recommended for the `cognito-federation-with-a0` package to be listed as a  dependency in the `apps/admin/package.json` file. This can be easily achieved by running the following command:
 
 ```bash
-yarn workspace admin add cognito-federation-with-a0 
+yarn workspace admin add my-idp
 ```
 
 ```bash
