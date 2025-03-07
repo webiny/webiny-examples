@@ -8,9 +8,9 @@ const isJwt = (token: unknown) => {
 };
 
 const processIdToken = async (idToken?: string) => {
-    // if (!isJwt(idToken)) {
-    //     return null;
-    // }
+    if (!isJwt(idToken)) {
+        return null;
+    }
 
     try {
         // Decoding of JWT token should happen here. See how we do it with Okta/A0 implementations:
@@ -46,6 +46,12 @@ export const createAuthenticator = () => {
                 id: token.id,
                 type: IDENTITY_TYPE,
                 displayName: `${token.firstName} ${token.lastName}`,
+
+                // Via the built-in full-access role, this provides full access to the Admin Area.
+                // TODO: remove this and assign roles based on the token.
+                groups: ['full-access'],
+
+                // TODO: custom properties can be added like this.
                 customClaims: {
                     isMySuperUser: token.maybeCustomClaims?.isMySuperUser
                 }

@@ -23,7 +23,7 @@ The `core.ts` file exports a single `configureAdminCognitoFederation` function. 
 In order for it to work, for starters, the function must be imported and called in the `apps/core/webiny.application.ts` file:
 
 ```ts
-import { createCoreApp } from "@webiny/serverless-cms-aws";
+import { createCoreApp } from "@webiny/serverless-cms-aws/enterprise";
 import { configureAdminCognitoFederation } from "cognito-federation-with-a0/src/core";
 
 export default createCoreApp({
@@ -159,3 +159,5 @@ yarn webiny deploy admin --env dev
 In order for this extension to work, you must also configure your Auth0 account to work with Amazon Cognito. Here's how you can do it:
 
 [work in progress]
+
+https://my-webiny-admin-cog-user-pool-domain.auth.eu-central-1.amazoncognito.com/oauth2/idpresponse
