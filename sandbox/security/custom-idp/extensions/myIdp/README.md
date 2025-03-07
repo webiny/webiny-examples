@@ -92,41 +92,43 @@ yarn webiny deploy api --env dev
 ### `admin.tsx`
 
 > [!NOTE]
-> Work in progress, ignore the text below! ⚠️
+> This README document in progress! ⚠️ Make sure to check the admin.tsx and the rest of the frontend-related code to
+> learn how to integrate the custom IdP with the frontend.
 
-The `admin.tsx` file exports a single `cognitoConfig` function. This function is used to configure the Amazon Cognito
-user pool (that comes with every Webiny project) with Auth0 as an additional identity provider, in the Admin app.
+The `admin.tsx` file exports all of the frontend/Admin app-related components that are required for the custom IdP to
+work. Note that the `MyIdp` component is a placeholder for the actual IdP integration logic. It does not render any UI, 
+but it simply mocks the authentication process. Of course, if no UI is needed in your project, then that's also fine.
+It's not that every project requires an authentication UI. Some projects might just need the authentication logic.
 
-To use it, import the `cognitoConfig` function in `apps/admin/src/App.tsx` and pass it to the `Cognito` component:
-
+In your `apps/admin/src/App.tsx` file, you can import the `MyIdp` component and render it. Here's how you can do it:
 ```tsx
 import React from "react";
 import { Admin } from "@webiny/app-serverless-cms";
-import { Cognito } from "@webiny/app-admin-users-cognito";
 import { Extensions } from "./Extensions";
-
 import "./App.scss";
-
-import { cognitoConfig } from "cognito-federation-with-a0/src/admin";
+import { MyIdp } from "my-idp/src/admin";
 
 export const App = () => {
-  return (
-    <Admin>
-      <Cognito config={cognitoConfig} />
-      <Extensions />
-    </Admin>
-  );
+    return (
+        <Admin>
+            <MyIdp />
+            <Extensions />
+        </Admin>
+    );
 };
+
 ```
 
 Same as in the previous step, before deploying these changes, note that it's also recommended for
-the `cognito-federation-with-a0` package to be listed as a dependency in the `apps/admin/package.json` file. This can be
+the `my-idp` package to be listed as a dependency in the `apps/admin/package.json` file. This can be
 easily achieved by running the following command:
 
 ```bash
 yarn workspace admin add my-idp
 ```
 
+Then run:
 ```bash
 yarn webiny deploy admin --env dev
 ```
+
