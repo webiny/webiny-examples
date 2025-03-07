@@ -1,19 +1,14 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { createContextPlugin, createGraphQLSchemaPlugin } from "@webiny/api-serverless-cms";
 import { SecurityIdentity } from "@webiny/api-security/types";
+import { GRAPHQL_IDENTITY_TYPE, IDENTITY_TYPE } from "../constants";
 
-interface Config {
-    name: string;
-    identityType: string;
-}
-
-export const createIdentityType = (config: Config) => {
+export const createIdentityType = () => {
     return [
         // Webiny supports different identity types, so we need to define a dedicated GraphQL type
         // for each identity type in the system. They all must implement the base `SecurityIdentity` interface.
         createGraphQLSchemaPlugin({
             typeDefs: `
-            type ${config.name} implements SecurityIdentity {
+            type ${GRAPHQL_IDENTITY_TYPE} implements SecurityIdentity {
                 id: ID!
                 type: String!
                 displayName: String!
@@ -21,9 +16,9 @@ export const createIdentityType = (config: Config) => {
             }
         `,
             resolvers: {
-                [config.name]: {
+                [GRAPHQL_IDENTITY_TYPE]: {
                     __isTypeOf(obj: SecurityIdentity) {
-                        return obj.type === config.identityType;
+                        return obj.type === IDENTITY_TYPE;
                     }
                 }
             }
@@ -32,9 +27,9 @@ export const createIdentityType = (config: Config) => {
         createContextPlugin(context => {
             if (context.tenancy.isMultiTenant()) {
                 context.plugins.register(
-                    new GraphQLSchemaPlugin({
+                    createGraphQLSchemaPlugin({
                         typeDefs: `
-                            extend type ${config.name} {
+                            extend type ${GRAPHQL_IDENTITY_TYPE} {
                                 currentTenant: Tenant
                                 defaultTenant: Tenant
                             }

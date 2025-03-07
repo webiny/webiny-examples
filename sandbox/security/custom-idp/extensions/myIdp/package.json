@@ -3,12 +3,19 @@
   "main": "src/index.ts",
   "version": "1.0.0",
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@emotion/styled": "11.10.6",
+    "@webiny/api-admin-users": "0.0.0",
     "@webiny/api-security": "0.0.0",
-    "@webiny/api-security-cognito": "0.0.0",
     "@webiny/api-serverless-cms": "0.0.0",
-    "@webiny/app-admin-users-cognito": "0.0.0",
-    "@webiny/serverless-cms-aws": "0.0.0",
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-security": "0.0.0",
+    "@webiny/app-serverless-cms": "0.0.0",
+    "@webiny/error": "0.0.0",
+    "@webiny/plugins": "0.0.0",
     "@webiny/ui": "0.0.0",
+    "apollo-link-context": "^1.0.20",
+    "graphql-tag": "^2.12.6",
     "react": "18.2.0"
   },
   "devDependencies": {

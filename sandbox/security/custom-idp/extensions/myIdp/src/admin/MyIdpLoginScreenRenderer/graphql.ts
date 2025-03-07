@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import { GRAPHQL_IDENTITY_TYPE } from "../../constants";
-import {type SecurityPermission} from "@webiny/app-security/types";
+import { type SecurityPermission } from "@webiny/app-security/types";
 
 export interface LoginError {
     code: string;

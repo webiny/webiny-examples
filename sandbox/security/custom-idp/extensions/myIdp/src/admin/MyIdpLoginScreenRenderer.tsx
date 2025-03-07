@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { LoginScreenRenderer, useSecurity, useTenancy, Layout } from "@webiny/app-serverless-cms";
+import { LoginScreenRenderer, useSecurity, useTenancy } from "@webiny/app-serverless-cms";
 import { getTenantId } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { CircularProgress } from "@webiny/ui/Progress";

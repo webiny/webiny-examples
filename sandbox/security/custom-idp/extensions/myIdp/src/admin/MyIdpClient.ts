@@ -18,7 +18,7 @@ export class MyIdpClient {
                 this.isAuthenticated = true;
                 resolve();
                 // Perform authentication logic here.
-            }, 2_000);
+            }, 1_000);
         });
     }
 }
