@@ -64,7 +64,7 @@ cognitoAuthentication({
 /**
  * Our custom authentication plugin.
  */
-myIdpAuthentication();
+myIdpAuthentication(),
 ```
 
 #### 4. Remove Non-Required Cognito-related Code
