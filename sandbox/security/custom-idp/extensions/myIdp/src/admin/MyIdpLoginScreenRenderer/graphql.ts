@@ -1,11 +1,57 @@
 import gql from "graphql-tag";
+import { GRAPHQL_IDENTITY_TYPE } from "../../constants";
+import {type SecurityPermission} from "@webiny/app-security/types";
+
+export interface LoginError {
+    code: string;
+    message: string;
+    data: string;
+}
+
+export interface LoginData {
+    id: string;
+    displayName: string;
+    type: string;
+    permissions: SecurityPermission[];
+}
+
+export interface LoginStResponse {
+    security: {
+        login: {
+            data: LoginData;
+            error: LoginError;
+        };
+    };
+}
+
+export interface LoginMtResponse {
+    security: {
+        login: {
+            data: LoginData & {
+                currentTenant: {
+                    id: string;
+                    name: string;
+                    description: string;
+                    parent: string;
+                };
+                defaultTenant: {
+                    id: string;
+                    name: string;
+                    description: string;
+                    parent: string;
+                };
+            };
+            error: LoginError;
+        };
+    };
+}
 
 export const LOGIN_MT = gql`
     mutation Login {
         security {
             login {
                 data {
-                    ... on OktaIdentity {
+                    ... on ${GRAPHQL_IDENTITY_TYPE} {
                         id
                         displayName
                         type
@@ -39,7 +85,7 @@ export const LOGIN_ST = gql`
         security {
             login {
                 data {
-                    ... on OktaIdentity {
+                    ... on ${GRAPHQL_IDENTITY_TYPE} {
                         id
                         displayName
                         type

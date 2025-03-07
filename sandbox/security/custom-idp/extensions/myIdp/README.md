@@ -67,8 +67,7 @@ We need to remove any remaining Cognito-related code from the `security.ts` file
 Let's remove the `@webiny/api-security-cognito` package from the `apps/api/graphql/package.json` file. We also want to add the `my-idp` package as a dependency. We can achieve this by running the following commands:
 
 ```bash
-yarn workspace api/graphql remove @webiny/api-security-cognito
-yarn workspace api/graphql add my-idp
+yarn workspace api-graphql remove @webiny/api-security-cognito && yarn workspace api-graphql add my-idp
 ```
 
 #### 6. Deploy Changes

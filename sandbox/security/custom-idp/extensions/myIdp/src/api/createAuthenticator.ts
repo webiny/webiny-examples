@@ -1,6 +1,6 @@
 import { createContextPlugin } from "@webiny/api-serverless-cms";
 import WebinyError from "@webiny/error";
-import { IDENTITY_TYPE } from "./constants";
+import { IDENTITY_TYPE } from "../constants";
 
 // All JWTs are split into 3 parts by two periods
 const isJwt = (token: unknown) => {
@@ -8,9 +8,9 @@ const isJwt = (token: unknown) => {
 };
 
 const processIdToken = async (idToken?: string) => {
-    if (!isJwt(idToken)) {
-        return null;
-    }
+    // if (!isJwt(idToken)) {
+    //     return null;
+    // }
 
     try {
         // Decoding of JWT token should happen here. See how we do it with Okta/A0 implementations:
