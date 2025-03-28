@@ -1,4 +1,4 @@
-import { BeforeHandlerPlugin } from "@webiny/handler";
+import { createBeforeHandlerPlugin, createHandlerResultPlugin } from "@webiny/handler";
 
 interface GqlQueryObject {
     operationName: string;
@@ -12,7 +12,7 @@ type GqlRequestBody = GqlQueryObject[];
 // An extension that disables GraphQL introspection queries.
 export const createExtension = () => {
     return [
-        new BeforeHandlerPlugin(async context => {
+        createBeforeHandlerPlugin(async context => {
             const { request } = context;
 
             const gqlRequestBody = request.body as GqlRequestBody;
@@ -41,6 +41,29 @@ export const createExtension = () => {
                     .hijack();
                 break;
             }
+        }),
+        createHandlerResultPlugin(async (_, result) => {
+            if (!Array.isArray(result)) {
+                return result;
+            }
+
+            return result.map(r => {
+                const hasErrors = Array.isArray(r.errors) && r.errors.length > 0;
+                if (!hasErrors) {
+                    return r;
+                }
+
+                // Check if the error is related to an introspection query.
+                r.errors = r.errors.map((error: { message: string }) => {
+                    if (error.message.toLowerCase().includes("did you mean")) {
+                        error.message = "An error occurred during the GraphQL operation.";
+                    }
+
+                    return error;
+                });
+
+                return r;
+            });
         })
     ];
 };
