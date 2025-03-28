@@ -17,7 +17,8 @@ API URL can be obtained either by opening the Admin app in your browser and find
 yarn webiny output api --env dev
 ```
 
-Note that the command needs to be run twice, once within the source Webiny project and once within the target Webiny project.
+> [!NOTE]
+> Note that the command needs to be run twice, once within the source Webiny project and once within the target Webiny project.
 
 When it comes to API keys, they can be created by opening the Admin app and navigating to the Settings > Access Management > API Keys module. The API key should provide full access to all API resources. In other words, enable full access for all Webiny apps, across all locales.
 
