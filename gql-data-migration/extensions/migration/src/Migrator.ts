@@ -13,21 +13,26 @@ export class Migrator extends AbstractMigrator {
     }
 
     async run() {
-        const migrations = [
-            new FmMigrator(
-                this.sourceApiUrl,
-                this.sourceApiKey,
-                this.targetApiUrl,
-                this.targetApiKey
-            ),
-            new PbMigrator(
-                this.sourceApiUrl,
-                this.sourceApiKey,
-                this.targetApiUrl,
-                this.targetApiKey
-            )
-        ].map(m => m.run());
+        const start = Date.now();
+        console.log("Starting migration...");
+        console.log();
 
-        await Promise.all(migrations);
+        const fmMigrator = new FmMigrator(
+            this.sourceApiUrl,
+            this.sourceApiKey,
+            this.targetApiUrl,
+            this.targetApiKey
+        );
+        const pbMigrator = new PbMigrator(
+            this.sourceApiUrl,
+            this.sourceApiKey,
+            this.targetApiUrl,
+            this.targetApiKey
+        );
+
+        await fmMigrator.run();
+        await pbMigrator.run();
+
+        console.log("Migration completed in", Date.now() - start, "ms");
     }
 }

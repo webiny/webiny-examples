@@ -20,10 +20,18 @@ export class FmMigrator extends AbstractMigrator {
     }
 
     async run() {
+        const start = Date.now();
+        console.log("🌀 Starting File Manager migration...");
         const fmFilesMigrator = new FmFilesMigrator(this);
         const fmSettingsMigrator = new FmSettingsMigrator(this);
 
+        console.log('Migrating files...');
         await fmFilesMigrator.run();
+
+        console.log('Migrating File Manager settings...');
         await fmSettingsMigrator.run();
+
+        console.log("🟢 File Manager migration completed in", Date.now() - start, "ms");
+        console.log()
     }
 }
