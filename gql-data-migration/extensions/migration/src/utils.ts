@@ -7,7 +7,8 @@ export class GqlClient {
     constructor(apiUrl: string, apiKey: string) {
         this.gqlClient = new GraphQLClient(apiUrl, {
             headers: {
-                Authorization: apiKey
+                Authorization: apiKey,
+                "x-tenant": "root"
             }
         });
     }
