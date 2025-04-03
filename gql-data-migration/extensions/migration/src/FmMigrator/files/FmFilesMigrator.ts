@@ -55,7 +55,10 @@ export class FmFilesMigrator {
                         tags: sourceFile.tags,
                         aliases: sourceFile.aliases,
                         createdOn: sourceFile.createdOn,
-                        createdBy: sourceFile.createdBy,
+                        createdBy: {
+                            ...sourceFile.createdBy,
+                            type: "admin"
+                        },
                         meta: sourceFile.meta,
                         location: sourceFile.location
                     }

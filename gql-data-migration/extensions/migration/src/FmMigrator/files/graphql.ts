@@ -1,4 +1,12 @@
-export const ERROR_FIELDS = `
+export const SOURCE_ERROR_FIELDS = `
+    fragment ErrorFields on FileError {
+        code
+        data
+        message
+    }
+`;
+
+export const TARGET_ERROR_FIELDS = `
     fragment ErrorFields on FmError {
         code
         data
@@ -6,7 +14,25 @@ export const ERROR_FIELDS = `
     }
 `;
 
-const DATA_FIELDS = /* GraphQL */ `
+const SOURCE_DATA_FIELDS = /* GraphQL */ `
+    fragment DataFields on File {
+        id
+        key
+        name
+        size
+        type
+        tags
+        aliases
+        createdOn
+        createdBy {
+            id
+            displayName
+        }
+        src
+    }
+`;
+
+const TARGET_DATA_FIELDS = /* GraphQL */ `
     fragment DataFields on FmFile {
         id
         key
@@ -35,8 +61,8 @@ const DATA_FIELDS = /* GraphQL */ `
 `;
 
 export const CREATE_FILE = `
-    ${DATA_FIELDS}
-    ${ERROR_FIELDS}
+    ${TARGET_DATA_FIELDS}
+    ${TARGET_ERROR_FIELDS}
     mutation CreateFile($data: FmFileCreateInput!) {
         fileManager {
             createFile(data: $data) {
@@ -52,9 +78,9 @@ export const CREATE_FILE = `
 `;
 
 export const LIST_FILES = `
-    ${DATA_FIELDS}
-    ${ERROR_FIELDS}
-    query ListFiles($search: String, $limit: Int, $after: String, $where: FmFileListWhereInput) {
+    ${SOURCE_DATA_FIELDS}
+    ${SOURCE_ERROR_FIELDS}
+    query ListFiles($search: String, $limit: Int, $after: String, $where: FileWhereInput) {
         fileManager {
             listFiles(search: $search, limit: $limit, after: $after, where: $where) {
                 data {
