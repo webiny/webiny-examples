@@ -1,0 +1,14 @@
+{
+  "name": "custom-page-elements-group",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:admin"
+  ],
+  "dependencies": {
+    "@material-design-icons/svg": "^0.14.3",
+    "@webiny/app-page-builder": "0.0.0",
+    "react": "18.2.0"
+  }
+}
