@@ -109,9 +109,17 @@ function useCanPaste(field: CmsModelField) {
                     const templates = field.settings?.templates ?? [];
                     const valueTemplate = template as CmsDynamicZoneTemplate;
 
-                    // Logic to validate destination.
-                    // In my DZ fields, I assigned a tag to each template, like `id:hero-1`.
-                    // NOTE: tweak this logic according to your project requirements.
+                    /**
+                     * Logic to validate destination. In my DZ fields, I assigned a tag to each template, like `id:hero-1`.
+                     * If you're creating models through code, the easiest way to go about this is to
+                     * give your templates a unique `id` property (these are auto-generated when models are built
+                     * through UI, but through code, you have more control over this).
+                     *
+                     * When template `id` is defined through code, and is reused across different dynamic zone fields,
+                     * it will automatically support copying of nested dynamic zones.
+                     *
+                     * NOTE: tweak this logic according to your project requirements.
+                     */
                     const idTag = valueTemplate.tags?.find(tag => tag.startsWith("id:"));
                     if (!idTag) {
                         setState(incompatible);
