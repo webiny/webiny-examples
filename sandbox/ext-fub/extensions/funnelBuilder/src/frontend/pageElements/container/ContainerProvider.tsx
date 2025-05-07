@@ -107,7 +107,7 @@ export const ContainerProvider = ({
     }, [value]);
 
     const { data, error } = useLoader<ThemeSettings, Error>(() => {
-        return request(getGqlApiUrl(), GET_THEME_SETTINGS).then(res => {
+        return request<any>(getGqlApiUrl(), GET_THEME_SETTINGS).then(res => {
             if (res.themeSettings.error) {
                 throw new Error(res.themeSettings.error.message);
             }
