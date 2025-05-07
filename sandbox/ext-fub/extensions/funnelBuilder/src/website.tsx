@@ -1,6 +1,5 @@
 import React from "react";
 import { ContainerWebsitePlugins } from "./frontend/pageElements/container/website/ContainerWebsitePlugins";
-import { ButtonWebsitePlugins } from "./frontend/pageElements/button/ButtonWebsitePlugins";
 import { TextFieldWebsitePlugins } from "./frontend/pageElements/fields/text/TextFieldWebsitePlugins";
 import { TextareaFieldWebsitePlugins } from "./frontend/pageElements/fields/textarea/TextareaFieldWebsitePlugins";
 import { CheckboxGroupFieldWebsitePlugins } from "./frontend/pageElements/fields/checkboxGroup/CheckboxGroupFieldWebsitePlugins";
@@ -19,6 +18,5 @@ export const Extension = () => (
         <TextareaFieldWebsitePlugins />
         <CheckboxGroupFieldWebsitePlugins />
         <ControlsWebsitePlugins />
-        <ButtonWebsitePlugins />
     </>
 );

@@ -17,47 +17,47 @@ Located in `src/backend`, this folder contains API extensions for the Funnel Bui
 Located in `src/frontend`, this folder contains admin and website extensions:
 
 - **admin**: Contains React components, hooks, and plugins for the admin interface, including:
-    - Theme settings management
-    - Condition rules dialog for setting up conditional logic
-    - Field settings dialog for configuring form fields
-    - Various plugins for the admin panel
+  - Theme settings management
+  - Condition rules dialog for setting up conditional logic
+  - Field settings dialog for configuring form fields
+  - Various plugins for the admin panel
 
 - **pageElements**: Contains page builder elements for creating funnels, including:
-    - Button elements
-    - Container elements for organizing content
-    - Form field elements
-    - Step elements for multi-step funnels
-    - Controls and decorators for the page builder interface
+  - Button elements
+  - Container elements for organizing content
+  - Form field elements
+  - Step elements for multi-step funnels
+  - Controls and decorators for the page builder interface
 
 ### Shared
 
 Located in `src/shared`, this folder contains shared code used by both backend and frontend:
 
 - **models**: Contains the business logic for the funnel builder, including:
-    - Funnel model
-    - Step model
-    - Field definition models
-    - Submission models
-    - Condition models for handling conditional logic
-    - **Validators** for form validation:
-        - Required, MinLength, MaxLength, Pattern
-        - Gte (Greater than or equal), Lte (Less than or equal)
-    - **Condition Operators** for conditional logic:
-        - Eq (Equals), Neq (Not equals)
-        - Gt (Greater than), Gte (Greater than or equal)
-        - Lt (Less than), Lte (Less than or equal)
-        - Includes, NotIncludes
-        - Empty, NotEmpty
-    - **Condition Actions** that execute when conditions are met:
-        - HideField, DisableField
-        - OnSubmitActivateStep, OnSubmitEndFunnel
-    - **Field Values** for handling different data types:
-        - String, StringArray
-        - Number, NumberArray
-        - Boolean, BooleanArray
-    - **Field Types** for form elements:
-        - TextField, TextareaField
-        - NumberField, CheckboxGroupField
+  - Funnel model
+  - Step model
+  - Field definition models
+  - Submission models
+  - Condition models for handling conditional logic
+  - **Validators** for form validation:
+    - Required, MinLength, MaxLength, Pattern
+    - Gte (Greater than or equal), Lte (Less than or equal)
+  - **Condition Operators** for conditional logic:
+    - Eq (Equals), Neq (Not equals)
+    - Gt (Greater than), Gte (Greater than or equal)
+    - Lt (Less than), Lte (Less than or equal)
+    - Includes, NotIncludes
+    - Empty, NotEmpty
+  - **Condition Actions** that execute when conditions are met:
+    - HideField, DisableField
+    - OnSubmitActivateStep, OnSubmitEndFunnel
+  - **Field Values** for handling different data types:
+    - String, StringArray
+    - Number, NumberArray
+    - Boolean, BooleanArray
+  - **Field Types** for form elements:
+    - TextField, TextareaField
+    - NumberField, CheckboxGroupField
 
 - Utility functions for creating elements, generating IDs, and other common tasks
 
@@ -70,6 +70,18 @@ yarn webiny extension sandbox/ext-fub
 ```
 
 This will download the extension and link it with your admin and website applications.
+
+Additionally, you need to add the following configuration within the compilerOptions section of your project's root `tsconfig.build.json` file:
+
+```json
+"compilerOptions": {
+  // ... other options
+  "noPropertyAccessFromIndexSignature": false
+  // ... other options
+}
+```
+
+This configuration is required for the Funnel Builder extension to work properly in a Webiny project.
 
 ## API Integration
 
@@ -113,4 +125,3 @@ To add a new field type to the Funnel Builder:
 3. For a beginner-friendly example, try implementing a radio buttons renderer or something similarly straightforward
 
 Take time to familiarize yourself with the codebase structure. Examine how the existing field types are implemented, from their model definitions to their renderers. This will give you a good understanding of the patterns used throughout the extension.
-

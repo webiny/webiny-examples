@@ -6,6 +6,7 @@ import {
 } from "@webiny/app-page-builder";
 import { OnCreateActions } from "@webiny/app-page-builder/types";
 import { ContainerAdminRenderer } from "./ContainerAdminRenderer";
+import { ContainerWebsiteRenderer } from "../website/ContainerWebsiteRenderer";
 import { AdvancedSettings } from "./AdvancedSettings";
 import { createContainerElement } from "../../../../shared/createContainerElement";
 import { CONTAINER_ELEMENT_TYPE } from "../../../../shared/constants";
@@ -14,7 +15,7 @@ export const ContainerAdminPlugins = () => (
     <>
         <PbRenderElementPlugin
             elementType={CONTAINER_ELEMENT_TYPE}
-            renderer={ContainerAdminRenderer}
+            renderer={ContainerWebsiteRenderer}
         />
         <PbEditorPageElementPlugin
             elementType={CONTAINER_ELEMENT_TYPE}

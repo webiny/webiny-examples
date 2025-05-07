@@ -2,12 +2,13 @@ import React from "react";
 import { PbEditorPageElementPlugin, PbRenderElementPlugin } from "@webiny/app-page-builder";
 import { OnCreateActions } from "@webiny/app-page-builder/types";
 import { StepAdminRenderer } from "./StepAdminRenderer";
+import { StepWebsiteRenderer } from "../website/StepWebsiteRenderer";
 import { createStepElement } from "../../../../shared/createStepElement";
 import { CONTAINER_ELEMENT_TYPE, STEP_ELEMENT_TYPE } from "../../../../shared/constants";
 
 export const StepAdminPlugins = () => (
     <>
-        <PbRenderElementPlugin elementType={STEP_ELEMENT_TYPE} renderer={StepAdminRenderer} />
+        <PbRenderElementPlugin elementType={STEP_ELEMENT_TYPE} renderer={StepWebsiteRenderer} />
         <PbEditorPageElementPlugin
             elementType={STEP_ELEMENT_TYPE}
             renderer={StepAdminRenderer}

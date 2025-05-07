@@ -7,6 +7,7 @@ import { useContainer } from "../container/ContainerProvider";
 export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    padding: 5px;
 `;
 
 export const ControlButton = styled.button<{ color: string }>`

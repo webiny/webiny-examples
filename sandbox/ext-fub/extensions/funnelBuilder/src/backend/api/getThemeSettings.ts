@@ -1,6 +1,15 @@
 import { createGraphQLSchemaPlugin } from "@webiny/api-serverless-cms";
 import { Response, ErrorResponse } from "@webiny/handler-graphql";
 
+const fallbackResult = {
+    id: "fallback",
+    theme: {
+        primaryColor: "#fa5723",
+        secondaryColor: "#00ccb0",
+        logo: ""
+    }
+};
+
 export const getThemeSettings = () => {
     return createGraphQLSchemaPlugin({
         typeDefs: /* GraphQL */ `
@@ -43,7 +52,13 @@ export const getThemeSettings = () => {
                                     await context.cms.getSingletonEntryManager(themeSettingsModel);
                                 const settings = await themeSettingsEntry.get();
 
-                                return settings.values;
+                                return {
+                                    ...fallbackResult,
+                                    theme: {
+                                        ...fallbackResult.theme,
+                                        ...(settings.values.theme || {})
+                                    }
+                                };
                             }
                         );
 
