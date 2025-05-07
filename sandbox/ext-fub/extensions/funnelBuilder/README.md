@@ -99,6 +99,26 @@ export const extensions = () => {
 };
 ```
 
+## Theme Configuration
+
+For optimal funnel rendering, you should simplify the Static layout in your theme. Modify the `theme/src/layouts/pages/Static.tsx` file to remove any extra HTML and just render the page content:
+
+```tsx
+import React from "react";
+
+interface FunnelEmbedProps {
+    children: React.ReactNode;
+}
+
+const Static = ({ children }: FunnelEmbedProps) => {
+    return <>{children}</>;
+};
+
+export default Static;
+```
+
+This ensures that your funnel pages render without any additional HTML structure that might interfere with the funnel layout.
+
 ## Usage
 
 To use the Funnel Builder:
