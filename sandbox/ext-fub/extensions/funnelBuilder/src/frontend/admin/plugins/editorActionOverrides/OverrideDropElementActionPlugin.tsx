@@ -5,15 +5,11 @@ import {
     DropElementActionEvent
 } from "@webiny/app-page-builder/editor/recoil/actions";
 import type { DropElementActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/dropElement/types";
-import type { EventActionCallable } from "@webiny/app-page-builder/types";
+import type { EventActionCallable, PbEditorElementTree } from "@webiny/app-page-builder/types";
 import { Snackbar } from "@webiny/ui/Snackbar";
 import { useDisclosure } from "../../useDisclosure";
-import {
-    CONTAINER_ELEMENT_ID,
-    isButtonElementType,
-    isFieldElementType
-} from "../../../../shared/constants";
-import { ElementTreeTraverser } from "../../ElementTreeTraverser";
+import { CONTAINER_ELEMENT_ID, isFunnelElement } from "../../../../shared/constants";
+import { ElementTreeTraverser } from "../../../../shared/ElementTreeTraverser";
 
 export interface Handler {
     name: string;
@@ -41,7 +37,8 @@ export const OverrideDropElementActionPlugin = () => {
             <PbEditorOverrideActionHandlerPlugin
                 action={"drop-element"}
                 onEditorMount={handler => {
-                    const traverser = new ElementTreeTraverser();
+                    // @ts-ignore Type incompatibility. Safe to ignore.
+                    const traverser = new ElementTreeTraverser<PbEditorElementTree>();
 
                     return handler.on(DropElementActionEvent, (async (...params) => {
                         const [state, , args] = params;
@@ -52,8 +49,8 @@ export const OverrideDropElementActionPlugin = () => {
                         const { target, source } = args;
 
                         // 1. Handle field drops.
-                        if (isFieldElementType(source.type) || isButtonElementType(source.type)) {
-                            // 1. Check if the field has been droped within the container element.
+                        if (isFunnelElement(source.type)) {
+                            // 1. Check if the funnel element has been dropped within the container element.
                             const containerElement = await state.getElementById(
                                 CONTAINER_ELEMENT_ID
                             );
@@ -80,7 +77,7 @@ export const OverrideDropElementActionPlugin = () => {
                                 return DO_NOTHING;
                             }
 
-                            // 2. Check if the field has been dropped within the success (last) step.
+                            // 2. Check if the funnel element has been dropped within the success (last) step.
                             const lastStepElementWithDescendants =
                                 containerWithDescendants.elements[
                                     containerElement.elements.length - 1

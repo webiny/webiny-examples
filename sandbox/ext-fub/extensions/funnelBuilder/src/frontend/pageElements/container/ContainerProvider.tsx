@@ -43,7 +43,7 @@ export interface ContainerProviderProps {
     updateElementData?: (data: FunnelModelDto) => void;
 }
 
-const globalContainer: { current: ContainerContextValue } = {
+const globalContainerStoreRef: { current: ContainerContextValue } = {
     current: createInitialContextValue()
 };
 
@@ -103,7 +103,7 @@ export const ContainerProvider = ({
     }, [funnelVm, funnelSubmissionVm]);
 
     useEffect(() => {
-        Object.assign(globalContainer.current, value);
+        Object.assign(globalContainerStoreRef.current, value);
     }, [value]);
 
     const { data, error } = useLoader<ThemeSettings, Error>(() => {
@@ -151,5 +151,5 @@ export const useContainer = () => {
 };
 
 export const getContainerStore = () => {
-    return globalContainer.current;
+    return globalContainerStoreRef.current;
 };

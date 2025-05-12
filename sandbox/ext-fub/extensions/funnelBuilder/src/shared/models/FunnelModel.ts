@@ -31,6 +31,18 @@ export class FunnelModel {
             dto?.conditionRules?.map(dto => FunnelConditionRuleModel.fromDto(this, dto)) || [];
     }
 
+    toDto(): FunnelModelDto {
+        return {
+            steps: this.steps.map(s => s.toDto()),
+            fields: this.fields.map(f => f.toDto()),
+            conditionRules: this.conditionRules.map(rule => rule.toDto())
+        };
+    }
+
+    static fromDto(dto: FunnelModelDto): FunnelModel {
+        return new FunnelModel(dto);
+    }
+
     // Steps. 👇
     updateStep(stepId: string, stepDto: Partial<FunnelStepModelDto>) {
         const step = this.steps.find(s => s.id === stepId);
@@ -65,15 +77,46 @@ export class FunnelModel {
             .join("");
     }
 
-    toDto(): FunnelModelDto {
-        return {
-            steps: this.steps.map(s => s.toDto()),
-            fields: this.fields.map(f => f.toDto()),
-            conditionRules: this.conditionRules.map(rule => rule.toDto())
-        };
-    }
+    validate() {
+        // 1. Get all `sourceFieldId` and `targetFieldId` field IDs from condition rules
+        // and ensure they exist in the funnel model / fields array.
+        const conditionRulesJson = JSON.stringify(this.conditionRules.map(rule => rule.toDto()));
+        const sourceFieldIds =
+            conditionRulesJson
+                .match(/"sourceFieldId":"([^"]+)"/g)
+                ?.filter(Boolean)
+                .map(id => id.replace(/"sourceFieldId":"([^"]+)"/, "$1")) || [];
 
-    static fromDto(dto: FunnelModelDto): FunnelModel {
-        return new FunnelModel(dto);
+        const targetFieldIds =
+            conditionRulesJson
+                .match(/"targetFieldId":"([^"]+)"/g)
+                ?.filter(Boolean)
+                .map(id => id.replace(/"targetFieldId":"([^"]+)"/, "$1")) || [];
+
+        const allFieldIds = [...sourceFieldIds, ...targetFieldIds];
+        const allFieldIdsSet = new Set(allFieldIds);
+
+        const allFieldIdsInModel = this.fields.map(field => field.id);
+        const allFieldIdsInModelSet = new Set(allFieldIdsInModel);
+        const missingFieldIds = [...allFieldIdsSet].filter(id => !allFieldIdsInModelSet.has(id));
+        if (missingFieldIds.length > 0) {
+            throw new Error("Condition rules reference fields that do not exist in the model.", {
+                cause: { missingFieldIds }
+            });
+        }
+
+        // 2. Ensure fields reference steps that exist in the funnel model.
+        const allStepIds = this.steps.map(step => step.id);
+        const allStepIdsSet = new Set(allStepIds);
+
+        const missingStepIds = this.fields
+            .map(field => field.stepId)
+            .filter(stepId => !allStepIdsSet.has(stepId));
+
+        if (missingStepIds.length > 0) {
+            throw new Error("Fields reference steps that do not exist in the model.", {
+                cause: { missingStepIds }
+            });
+        }
     }
 }

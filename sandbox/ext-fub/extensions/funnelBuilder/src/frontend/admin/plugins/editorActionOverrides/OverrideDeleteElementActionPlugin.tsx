@@ -5,10 +5,9 @@ import {
     DeleteElementActionEvent
 } from "@webiny/app-page-builder/editor/recoil/actions";
 import type { DeleteElementActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/deleteElement/types";
-import type { EventActionCallable } from "@webiny/app-page-builder/types";
+import type { EventActionCallable, PbEditorElementTree } from "@webiny/app-page-builder/types";
 import { Snackbar } from "@webiny/ui/Snackbar";
 import { useDisclosure } from "../../useDisclosure";
-import { ElementTreeTraverser } from "../../ElementTreeTraverser";
 import {
     CONTAINER_ELEMENT_ID,
     isContainerElementType,
@@ -16,6 +15,7 @@ import {
     isStepElementType
 } from "../../../../shared/constants";
 import { ContainerElement } from "../../../pageElements/container/types";
+import { ElementTreeTraverser } from "../../../../shared/ElementTreeTraverser";
 
 const DO_NOTHING = { actions: [] };
 
@@ -32,7 +32,8 @@ export const OverrideDeleteElementActionPlugin = () => {
             <PbEditorOverrideActionHandlerPlugin
                 action={"delete-element"}
                 onEditorMount={handler => {
-                    const traverser = new ElementTreeTraverser();
+                    // @ts-ignore Type incompatibility. Safe to ignore.
+                    const traverser = new ElementTreeTraverser<PbEditorElementTree>();
 
                     return handler.on(DeleteElementActionEvent, (async (...params) => {
                         const [state, , args] = params;
@@ -77,6 +78,8 @@ export const OverrideDeleteElementActionPlugin = () => {
                                 return DO_NOTHING;
                             }
 
+                            // Delete the field. Within a single state update, we
+                            // remove the field from the container and delete the element.
                             const result = await deleteElementAction(...params);
 
                             if (result.state?.elements) {
@@ -127,6 +130,7 @@ export const OverrideDeleteElementActionPlugin = () => {
                             return DO_NOTHING;
                         }
 
+                        // None of the above conditions were met, so we can proceed with the deletion.
                         return deleteElementAction(...params);
                     }) as EventActionCallable<DeleteElementActionArgsType>);
                 }}

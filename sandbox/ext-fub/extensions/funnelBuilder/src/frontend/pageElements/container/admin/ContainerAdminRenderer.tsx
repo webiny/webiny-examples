@@ -80,7 +80,6 @@ export const ContainerAdminRenderer = createRenderer(() => {
     const updateElement = useUpdateElement();
 
     const updateContainerElementData = (data: FunnelModelDto) => {
-        console.log("AJMO CHANGE UPDATE!");
         updateElement(
             {
                 ...element,

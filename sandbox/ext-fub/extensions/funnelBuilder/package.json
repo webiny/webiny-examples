@@ -20,11 +20,13 @@
     "@webiny/app-page-builder": "0.0.0",
     "@webiny/app-page-builder-elements": "0.0.0",
     "@webiny/app-website": "0.0.0",
+    "@webiny/error": "0.0.0",
     "@webiny/form": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/plugins": "0.0.0",
     "@webiny/ui": "0.0.0",
     "@webiny/validation": "0.0.0",
+    "apollo-link": "^1.2.14",
     "graphql-request": "^6.0.0",
     "graphql-tag": "^2.12.6",
     "lodash": "^4.17.21",
@@ -34,5 +36,8 @@
   "devDependencies": {
     "@types/lodash": "^4.17.13",
     "@types/object-hash": "^2.2.1"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

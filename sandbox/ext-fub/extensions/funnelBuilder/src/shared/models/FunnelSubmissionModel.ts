@@ -13,6 +13,7 @@ import { OnSubmitActivateStepConditionAction } from "./conditionActions/OnSubmit
 export interface FunnelSubmissionModelDto {
     fields: Record<string, FunnelSubmissionFieldModelDto>;
     activeStepId: string;
+    completedStepIds: string[];
 }
 
 export interface FunnelEntryValidationResult {
@@ -42,6 +43,7 @@ export class FunnelSubmissionModel {
     funnel: FunnelModel;
     fields: Record<string, FunnelSubmissionFieldModel>;
     activeStepId: string;
+    completedStepIds: string[];
     private onFinishListeners: Set<OnFinishedListener> = new Set();
     private conditionRules: {
         evaluator: FunnelConditionRulesEvaluator;
@@ -51,6 +53,7 @@ export class FunnelSubmissionModel {
     constructor(funnel: FunnelModel, funnelSubmissionDto?: FunnelSubmissionModelDto) {
         this.funnel = funnel;
         this.activeStepId = funnelSubmissionDto?.activeStepId || funnel.steps[0].id;
+        this.completedStepIds = funnelSubmissionDto?.completedStepIds || [];
         this.fields = funnel.fields.reduce((acc, field) => {
             acc[field.fieldId] = new FunnelSubmissionFieldModel(
                 this,
@@ -69,6 +72,7 @@ export class FunnelSubmissionModel {
     toDto(): FunnelSubmissionModelDto {
         return {
             activeStepId: this.activeStepId,
+            completedStepIds: this.completedStepIds,
             fields: Object.values(this.fields).reduce((acc, field) => {
                 acc[field.definition.fieldId] = field.toDto();
                 return acc;
@@ -148,6 +152,7 @@ export class FunnelSubmissionModel {
                 data: {}
             };
         }
+
         const validationResult = await this.validateActiveStep();
         const data = this.getDataForActiveStep();
 
@@ -163,53 +168,59 @@ export class FunnelSubmissionModel {
         // Before activating the next step, we need to evaluate the condition rules.
         this.evaluateRelatedConditionRules();
 
-        const successResult = {
-            message: "",
-            success: true,
-            errors: null,
-            data
-        } as FunnelSubmissionStepSubmissionResult;
-
         const success = () => {
             if (this.isSuccessStep()) {
                 this.finish();
             }
 
-            return successResult;
+            return {
+                message: "",
+                success: true,
+                errors: null,
+                data
+            } as FunnelSubmissionStepSubmissionResult;
         };
 
+        // Mark the current step as completed.
+        this.completedStepIds.push(this.activeStepId);
+
         const activeActions = this.conditionRules.applicableActions;
-        if (!activeActions.length) {
-            this.activateNextStep();
-            return success();
-        }
+        if (activeActions.length > 0) {
+            // Check if there's an action that requires us to end the funnel.
+            const mustEndFunnel = activeActions.some(
+                a => a.type === OnSubmitEndFunnelConditionAction.type
+            );
 
-        // Check if there's an action that requires us to end the funnel.
-        const mustEndFunnel = activeActions.some(
-            a => a.type === OnSubmitEndFunnelConditionAction.type
-        );
-
-        if (mustEndFunnel) {
-            this.activateSuccessStep();
-            return success();
-        }
-
-        // Check if there's an action that requires us to activate a specific step.
-        // We can only activate one step at a time.
-        const [activateSpecificStepAction] = activeActions.filter(
-            a => a.type === OnSubmitActivateStepConditionAction.type
-        );
-
-        if (activateSpecificStepAction) {
-            const step = this.funnel.getStep(activateSpecificStepAction.params.extra.targetStepId);
-            if (step) {
-                this.activateStep(step);
+            if (mustEndFunnel) {
+                this.activateSuccessStep();
                 return success();
+            }
+
+            // Check if there's an action that requires us to activate a specific step.
+            // We can only activate one step at a time.
+            const [activateSpecificStepAction] = activeActions.filter(
+                a => a.type === OnSubmitActivateStepConditionAction.type
+            );
+
+            if (activateSpecificStepAction) {
+                const step = this.funnel.getStep(
+                    activateSpecificStepAction.params.extra.targetStepId
+                );
+
+                if (step) {
+                    this.activateStep(step);
+                    return success();
+                }
             }
         }
 
-        this.activateNextStep();
+        // Get the next step.
+        const nextStepIndex =
+            this.funnel.steps.findIndex(step => step.id === this.activeStepId) + 1;
 
+        const nextStep = this.funnel.steps[nextStepIndex];
+
+        this.activateStep(nextStep);
         return success();
     }
 
@@ -264,33 +275,23 @@ export class FunnelSubmissionModel {
         return this.funnel.steps.find(step => step.id === this.activeStepId)!;
     }
 
-    getNextStepIndex() {
-        const activeIndex = this.getActiveStepIndex();
-        if (activeIndex < this.funnel.steps.length - 1) {
-            return activeIndex + 1;
-        }
-        return activeIndex;
-    }
-
-    getNextStep() {
-        const nextIndex = this.getNextStepIndex();
-        return this.funnel.steps[nextIndex];
-    }
-
-    getPreviousStepIndex() {
-        const activeIndex = this.getActiveStepIndex();
-        if (activeIndex > 0) {
-            return activeIndex - 1;
-        }
-        return null;
-    }
-
     getPreviousStep() {
-        const previousIndex = this.getPreviousStepIndex();
-        if (previousIndex !== null) {
-            return this.funnel.steps[previousIndex];
+        if (this.isFirstStep()) {
+            return null;
         }
-        return null;
+
+        const previousStepId = this.completedStepIds[this.completedStepIds.length - 1];
+        return this.funnel.steps.find(step => step.id === previousStepId);
+    }
+
+    activatePreviousStep() {
+        const previousStep = this.getPreviousStep();
+        if (!previousStep) {
+            return;
+        }
+
+        this.completedStepIds.pop();
+        this.activateStep(previousStep);
     }
 
     getFinalStepIndex() {
@@ -302,6 +303,10 @@ export class FunnelSubmissionModel {
         return this.funnel.steps[index];
     }
 
+    isFinalStep() {
+        return this.getActiveStepIndex() === this.getFinalStepIndex();
+    }
+
     getSuccessStepIndex() {
         return this.funnel.steps.length - 1;
     }
@@ -311,49 +316,24 @@ export class FunnelSubmissionModel {
         return this.funnel.steps[index];
     }
 
-    getStepsCount() {
-        return this.funnel.steps.length;
+    activateSuccessStep() {
+        this.activateStep(this.getSuccessStep());
+    }
+
+    isSuccessStep() {
+        return this.getActiveStepIndex() === this.funnel.steps.length - 1;
     }
 
     isFirstStep() {
         return this.getActiveStepIndex() === 0;
     }
 
-    /**
-     * Check if the current step is the last step before the success step.
-     */
-    isFinalStep() {
-        return this.getActiveStepIndex() === this.funnel.steps.length - 2;
-    }
-
-    /**
-     * Check if the current step is the success step.
-     */
-    isSuccessStep() {
-        return this.getActiveStepIndex() === this.funnel.steps.length - 1;
+    getStepsCount() {
+        return this.funnel.steps.length;
     }
 
     activateStep(step: FunnelStepModel) {
         this.activeStepId = step.id;
-    }
-
-    activateNextStep() {
-        if (this.isSuccessStep()) {
-            return;
-        }
-
-        this.activateStep(this.getNextStep());
-    }
-
-    activateSuccessStep() {
-        this.activateStep(this.getSuccessStep());
-    }
-
-    activatePreviousStep() {
-        const activeIndex = this.getActiveStepIndex();
-        if (activeIndex > 0) {
-            this.activeStepId = this.funnel.steps[activeIndex - 1].id;
-        }
     }
 
     // Other methods. 👇

@@ -3,15 +3,26 @@ import {
     PbEditorFunnelConditionOperatorPlugin,
     ConditionOperatorParamsComponent
 } from "../PbEditorFunnelConditionOperatorPlugin";
+import { NeqConditionOperator } from "../../../../shared/models/conditionOperators/NeqConditionOperator";
 import { Input } from "@webiny/ui/Input";
 import { Bind } from "@webiny/form";
-import { NeqConditionOperator } from "../../../../shared/models/conditionOperators/NeqConditionOperator";
+import styled from "@emotion/styled";
+
+const Wrapper = styled.div`
+    width: 200px;
+`;
 
 const OperatorSettings: ConditionOperatorParamsComponent = () => {
     return (
-        <Bind name={"extra.value"}>
-            <Input size={"small"} />
-        </Bind>
+        <Wrapper>
+            <Bind name={"extra.value"}>
+                <Input
+                    rootProps={{ style: { width: 200 } }}
+                    size={"small"}
+                    placeholder={"Enter value"}
+                />
+            </Bind>
+        </Wrapper>
     );
 };
 

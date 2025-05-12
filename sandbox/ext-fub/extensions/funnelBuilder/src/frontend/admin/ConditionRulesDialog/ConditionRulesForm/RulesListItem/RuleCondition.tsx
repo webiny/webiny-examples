@@ -52,8 +52,6 @@ export const RuleCondition = ({ conditionGroup, condition }: RuleConditionGroupP
         ConditionRuleParamsComponent = conditionOperatorPlugin.settingsRenderer;
     }
 
-    console.log(funnel.conditionRules);
-
     return (
         <Fieldset>
             <Select
