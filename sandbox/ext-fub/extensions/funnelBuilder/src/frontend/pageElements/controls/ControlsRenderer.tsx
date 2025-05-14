@@ -4,13 +4,13 @@ import { createRenderer } from "@webiny/app-page-builder-elements";
 import styled from "@emotion/styled";
 import { useContainer } from "../container/ContainerProvider";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 5px;
 `;
 
-export const ControlButton = styled.button<{ color: string }>`
+const ControlButton = styled.button<{ color: string }>`
     background: ${props => props.color};
     border: none;
     border-radius: 4px;
@@ -23,6 +23,10 @@ export const ControlButton = styled.button<{ color: string }>`
     }
 `;
 
+const ControlButtonPlaceholder = styled.div`
+    flex: 1;
+`;
+
 export const ControlsRenderer = createRenderer(() => {
     const { submit } = useForm();
     const { funnelSubmissionVm, theme } = useContainer();
@@ -30,7 +34,7 @@ export const ControlsRenderer = createRenderer(() => {
     return (
         <Wrapper>
             {funnelSubmissionVm.isFirstStep() ? (
-                <div style={{ flex: 1 }}></div>
+                <ControlButtonPlaceholder />
             ) : (
                 <ControlButton
                     color={theme.primaryColor}
