@@ -16,10 +16,10 @@ export const ControlButton = styled.button<{ color: string }>`
     border-radius: 4px;
     padding: 10px;
     color: white;
+    cursor: pointer;
 
-    & :disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
+    :hover {
+        opacity: 0.9;
     }
 `;
 
@@ -29,13 +29,16 @@ export const ControlsRenderer = createRenderer(() => {
 
     return (
         <Wrapper>
-            <ControlButton
-                color={theme.primaryColor}
-                disabled={funnelSubmissionVm.isFirstStep()}
-                onClick={funnelSubmissionVm.activatePreviousStep.bind(funnelSubmissionVm)}
-            >
-                <div className={"button-body"}>Previous</div>
-            </ControlButton>
+            {funnelSubmissionVm.isFirstStep() ? (
+                <div style={{ flex: 1 }}></div>
+            ) : (
+                <ControlButton
+                    color={theme.primaryColor}
+                    onClick={funnelSubmissionVm.activatePreviousStep.bind(funnelSubmissionVm)}
+                >
+                    <div className={"button-body"}>Previous</div>
+                </ControlButton>
+            )}
             <ControlButton onClick={() => submit()} color={theme.primaryColor}>
                 <div className={"button-body"}>
                     {funnelSubmissionVm.isFinalStep() ? "Finish" : "Next"}
