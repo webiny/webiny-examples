@@ -41,6 +41,20 @@ export const OverrideDeleteElementActionPlugin = () => {
                             return DO_NOTHING;
                         }
 
+                        // When overriding the delete element operation, we need to be careful!
+                        // Because, upon the "move element" action, the source element is actually deleted first,
+                        // and then recreated as a child of the target element. So, when that "delete" action is
+                        // triggered, we don't want to do the checks / extra handling.
+                        // See https://webiny.link/blob/next/packages/app-page-builder/src/editor/helpers.ts#L366-L377
+                        const result = await deleteElementAction(...params);
+                        const changedElements = result?.state?.elements || {};
+                        const deletionIsPartOfElementMove = Object.keys(changedElements).length > 1;
+
+                        if (deletionIsPartOfElementMove) {
+                            // If the deletion is part of a move, we don't care about the rest of the logic.
+                            return result;
+                        }
+
                         const { element } = args;
 
                         // 1. Prevent deletion of the funnel container element.
@@ -78,35 +92,20 @@ export const OverrideDeleteElementActionPlugin = () => {
                                 return DO_NOTHING;
                             }
 
-                            // When deleting a field, we want to update the list of fields in the container element.
-                            // But, we need to be careful! Upon a "move element" action, the source element is actually
-                            // deleted, and recreated as a child of the target element. So, when that "delete" action
-                            // is triggered, we don't want to update the container element's fields.
-                            // See https://webiny.link/blob/next/packages/app-page-builder/src/editor/helpers.ts#L366-L377
-                            const result = await deleteElementAction(...params);
-
-                            const changedElements = result?.state?.elements;
-                            if (changedElements) {
-                                const deletionIsPartOfElementMove =
-                                    Object.keys(changedElements).length > 1;
-
-                                // Only if the deletion was not part of the "move element" action,
-                                // then update the container and its list of fields.
-                                if (!deletionIsPartOfElementMove) {
-                                    Object.assign(changedElements, {
-                                        // Update container (remove field from `fields` array).
-                                        [containerElement.id]: {
-                                            ...containerElement,
-                                            data: {
-                                                ...containerElement.data,
-                                                fields: containerElement.data.fields.filter(
-                                                    field => field.id !== fieldId
-                                                )
-                                            }
-                                        }
-                                    });
+                            // Delete the field. Within a single state update, we
+                            // remove the field from the container and delete the element.
+                            Object.assign(changedElements, {
+                                // Update container (remove field from `fields` array).
+                                [containerElement.id]: {
+                                    ...containerElement,
+                                    data: {
+                                        ...containerElement.data,
+                                        fields: containerElement.data.fields.filter(
+                                            field => field.id !== fieldId
+                                        )
+                                    }
                                 }
-                            }
+                            });
 
                             return result;
                         }
