@@ -128,9 +128,12 @@ export class FunnelVm {
     }
 
     // Other methods. 👇
-    populateFunnel(funnel: Partial<FunnelModelDto>) {
+    populateFunnel(funnel: Partial<FunnelModelDto>, options?: { emitChange?: boolean }) {
         this.funnel.populate(funnel);
-        this.emitChange();
+
+        if (options?.emitChange !== false) {
+            this.emitChange();
+        }
     }
 
     subscribe(listener: Listener) {

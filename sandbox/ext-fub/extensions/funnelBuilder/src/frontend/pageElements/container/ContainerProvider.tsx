@@ -83,6 +83,10 @@ export const ContainerProvider = ({
         return funnelVm.subscribe(updateElementData);
     }, [funnelVm, updateElementData]);
 
+    useEffect(() => {
+        funnelVm.populateFunnel(element.data, { emitChange: false });
+    }, [element.data]);
+
     useSyncExternalStore(funnelVm.subscribe.bind(funnelVm), funnelVm.getChecksum.bind(funnelVm));
 
     // 2. FunnelSubmissionVm.

@@ -27,7 +27,7 @@
     "@webiny/ui": "0.0.0",
     "@webiny/validation": "0.0.0",
     "apollo-link": "^1.2.14",
-    "graphql-request": "^6.0.0",
+    "graphql-request": "6.0.0",
     "graphql-tag": "^2.12.6",
     "lodash": "^4.17.21",
     "object-hash": "3.0.0",
