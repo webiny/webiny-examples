@@ -10,6 +10,7 @@ import { FieldValidatorPlugins } from "./frontend/admin/plugins/fieldValidators"
 import { ConditionOperatorPlugins } from "./frontend/admin/plugins/conditionOperators";
 import { ConditionActionPlugins } from "./frontend/admin/plugins/conditionActions";
 import { PbEditorOverrideEventActionPlugins } from "./frontend/admin/plugins/editorActionOverrides";
+import { PbEditorOverridePageElementSettingsPlugins } from "./frontend/admin/plugins/pageElementSettingsOverrides";
 import { ControlsAdminPlugins } from "./frontend/pageElements/controls/ControlsAdminPlugins";
 import { ButtonAdminPlugins } from "./frontend/pageElements/button/ButtonAdminPlugins";
 import { ThemeSettingsProvider } from "./frontend/admin/ThemeSettingsProvider";
@@ -35,6 +36,7 @@ export const Extension = () => (
         <FunnelBuilderPageElementGroup />
         <DecoratedElementControls />
         <PbEditorOverrideEventActionPlugins />
+        <PbEditorOverridePageElementSettingsPlugins />
         <ThemeSettingsProvider />
         <PbEditorLogUpdatePageErrorsPlugin />
     </>
