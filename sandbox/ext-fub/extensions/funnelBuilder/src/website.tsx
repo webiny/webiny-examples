@@ -4,6 +4,7 @@ import { TextFieldWebsitePlugins } from "./frontend/pageElements/fields/text/Tex
 import { TextareaFieldWebsitePlugins } from "./frontend/pageElements/fields/textarea/TextareaFieldWebsitePlugins";
 import { CheckboxGroupFieldWebsitePlugins } from "./frontend/pageElements/fields/checkboxGroup/CheckboxGroupFieldWebsitePlugins";
 import { ControlsWebsitePlugins } from "./frontend/pageElements/controls/ControlsWebsitePlugins";
+import { ButtonWebsitePlugins } from "./frontend/pageElements/button/ButtonWebsitePlugins";
 
 import { StepWebsitePlugins } from "./frontend/pageElements/step/website/StepWebsitePlugins";
 
@@ -18,5 +19,6 @@ export const Extension = () => (
         <TextareaFieldWebsitePlugins />
         <CheckboxGroupFieldWebsitePlugins />
         <ControlsWebsitePlugins />
+        <ButtonWebsitePlugins />
     </>
 );

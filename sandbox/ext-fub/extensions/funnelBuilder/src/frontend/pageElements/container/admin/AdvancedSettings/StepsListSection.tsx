@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
 import { StepsListItem } from "./StepsListSection/StepsListItem";
+import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion";
 
 // Sorting.
 import {
@@ -18,7 +19,6 @@ import {
     sortableKeyboardCoordinates,
     verticalListSortingStrategy
 } from "@dnd-kit/sortable";
-import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion";
 
 // Icons.
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/outlined/add.svg";

@@ -11,6 +11,7 @@ import { ConditionOperatorPlugins } from "./frontend/admin/plugins/conditionOper
 import { ConditionActionPlugins } from "./frontend/admin/plugins/conditionActions";
 import { PbEditorOverrideEventActionPlugins } from "./frontend/admin/plugins/editorActionOverrides";
 import { ControlsAdminPlugins } from "./frontend/pageElements/controls/ControlsAdminPlugins";
+import { ButtonAdminPlugins } from "./frontend/pageElements/button/ButtonAdminPlugins";
 import { ThemeSettingsProvider } from "./frontend/admin/ThemeSettingsProvider";
 import { PbEditorLogUpdatePageErrorsPlugin } from "./frontend/admin/plugins/PbEditorLogUpdatePageErrors";
 
@@ -21,6 +22,7 @@ export const Extension = () => (
         <TextareaFieldAdminPlugins />
         <CheckboxGroupFieldAdminPlugins />
         <ControlsAdminPlugins />
+        <ButtonAdminPlugins />
 
         {/* Container Page Element */}
         <ContainerAdminPlugins />

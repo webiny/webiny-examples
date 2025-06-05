@@ -9,5 +9,6 @@ export const fieldFromDto = (dto: FunnelFieldDefinitionModelDto<any, any>) => {
         throw new Error(`Unknown field: ${dto.type}`);
     }
 
+    // @ts-ignore asd
     return new FieldDefinitionClass(dto);
 };

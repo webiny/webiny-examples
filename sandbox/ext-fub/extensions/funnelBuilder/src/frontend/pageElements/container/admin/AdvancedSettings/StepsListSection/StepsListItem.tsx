@@ -8,13 +8,13 @@ import { Bind, Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import { useDisclosure } from "../../../../../admin/useDisclosure";
+import { useStepsForm } from "../useStepsForm";
+import { FunnelStepModelDto } from "../../../../../../shared/models/FunnelStepModel";
 
 // Icons.
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
 import { ReactComponent as DragIndicatorIcon } from "@material-design-icons/svg/outlined/drag_indicator.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
-import { useStepsForm } from "../useStepsForm";
-import { FunnelStepModelDto } from "../../../../../../shared/models/FunnelStepModel";
 
 const ListItemStyled = styled.div`
     display: flex;
