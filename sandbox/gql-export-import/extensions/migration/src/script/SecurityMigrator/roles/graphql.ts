@@ -1,26 +1,23 @@
 import { ERROR_FIELDS } from "../utils";
 
 const DATA_FIELDS = /* GraphQL */ `
-    fragment DataFields on PbMenu {
+    fragment DataFields on SecurityGroup {
+        id
+        name
         slug
         description
-        title
-        items
+        permissions
+        system
         createdOn
-        createdBy {
-            id
-            displayName
-            type
-        }
     }
 `;
 
-export const CREATE_MENU = /* GraphQL */ `
+export const CREATE_ROLE = /* GraphQL */ `
     ${DATA_FIELDS}
     ${ERROR_FIELDS}
-    mutation CreateMenu($data: PbMenuInput!) {
-        pageBuilder {
-            createMenu(data: $data) {
+    mutation CreateGroup($data: SecurityGroupCreateInput!) {
+        security {
+            createGroup(data: $data) {
                 data {
                     ...DataFields
                 }
@@ -32,12 +29,12 @@ export const CREATE_MENU = /* GraphQL */ `
     }
 `;
 
-export const LIST_MENUS = /* GraphQL */ `
+export const LIST_ROLES = /* GraphQL */ `
     ${DATA_FIELDS}
     ${ERROR_FIELDS}
-    query ListMenus {
-        pageBuilder {
-            listMenus {
+    query ListGroups {
+        security {
+            listGroups {
                 data {
                     ...DataFields
                 }

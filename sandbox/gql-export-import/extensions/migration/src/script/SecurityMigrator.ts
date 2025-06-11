@@ -1,10 +1,9 @@
 import { AbstractMigrator } from "./AbstractMigrator";
 import { GqlClient } from "./utils";
-import { TenantsMigrator } from "./TenancyMigrator/tenants/TenantsMigrator";
+import { SecurityApiKeysMigrator } from "./SecurityMigrator/apiKeys/SecurityApiKeysMigrator";
+import { SecurityRolesMigrator } from "./SecurityMigrator/roles/SecurityRolesMigrator";
 
-export class TenancyMigrator extends AbstractMigrator {
-    readonly sourceRootGqlClient: GqlClient;
-    readonly targetRootGqlClient: GqlClient;
+export class SecurityMigrator extends AbstractMigrator {
     readonly sourceGqlClient: GqlClient;
     readonly targetGqlClient: GqlClient;
 
@@ -25,37 +24,24 @@ export class TenancyMigrator extends AbstractMigrator {
             tenantId
         );
 
-        this.sourceRootGqlClient = new GqlClient(
-            this.sourceApiUrl + "/graphql",
-            this.sourceRootTenantApiKey,
-            "root"
-        );
-
-        this.targetRootGqlClient = new GqlClient(
-            this.targetApiUrl + "/graphql",
-            this.targetApiKey,
-            "root"
-        );
-
         this.sourceGqlClient = new GqlClient(
             this.sourceApiUrl + "/graphql",
             this.sourceTenantApiKey,
-            this.tenantId
+            tenantId
         );
-
         this.targetGqlClient = new GqlClient(
             this.targetApiUrl + "/graphql",
             this.targetApiKey,
-            this.tenantId
+            tenantId
         );
     }
 
     async run() {
         const start = Date.now();
-        console.log("🌀 Starting Tenants migration...");
+        console.log("🌀 Starting Security migration...");
         console.log();
 
-        const migrators = [TenantsMigrator];
+        const migrators = [SecurityRolesMigrator, SecurityApiKeysMigrator];
 
         for (const MigratorClass of migrators) {
             const migrator = new MigratorClass(this);
@@ -63,6 +49,6 @@ export class TenancyMigrator extends AbstractMigrator {
             console.log();
         }
 
-        console.log("🟢 Tenants migration completed in", Date.now() - start, "ms");
+        console.log("🟢 Security migration completed in", Date.now() - start, "ms.");
     }
 }

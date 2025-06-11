@@ -1,5 +1,5 @@
 export const ERROR_FIELDS = /* GraphQL */ `
-    fragment ErrorFields on PbError {
+    fragment ErrorFields on CmsError {
         code
         data
         message
