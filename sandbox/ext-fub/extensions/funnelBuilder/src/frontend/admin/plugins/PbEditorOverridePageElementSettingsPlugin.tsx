@@ -41,6 +41,10 @@ export const PbEditorOverridePageElementSettingsPlugin = (
                 return null;
             }
 
+            if (originalResult.type !== "pb-editor-page-element-settings") {
+                return originalResult;
+            }
+
             return {
                 ...originalResult,
                 renderAction: props.renderAction
