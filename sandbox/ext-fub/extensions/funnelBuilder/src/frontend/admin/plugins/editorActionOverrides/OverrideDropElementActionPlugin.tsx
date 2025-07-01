@@ -11,8 +11,9 @@ import { useDisclosure } from "../../useDisclosure";
 import { ElementTreeTraverser } from "../../../../shared/ElementTreeTraverser";
 import {
     CONTAINER_ELEMENT_ID,
-    isFieldElementType,
-    isFunnelElement
+    isContainerElementType,
+    isFunnelElement,
+    isStepElementType
 } from "../../../../shared/constants";
 
 export interface Handler {
@@ -55,7 +56,10 @@ export const OverrideDropElementActionPlugin = () => {
                         // 1. Handle funnel element drops.
                         if (isFunnelElement(source.type)) {
                             // 1.1 If not a field element, we prevent moving.
-                            if (!isFieldElementType(source.type)) {
+                            if (
+                                isContainerElementType(source.type) ||
+                                isStepElementType(source.type)
+                            ) {
                                 showSnackbar("This element cannot be moved.");
                                 return DO_NOTHING;
                             }
