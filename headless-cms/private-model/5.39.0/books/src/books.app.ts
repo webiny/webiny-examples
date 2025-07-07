@@ -17,7 +17,9 @@ export const createBooksApp = () => {
         // Registering the private model.
         context.plugins.register(new CmsModelPlugin(createBookModel()));
 
-        const bookModel = context.cms.getModel(BOOK_MODEL_ID);
+        const bookModel = await context.security.withoutAuthorization(() => {
+            return context.cms.getModel(BOOK_MODEL_ID);
+        });
 
         if (!bookModel) {
             throw new WebinyError(`Missing private model "${BOOK_MODEL_ID}".`);
