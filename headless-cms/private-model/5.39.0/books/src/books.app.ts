@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/handler-aws";
 import { Context } from "./types";
-import { CmsModelPlugin } from "@webiny/api-headless-cms";
+import { CmsModelPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import WebinyError from "@webiny/error";
 import { booksGraphql } from "./books.graphql";
 import { BOOK_MODEL_ID, createBookModel } from "./book.model";
@@ -9,6 +9,11 @@ import { BooksCrud } from "./books.crud";
 
 export const createBooksApp = () => {
     return new ContextPlugin<Context>(async context => {
+        // Exit early if Headless CMS is not installed.
+        if (!(await isHeadlessCmsReady(context))) {
+            return;
+        }
+
         // Registering the private model.
         context.plugins.register(new CmsModelPlugin(createBookModel()));
 
