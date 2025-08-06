@@ -1,0 +1,18 @@
+{
+  "name": "@demo/tenant-management-admin",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:admin"
+  ],
+  "dependencies": {
+    "@demo/tenant-management-shared": "0.0.0",
+    "@webiny/admin-ui": "0.0.0",
+    "@webiny/app-aco": "0.0.0",
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-headless-cms": "0.0.0",
+    "@webiny/react-router": "0.0.0",
+    "react": "18.2.0"
+  }
+}
