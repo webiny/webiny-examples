@@ -13,4 +13,3 @@ export const Extension = () => {
         </>
     );
 };
-page-builder/page-elements-groups/extensions/customPageElementsGroup/src/index.tsx:16

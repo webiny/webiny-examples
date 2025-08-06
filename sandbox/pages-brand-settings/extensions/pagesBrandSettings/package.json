@@ -1,0 +1,17 @@
+{
+  "name": "pages-brand-settings",
+  "main": "src/index.ts",
+  "version": "1.0.0",
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@webiny/app": "0.0.0",
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-page-builder": "0.0.0",
+    "@webiny/plugins": "0.0.0",
+    "@webiny/react-router": "0.0.0",
+    "@webiny/validation": "0.0.0",
+    "graphql-tag": "^2.12.6",
+    "qs": "^6.10.3",
+    "react": "18.2.0"
+  }
+}
