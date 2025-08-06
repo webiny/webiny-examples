@@ -34,6 +34,8 @@ export class CreateAndInstallTenant {
             }
         });
 
-        await cms.updateEntry(companyModel, companyId, { ...company, isInstalled: true });
+        // `entryId` doesn't contain a revision number, but CMS SDK requires a revision to update.
+        // Since we're not publishing companies, we can safely append `#0001` to point to the first revision.
+        await cms.updateEntry(companyModel, `${entryId}#0001`, { ...company, isInstalled: true });
     }
 }

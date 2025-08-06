@@ -11,7 +11,6 @@ const rootCompanyMock: Company = {
     name: "Root",
     isInstalled: true,
     description: "Platform Root",
-    templateId: "",
     theme: {
         websiteTitle: "Your Company",
         primaryColor: "#fa5723",

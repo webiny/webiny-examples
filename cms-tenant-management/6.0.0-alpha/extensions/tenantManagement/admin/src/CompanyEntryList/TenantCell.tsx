@@ -8,17 +8,17 @@ const { Browser } = ContentEntryListConfig;
 const { useTableRow, isFolderRow } = Browser.Table.Column;
 
 export const TenantCell = () => {
-    // useTableRow() allows you to access the entire data of the current row.
-    const { row } = useTableRow<CompanyEntry>();
+  // useTableRow() allows you to access the entire data of the current row.
+  const { row } = useTableRow<CompanyEntry>();
 
-    // isFolderRow() allows for custom rendering when the current row is a folder.
-    if (isFolderRow(row)) {
-        return <>{"-"}</>;
-    }
+  // isFolderRow() allows for custom rendering when the current row is a folder.
+  if (isFolderRow(row)) {
+    return <>{"-"}</>;
+  }
 
-    if (!row.isInstalled) {
-        return <InstallTenant company={row} />;
-    }
+  if (!row.data.isInstalled) {
+    return <InstallTenant company={row} />;
+  }
 
-    return <ManageTenant company={row} />;
+  return <ManageTenant company={row} />;
 };
