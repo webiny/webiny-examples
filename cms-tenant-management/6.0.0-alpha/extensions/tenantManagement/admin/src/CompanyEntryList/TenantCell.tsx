@@ -17,8 +17,8 @@ export const TenantCell = () => {
   }
 
   if (!row.data.isInstalled) {
-    return <InstallTenant company={row} />;
+    return <InstallTenant company={row.data} />;
   }
 
-  return <ManageTenant company={row} />;
+  return <ManageTenant company={row.data} />;
 };
