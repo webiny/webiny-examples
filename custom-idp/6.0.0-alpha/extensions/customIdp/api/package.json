@@ -1,0 +1,13 @@
+{
+  "name": "@demo/custom-idp-api",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:api"
+  ],
+  "dependencies": {
+    "@webiny/api-security": "0.0.0",
+    "@webiny/api-serverless-cms": "0.0.0"
+  }
+}
