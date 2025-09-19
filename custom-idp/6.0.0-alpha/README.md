@@ -42,6 +42,21 @@ yarn webiny extension custom-idp/6.0.0-alpha
 Once the extension is installed, you need to provide implementation for `goToLogin`, `onError`, `onLogout`, and `getFreshTokens`.
 In your project, open `extensions/customIdp/admin/src/index.tsx`. Here you'll find a reference implementation which you need to update with the specifics of your IdP (redirects to specific URLs, error code mapping, etc.). This file is also an entrypoint to the extension, and a place to configure the `<CustomIdp/>` component.
 
+After a successful login on your IdP login page, you need to redirect the user back to the Webiny Admin app and append `idToken`, `refreshToken`, and optionally `tenantId`, in the query params:
+
+```
+// Redirect to Webiny after successful authentication
+https://admin.your-system.com?idToken={idToken}&refreshToken={refreshToken}&tenantId=12345
+```
+
+If you want to go to a specific URL, you can do that as well:
+
+```
+// Redirect to a specific route within Webiny admin app
+https://admin.your-system.com/website-builder/pages?idToken={idToken}&refreshToken={refreshToken}&tenantId=12345
+```
+
+
 > [!TIP]
 > If you need to change how some parts of the `<CustomIdp/>` work, start by opening the `extensions/customIdp/admin/src/CustomIdp.tsx` component, and see how it interacts with Webiny and the external IdP.
 
@@ -54,3 +69,4 @@ WEBINY_API_IDP_SHARED_SECRET=my_shared_secret
 ```
 
 You can find the verification logic in `extensions/customIdp/api/src/createAuthenticator.ts`. Here you can also implement additional verification of token claims.
+
