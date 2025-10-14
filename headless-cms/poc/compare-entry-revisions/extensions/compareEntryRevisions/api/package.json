@@ -1,0 +1,14 @@
+{
+  "name": "compare-entry-revisions-api",
+  "main": "src/index.ts",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:api"
+  ],
+  "version": "1.0.0",
+  "dependencies": {
+    "@webiny/api-headless-cms": "5.43.5",
+    "@webiny/api-serverless-cms": "5.43.5",
+    "openai": "^4.33.0"
+  }
+}
