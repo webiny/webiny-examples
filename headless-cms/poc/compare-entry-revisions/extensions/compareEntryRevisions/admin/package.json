@@ -1,0 +1,19 @@
+{
+  "name": "compare-entry-revisions-admin",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:admin"
+  ],
+  "dependencies": {
+    "@material-design-icons/svg": "0.14.13",
+    "@webiny/app-admin": "5.43.5",
+    "@webiny/app-headless-cms": "5.43.5",
+    "@webiny/form": "5.43.5",
+    "@webiny/lexical-converter": "5.43.5",
+    "@webiny/ui": "5.43.5",
+    "graphql-tag": "2.12.6",
+    "react": "18.2.0"
+  }
+}
